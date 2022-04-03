@@ -17,6 +17,8 @@ const EPGRow = ({ channel }: Props) => {
     window: ms('3h'),
   });
 
+  console.log(`${channel.id}: ${events.length} events`);
+
   return <View style={styles.container}>{events.map(renderCell)}</View>;
 };
 
