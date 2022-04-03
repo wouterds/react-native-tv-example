@@ -4,7 +4,7 @@ import { useChannels } from 'store/channels/hooks';
 import { Channel } from 'store/channels/types';
 
 import { EPGContextProvider } from './context';
-import Row from './Row';
+import RowHeader from './Row/Header';
 import styles from './styles';
 
 const EPGGrid = () => {
@@ -12,7 +12,7 @@ const EPGGrid = () => {
 
   const renderItem = useCallback(
     ({ item }: { index: number; item: Channel }) => {
-      return <Row channel={item} key={`channel:${item.id}`} />;
+      return <RowHeader channel={item} key={`channel:${item.id}`} />;
     },
     [],
   );

@@ -10,7 +10,7 @@ interface Props {
   event: Event;
 }
 
-const EPGCell = ({ event }: Props) => {
+const EPGRowCell = ({ event }: Props) => {
   const duration = useMemo(
     () => differenceInMinutes(event.endTime, event.startTime),
     [event.endTime, event.startTime],
@@ -52,4 +52,4 @@ const EPGCell = ({ event }: Props) => {
   );
 };
 
-export default memo(EPGCell);
+export default memo(EPGRowCell);
