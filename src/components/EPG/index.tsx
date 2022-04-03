@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ScrollView, View } from 'react-native';
+import { Platform, ScrollView, View } from 'react-native';
 import { Channel } from 'store/channels/types';
 
 import { withEPGContext } from './context';
@@ -8,7 +8,7 @@ import Row from './Row';
 import RowHeader from './Row/Header';
 import styles from './styles';
 
-const CHANNELS_PER_PAGE = 8;
+const CHANNELS_PER_PAGE = Platform.isTV ? 8 : 20;
 
 const EPGGrid = () => {
   const { channels } = usePaginatedChannels(CHANNELS_PER_PAGE);
