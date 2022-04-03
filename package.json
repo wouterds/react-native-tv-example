@@ -10,6 +10,7 @@
     "ios:build:ipa": "arch -x86_64 xcodebuild -exportArchive -archivePath ios/build/archive/RNEPG.xcarchive -exportPath ios/build -exportOptionsPlist ios/ExportOptions.plist",
     "ios:build:folder": "open ios/build",
     "ios:build": "yarn ios:build:archive && yarn ios:build:ipa && yarn ios:build:folder",
+    "tvos": "arch -x86_64 react-native run-ios --scheme RNEPG-tvos --simulator \"Apple TV\"",
     "android": "react-native run-android",
     "android:build:apk": "cd android && ./gradlew assembleRelease",
     "android:build:folder": "open android/app/build/outputs/apk/release/",
