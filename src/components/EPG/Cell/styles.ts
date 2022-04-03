@@ -9,12 +9,10 @@ interface Props {
 export default ({ duration, isFocused }: Props) => {
   const container: ViewStyle = {
     backgroundColor: '#fff',
-    height: dynamicPixels(60),
-    marginVertical: dynamicPixels(1),
     marginHorizontal: dynamicPixels(1),
     padding: dynamicPixels(8),
     width: epgDurationToWidth(duration),
-    overflow: 'hidden',
+    height: '100%',
   };
 
   const text: TextStyle = {
