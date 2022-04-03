@@ -12,9 +12,13 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     height: '100%',
     justifyContent: 'center',
+    marginRight: 1,
   },
   image: {
     height: 50,
     width: 68,
+  },
+  events: {
+    flex: 1,
   },
 });

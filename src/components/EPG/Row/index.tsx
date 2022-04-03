@@ -1,9 +1,11 @@
-import React, { memo } from 'react';
-import { View } from 'react-native';
+import React, { memo, useCallback } from 'react';
+import { FlatList, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
 import { useEvents } from 'store/events/hooks';
+import { Event } from 'store/events/types';
 
+import Cell from './Cell';
 import styles from './styles';
 
 interface Props {
@@ -11,11 +13,14 @@ interface Props {
 }
 
 const EPGRow = ({ channel }: Props) => {
-  const events = useEvents(channel.id);
+  const { events } = useEvents(channel.id);
 
-  if (channel.id === 'Een.be') {
-    console.log(channel, events);
-  }
+  const renderItem = useCallback(
+    ({ item, index }: { index: number; item: Event }) => {
+      return <Cell event={item} key={`channel:${channel.id}.event:${index}`} />;
+    },
+    [channel.id],
+  );
 
   return (
     <View style={styles.container}>
@@ -26,6 +31,12 @@ const EPGRow = ({ channel }: Props) => {
           resizeMode="contain"
         />
       </View>
+      <FlatList
+        style={styles.events}
+        data={events}
+        renderItem={renderItem}
+        horizontal
+      />
     </View>
   );
 };
