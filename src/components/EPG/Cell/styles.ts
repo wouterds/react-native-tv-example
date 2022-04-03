@@ -29,11 +29,11 @@ export default ({ duration, isFocused }: Props) => {
     text,
     title: {
       fontWeight: 'bold',
-      fontSize: dynamicPixels(16),
+      fontSize: dynamicPixels(14),
     },
     time: {
       fontWeight: 'bold',
-      fontSize: dynamicPixels(14),
+      fontSize: dynamicPixels(12),
       opacity: 0.4,
     },
   });
