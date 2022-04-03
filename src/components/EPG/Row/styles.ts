@@ -17,7 +17,7 @@ export default StyleSheet.create({
     marginRight: dynamicPixels(1),
   },
   image: {
-    height: dynamicPixels(50),
+    height: dynamicPixels(58),
     width: dynamicPixels(68),
   },
   events: {
