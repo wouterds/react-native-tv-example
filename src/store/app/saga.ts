@@ -1,3 +1,7 @@
+/**
+ * Please ignore this file.
+ * Was quickly hacked together to get some sorts of EPG data based on iptv-org.
+ */
 import axios from 'axios';
 import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
