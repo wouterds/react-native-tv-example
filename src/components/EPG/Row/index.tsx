@@ -39,7 +39,7 @@ const EPGRow = ({ channel }: Props) => {
         />
       </View>
       <FlatList
-        contentContainerStyle={styles.events}
+        style={styles.events}
         data={events}
         renderItem={renderItem}
         horizontal
