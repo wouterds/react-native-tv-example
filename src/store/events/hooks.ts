@@ -20,11 +20,17 @@ export const useEvents = (channelId: string, options?: UseEventsOptions) => {
 
     return {
       events: events.filter(event => {
-        if (event.startTime > addMilliseconds(new Date(), window)) {
+        if (
+          event.startTime > addMilliseconds(new Date(), window) &&
+          event.endTime > addMilliseconds(new Date(), window)
+        ) {
           return false;
         }
 
-        if (event.startTime < subMilliseconds(new Date(), window)) {
+        if (
+          event.startTime < subMilliseconds(new Date(), window) &&
+          event.endTime < subMilliseconds(new Date(), window)
+        ) {
           return false;
         }
 
