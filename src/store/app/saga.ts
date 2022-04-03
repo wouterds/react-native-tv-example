@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
+import { uniqBy } from 'lodash';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { setChannels } from 'store/channels/slice';
@@ -127,9 +128,8 @@ function* bootstrapFlow() {
 
     console.log(`[bootstrap] parsed ${channels.length} channels`);
 
-    events = (json.tv.programme || [])
-      ?.map(parseEvent)
-      .filter((event: Event) => {
+    events = uniqBy(
+      (json.tv.programme || [])?.map(parseEvent).filter((event: Event) => {
         if (!CHANNEL_WHITELIST.includes(event.channelId)) {
           return false;
         }
@@ -143,7 +143,10 @@ function* bootstrapFlow() {
         }
 
         return true;
-      });
+      }),
+      (event: Event) =>
+        `${event.channelId}-${event.startTime}-${event.endTime}`,
+    );
     console.log(`[bootstrap] parsed ${events.length} events`);
   } catch (e) {
     console.error('parsing data failed', e);
