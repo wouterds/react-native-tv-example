@@ -9,7 +9,7 @@ export const dynamicPixels = (size: number) => {
     return size / PixelRatio.get();
   }
 
-  return (size * 2.25) / PixelRatio.get();
+  return (size * 2.3) / PixelRatio.get();
 };
 
 export const epgDurationToWidth = (duration: number) => {

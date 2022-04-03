@@ -1,3 +1,4 @@
+import ms from 'ms';
 import React, { memo } from 'react';
 import { View } from 'react-native';
 import { Channel } from 'store/channels/types';
@@ -12,7 +13,9 @@ interface Props {
 }
 
 const EPGRow = ({ channel }: Props) => {
-  const { events } = useEvents(channel.id);
+  const { events } = useEvents(channel.id, {
+    window: ms('3h'),
+  });
 
   return <View style={styles.container}>{events.map(renderCell)}</View>;
 };

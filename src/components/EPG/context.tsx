@@ -1,5 +1,7 @@
 import React, {
+  ComponentType,
   createContext,
+  memo,
   ReactNode,
   useContext,
   useMemo,
@@ -29,6 +31,24 @@ export const EPGContextProvider = (props: EPGContextProviderProps) => {
       {children}
     </EPGContext.Provider>
   );
+};
+
+export const withEPGContext = <Props extends Record<string, any>>(
+  Component: ComponentType<Props>,
+) => {
+  const ComponentWithEPGContext = (props: Props) => {
+    if (!Component) {
+      return null;
+    }
+
+    return (
+      <EPGContextProvider>
+        <Component {...props} />
+      </EPGContextProvider>
+    );
+  };
+
+  return memo(ComponentWithEPGContext);
 };
 
 export const useEPG = () => {

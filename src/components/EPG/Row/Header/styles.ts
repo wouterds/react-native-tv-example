@@ -13,6 +13,7 @@ export default StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     marginRight: dynamicPixels(1),
+    overflow: 'hidden',
   },
   image: {
     height: dynamicPixels(58),

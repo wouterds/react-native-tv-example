@@ -4,10 +4,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
-  rows: {
+  vertical: {
     flexDirection: 'row',
   },
-  events: {
+  horizontal: {
     flexDirection: 'column',
   },
 });

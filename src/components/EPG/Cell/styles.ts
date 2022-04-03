@@ -14,6 +14,7 @@ export default ({ duration, isFocused }: Props) => {
     marginHorizontal: dynamicPixels(1),
     padding: dynamicPixels(8),
     width: epgDurationToWidth(duration),
+    overflow: 'hidden',
   };
 
   const text: TextStyle = {
