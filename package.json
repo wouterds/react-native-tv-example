@@ -34,6 +34,7 @@
     "react": "17.0.2",
     "react-native": "npm:react-native-tvos@0.66.3-3",
     "react-native-config": "^1.4.5",
+    "react-native-device-info": "^8.7.0",
     "react-native-fast-image": "^8.5.11",
     "react-native-safe-area-context": "^4.2.4",
     "react-native-screens": "^3.13.0",
