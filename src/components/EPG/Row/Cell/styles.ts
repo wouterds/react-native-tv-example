@@ -1,4 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { dynamicPixels } from 'utils/styles';
 
 interface Props {
   duration: number;
@@ -9,9 +10,9 @@ export default ({ duration, isFocused }: Props) => {
   const container: ViewStyle = {
     height: '100%',
     backgroundColor: '#fff',
-    marginHorizontal: 1,
-    padding: 8,
-    width: duration * 4,
+    marginHorizontal: dynamicPixels(1),
+    padding: dynamicPixels(8),
+    width: dynamicPixels(duration * 4),
   };
 
   const text: TextStyle = {
@@ -28,11 +29,11 @@ export default ({ duration, isFocused }: Props) => {
     text,
     title: {
       fontWeight: 'bold',
-      fontSize: 16,
+      fontSize: dynamicPixels(16),
     },
     time: {
       fontWeight: 'bold',
-      fontSize: 14,
+      fontSize: dynamicPixels(14),
       opacity: 0.4,
     },
   });

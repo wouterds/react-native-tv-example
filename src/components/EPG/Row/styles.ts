@@ -1,22 +1,23 @@
 import { StyleSheet } from 'react-native';
+import { dynamicPixels } from 'utils/styles';
 
 export default StyleSheet.create({
   container: {
-    height: 60,
-    marginVertical: 1,
+    height: dynamicPixels(60),
+    marginVertical: dynamicPixels(1),
     flexDirection: 'row',
   },
   imageContainer: {
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: dynamicPixels(16),
+    paddingRight: dynamicPixels(16),
     backgroundColor: '#fff',
     height: '100%',
     justifyContent: 'center',
-    marginRight: 1,
+    marginRight: dynamicPixels(1),
   },
   image: {
-    height: 50,
-    width: 68,
+    height: dynamicPixels(50),
+    width: dynamicPixels(68),
   },
   events: {
     flex: 1,
