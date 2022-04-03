@@ -3,7 +3,7 @@ import ms from 'ms';
 import { useMemo } from 'react';
 import { useSelector } from 'store';
 
-import { selectChannelEvents } from './selectors';
+import { selectChannelEvents, selectEvent } from './selectors';
 
 interface UseEventsOptions {
   window?: number;
@@ -32,4 +32,15 @@ export const useEvents = (channelId: string, options?: UseEventsOptions) => {
       }),
     };
   }, [events, window]);
+};
+
+export const useEvent = (eventId: string) => {
+  const event = useSelector(selectEvent(eventId));
+
+  return useMemo(
+    () => ({
+      event,
+    }),
+    [event],
+  );
 };
