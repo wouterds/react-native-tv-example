@@ -43,5 +43,5 @@ export const useActiveEPGEvent = () => {
   const { activeEventId } = useEPG();
   const { event } = useEvent(activeEventId || '');
 
-  return useMemo(() => event, [event]);
+  return useMemo(() => ({ activeEvent: event }), [event]);
 };

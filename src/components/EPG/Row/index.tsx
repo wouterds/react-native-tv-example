@@ -28,7 +28,7 @@ const EPGRow = ({ channel }: Props) => {
 
   const keyExtractor = useCallback((item: Event) => item.id, []);
 
-  const activeEvent = useActiveEPGEvent();
+  const { activeEvent } = useActiveEPGEvent();
   const offsetX = useMemo(() => {
     if (!activeEvent) {
       return 0;
