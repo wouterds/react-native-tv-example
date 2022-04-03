@@ -1,15 +1,14 @@
+import EPG from 'components/EPG';
 import React from 'react';
-import { SafeAreaView, ScrollView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import styles from './styles';
 
 const HomeScreen = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <SafeAreaView style={styles.content}>
-        <Text style={styles.text}>Hello world</Text>
-      </SafeAreaView>
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <EPG />
+    </SafeAreaView>
   );
 };
 
