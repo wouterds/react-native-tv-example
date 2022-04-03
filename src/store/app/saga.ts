@@ -4,6 +4,7 @@ import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { setChannels } from 'store/channels/slice';
+import { setEvents } from 'store/events/slice';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 
@@ -111,6 +112,7 @@ function* bootstrapFlow() {
   }
 
   yield put(setChannels(channels));
+  yield put(setEvents(events));
   yield put(bootstrapSuccess());
 
   console.log(
