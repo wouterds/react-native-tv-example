@@ -68,12 +68,12 @@ const EPGGrid = () => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.vertical} removeClippedSubviews>
-        <View>{channels.map(renderRowHeader)}</View>
+        <View>{onScreenChannels.map(renderRowHeader)}</View>
         <ScrollView
           contentContainerStyle={styles.horizontal}
           removeClippedSubviews
           horizontal>
-          {channels.map(renderRow)}
+          {onScreenChannels.map(renderRow)}
         </ScrollView>
       </ScrollView>
     </View>
