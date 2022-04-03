@@ -70,7 +70,7 @@ const parseEventDate = (date: string) => {
     parseInt(year, 10),
     parseInt(month, 10) - 1,
     parseInt(day, 10),
-    parseInt(hour, 10),
+    parseInt(hour, 10) + 2, // no idea why, but the time is off by 2 hours
     parseInt(minute, 10),
     parseInt(seconds, 10),
   );
