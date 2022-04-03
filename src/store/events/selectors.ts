@@ -15,13 +15,19 @@ export const selectEvent = (eventId: string) => {
   };
 };
 
-export const selectChannelEvents = (channelId: string) => {
+export const selectChannelEvents = (channelId: string | string[]) => {
   return (state: RootState) => {
     const events = selectEvents(state);
     if (!events) {
       return [];
     }
 
-    return events.filter(event => event.channelId === channelId);
+    return events.filter(event => {
+      if (Array.isArray(channelId)) {
+        return channelId.includes(event.channelId);
+      }
+
+      return event.channelId === channelId;
+    });
   };
 };

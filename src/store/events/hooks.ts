@@ -9,35 +9,51 @@ interface UseEventsOptions {
   window?: number;
 }
 
-export const useEvents = (channelId: string, options?: UseEventsOptions) => {
+export const useEvents = (
+  channelId: string | string[],
+  options?: UseEventsOptions,
+) => {
   const events = useSelector(selectChannelEvents(channelId));
   const window = useMemo(() => options?.window, [options?.window]);
 
-  return useMemo(() => {
+  const filteredEvents = useMemo(() => {
     if (!window) {
-      return { events };
+      return events;
     }
 
-    return {
-      events: events.filter(event => {
-        if (
-          event.startTime > addMilliseconds(new Date(), window) &&
-          event.endTime > addMilliseconds(new Date(), window)
-        ) {
-          return false;
-        }
+    return events.filter(event => {
+      if (
+        event.startTime > addMilliseconds(new Date(), window) &&
+        event.endTime > addMilliseconds(new Date(), window)
+      ) {
+        return false;
+      }
 
-        if (
-          event.startTime < subMilliseconds(new Date(), window) &&
-          event.endTime < subMilliseconds(new Date(), window)
-        ) {
-          return false;
-        }
+      if (
+        event.startTime < subMilliseconds(new Date(), window) &&
+        event.endTime < subMilliseconds(new Date(), window)
+      ) {
+        return false;
+      }
 
-        return true;
-      }),
-    };
+      return true;
+    });
   }, [events, window]);
+
+  const firstEvent = useMemo(() => {
+    let _firstEvent: Date | null = null;
+    for (const event of filteredEvents) {
+      if (!_firstEvent || event.startTime < _firstEvent) {
+        _firstEvent = event.startTime;
+      }
+    }
+
+    return _firstEvent;
+  }, [filteredEvents]);
+
+  return useMemo(() => {
+    return { events: filteredEvents, firstEvent };
+  }, [filteredEvents, firstEvent]);
 };
 
 export const useEvent = (eventId: string) => {
