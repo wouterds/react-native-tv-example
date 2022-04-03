@@ -3,7 +3,12 @@
  * Was quickly hacked together to get some sorts of EPG data based on iptv-org.
  */
 import axios from 'axios';
-import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
+import {
+  addHours,
+  differenceInMilliseconds,
+  endOfToday,
+  startOfToday,
+} from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
 import { uniqBy } from 'lodash';
 import Config from 'react-native-config';
@@ -51,13 +56,16 @@ const parseEventDate = (date: string) => {
   const minute = date.substring(10, 12);
   const seconds = date.substring(12, 14);
 
-  return new Date(
-    parseInt(year, 10),
-    parseInt(month, 10) - 1,
-    parseInt(day, 10),
-    parseInt(hour, 10) + 2, // no idea why, but the time is off by 2 hours
-    parseInt(minute, 10),
-    parseInt(seconds, 10),
+  return addHours(
+    new Date(
+      parseInt(year, 10),
+      parseInt(month, 10) - 1,
+      parseInt(day, 10),
+      parseInt(hour, 10),
+      parseInt(minute, 10),
+      parseInt(seconds, 10),
+    ),
+    2,
   );
 };
 
