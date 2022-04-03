@@ -35,12 +35,15 @@ export const usePaginatedChannels = (pageSize: number) => {
 
   const eventHandler = useCallback(
     (event: HWKeyEvent) => {
-      if (event.eventType === 'swipeUp' && currentOnScreenChannelIndex <= 1) {
+      if (
+        ['swipeUp', 'up'].includes(event.eventType) &&
+        currentOnScreenChannelIndex <= 1
+      ) {
         setStartChannelIndex(Math.max(currentChannelIndex + 2 - pageSize, 0));
       }
 
       if (
-        event.eventType === 'swipeDown' &&
+        ['swipeDown', 'down'].includes(event.eventType) &&
         currentOnScreenChannelIndex >= pageSize - 2
       ) {
         setStartChannelIndex(
