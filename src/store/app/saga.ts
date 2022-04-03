@@ -4,15 +4,55 @@ import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { setChannels } from 'store/channels/slice';
+import { Channel } from 'store/channels/types';
 import { setEvents } from 'store/events/slice';
+import { Event } from 'store/events/types';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
+
+const CHANNEL_WHITELIST = [
+  'Een.be',
+  'Canvas.be',
+  'VTM.be',
+  'VTM2.be',
+  'VTM3.be',
+  'VTM4.be',
+  'Play4.be',
+  'Play5.be',
+  'Play6.be',
+  'Play7.be',
+  'Ketnet.be',
+  'VTMKids.be',
+  'NickelodeonFrance.fr',
+  'NickelodeonJunior.fr',
+  'BloombergTVEurope.us',
+  'CNBCEurope.us',
+  'CNNInternationalEurope.us',
+  'NPO1.nl',
+  'NPO2.nl',
+  'NPO3.nl',
+  'ARTEBelgique.fr',
+  'France2.fr',
+  'France3.fr',
+  'France4.fr',
+  'France5.fr',
+  'CinePlusClassic.be',
+  'CinePlusFrisson.be',
+  'CinePlusPremier.be',
+  'ClubRTL.be',
+  'LCI.fr',
+  'LaTrois.be',
+  'LaUne.be',
+  'Rai1.it',
+  'RTLTVI.be',
+  'EuronewsFrench.fr',
+];
 
 const parseChannel = (channel: {
   '@_id': string;
   'display-name': string;
   icon: { '@_src': string };
-}) => ({
+}): Channel => ({
   id: channel?.['@_id'],
   name: channel?.['display-name'],
   imageUrl: channel?.icon?.['@_src'],
@@ -43,7 +83,7 @@ const parseEvent = (event: {
   desc: { '#text': string };
   category: Array<{ '#text': string }>;
   title: { '#text': string };
-}) => {
+}): Event => {
   const categories: string[] = [];
 
   if (Array.isArray(event?.category)) {
@@ -82,16 +122,23 @@ function* bootstrapFlow() {
     return;
   }
 
-  let channels;
-  let events;
+  let channels: Channel[];
+  let events: Event[];
   try {
     const parser = new XMLParser({ ignoreAttributes: false });
     const json = parser.parse(data);
 
-    channels = (json.tv.channel || [])?.map(parseChannel);
+    const parsedChannels = (json.tv.channel || []).map(parseChannel);
+
+    channels = CHANNEL_WHITELIST.map(channelId =>
+      parsedChannels.find((channel: Channel) => channel.id === channelId),
+    ).filter(Boolean);
+
     console.log(`[bootstrap] parsed ${channels.length} channels`);
 
-    events = (json.tv.programme || [])?.map(parseEvent);
+    events = (json.tv.programme || [])
+      ?.map(parseEvent)
+      .filter((event: Event) => CHANNEL_WHITELIST.includes(event.channelId));
     console.log(`[bootstrap] parsed ${events.length} events`);
   } catch (e) {
     console.error('parsing data failed', e);
