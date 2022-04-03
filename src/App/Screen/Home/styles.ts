@@ -1,9 +1,7 @@
-export default {
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
-  },
-  content: {
     flex: 1,
   },
   text: {
@@ -11,4 +9,4 @@ export default {
     lineHeight: 22,
     color: '#000',
   },
-};
+});
