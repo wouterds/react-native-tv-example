@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import { FlatList, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useChannels } from 'store/channels/hooks';
 import { Channel } from 'store/channels/types';
 
@@ -10,27 +10,19 @@ import styles from './styles';
 const EPGGrid = () => {
   const { channels } = useChannels();
 
-  const renderItem = useCallback(
-    ({ item }: { index: number; item: Channel }) => {
-      return <RowHeader channel={item} key={`channel:${item.id}`} />;
-    },
+  const renderChannel = useCallback(
+    (channel: Channel) => (
+      <RowHeader channel={channel} key={`channel:${channel.id}`} />
+    ),
     [],
   );
-
-  const keyExtractor = useCallback((item: Channel) => `channel:${item.id}`, []);
 
   return (
     <EPGContextProvider>
       <View style={styles.container}>
-        <FlatList
-          style={styles.channels}
-          data={channels}
-          renderItem={renderItem}
-          removeClippedSubviews
-          scrollEventThrottle={16}
-          keyExtractor={keyExtractor}
-          windowSize={2}
-        />
+        <ScrollView removeClippedSubviews>
+          {channels.map(renderChannel)}
+        </ScrollView>
       </View>
     </EPGContextProvider>
   );

@@ -4,7 +4,4 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
-  channels: {
-    flex: 1,
-  },
 });
