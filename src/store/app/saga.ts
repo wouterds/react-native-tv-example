@@ -143,13 +143,13 @@ function* bootstrapFlow() {
           return false;
         }
 
-        if (event.endTime > endOfToday()) {
-          return false;
-        }
+        // if (event.endTime > endOfToday()) {
+        //   return false;
+        // }
 
-        if (event.startTime < startOfToday()) {
-          return false;
-        }
+        // if (event.startTime < startOfToday()) {
+        //   return false;
+        // }
 
         return true;
       });
