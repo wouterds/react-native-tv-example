@@ -53,7 +53,7 @@ const EPGGrid = () => {
   const eventHandler = useCallback(
     (event: HWKeyEvent) => {
       if (event.eventType === 'swipeUp') {
-        if (currentOnScreenChannelIndex <= 1) {
+        if (currentOnScreenChannelIndex === 0) {
           setStartChannelIndex(
             Math.max(currentChannelIndex - DISPLAYED_CHANNELS, 0),
           );
