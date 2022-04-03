@@ -1,10 +1,5 @@
 import axios from 'axios';
-import {
-  differenceInMilliseconds,
-  endOfToday,
-  startOfToday,
-  startOfYesterday,
-} from 'date-fns';
+import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
@@ -149,7 +144,7 @@ function* bootstrapFlow() {
           return false;
         }
 
-        if (event.startTime < startOfYesterday()) {
+        if (event.startTime < startOfToday()) {
           return false;
         }
 
