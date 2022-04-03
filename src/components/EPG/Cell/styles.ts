@@ -8,8 +8,9 @@ interface Props {
 
 export default ({ duration, isFocused }: Props) => {
   const container: ViewStyle = {
-    height: '100%',
     backgroundColor: '#fff',
+    height: dynamicPixels(60),
+    marginVertical: dynamicPixels(1),
     marginHorizontal: dynamicPixels(1),
     padding: dynamicPixels(8),
     width: epgDurationToWidth(duration),

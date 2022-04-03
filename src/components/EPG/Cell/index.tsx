@@ -1,3 +1,4 @@
+import { usePreviousValue } from 'beautiful-react-hooks';
 import { useEPG } from 'components/EPG/context';
 import { differenceInMinutes, lightFormat } from 'date-fns';
 import React, { memo, useCallback, useEffect, useMemo } from 'react';
@@ -10,7 +11,7 @@ interface Props {
   event: Event;
 }
 
-const EPGRowCell = ({ event }: Props) => {
+const EPGCell = ({ event }: Props) => {
   const duration = useMemo(
     () => differenceInMinutes(event.endTime, event.startTime),
     [event.endTime, event.startTime],
@@ -31,9 +32,12 @@ const EPGRowCell = ({ event }: Props) => {
     [duration, isFocused],
   );
 
+  const wasFocused = usePreviousValue(isFocused);
   useEffect(() => {
-    console.log(event.id, isFocused);
-  }, [event.id, isFocused]);
+    if (typeof wasFocused !== 'undefined' && wasFocused !== isFocused) {
+      console.log(event.id, `focus changed (isFocused=${isFocused})`);
+    }
+  }, [event.id, isFocused, wasFocused]);
 
   return (
     <TouchableOpacity
@@ -52,4 +56,4 @@ const EPGRowCell = ({ event }: Props) => {
   );
 };
 
-export default memo(EPGRowCell);
+export default memo(EPGCell);
