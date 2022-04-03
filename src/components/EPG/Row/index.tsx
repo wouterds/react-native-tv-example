@@ -1,14 +1,11 @@
-import { differenceInMinutes } from 'date-fns';
 import ms from 'ms';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { FlatList, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
 import { useEvents } from 'store/events/hooks';
 import { Event } from 'store/events/types';
-import { epgDurationToWidth } from 'utils/styles';
 
-import { useActiveEPGEvent } from '../context';
 import Cell from './Cell';
 import styles from './styles';
 
@@ -28,18 +25,6 @@ const EPGRow = ({ channel }: Props) => {
 
   const keyExtractor = useCallback((item: Event) => item.id, []);
 
-  const { activeEvent } = useActiveEPGEvent();
-  const offsetX = useMemo(() => {
-    if (!activeEvent) {
-      return 0;
-    }
-
-    const duration =
-      differenceInMinutes(activeEvent.endTime, activeEvent.startTime) + 30;
-
-    return epgDurationToWidth(duration);
-  }, [activeEvent]);
-
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -57,7 +42,7 @@ const EPGRow = ({ channel }: Props) => {
         removeClippedSubviews
         scrollEventThrottle={16}
         keyExtractor={keyExtractor}
-        contentOffset={{ x: offsetX, y: 0 }}
+        windowSize={2}
       />
     </View>
   );
