@@ -1,12 +1,8 @@
-import ms from 'ms';
-import React, { memo, useCallback } from 'react';
-import { FlatList, View } from 'react-native';
+import React, { memo } from 'react';
+import { View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
-import { useEvents } from 'store/events/hooks';
-import { Event } from 'store/events/types';
 
-import Cell from './Cell';
 import styles from './styles';
 
 interface Props {
@@ -14,16 +10,16 @@ interface Props {
 }
 
 const EPGRow = ({ channel }: Props) => {
-  const { events } = useEvents(channel.id, { window: ms('4h') });
+  // const { events } = useEvents(channel.id, { window: ms('4h') });
 
-  const renderItem = useCallback(
-    ({ item }: { index: number; item: Event }) => (
-      <Cell event={item} key={item.id} />
-    ),
-    [],
-  );
+  // const renderItem = useCallback(
+  //   ({ item }: { index: number; item: Event }) => (
+  //     <Cell event={item} key={item.id} />
+  //   ),
+  //   [],
+  // );
 
-  const keyExtractor = useCallback((item: Event) => item.id, []);
+  // const keyExtractor = useCallback((item: Event) => item.id, []);
 
   return (
     <View style={styles.container}>
@@ -34,7 +30,7 @@ const EPGRow = ({ channel }: Props) => {
           resizeMode="contain"
         />
       </View>
-      <FlatList
+      {/* <FlatList
         style={styles.events}
         data={events}
         renderItem={renderItem}
@@ -43,7 +39,7 @@ const EPGRow = ({ channel }: Props) => {
         scrollEventThrottle={16}
         keyExtractor={keyExtractor}
         windowSize={2}
-      />
+      /> */}
     </View>
   );
 };
