@@ -1,5 +1,4 @@
 import { addMilliseconds, subMilliseconds } from 'date-fns';
-import ms from 'ms';
 import { useMemo } from 'react';
 import { useSelector } from 'store';
 
