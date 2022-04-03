@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { differenceInMilliseconds } from 'date-fns';
+import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
@@ -138,7 +138,21 @@ function* bootstrapFlow() {
 
     events = (json.tv.programme || [])
       ?.map(parseEvent)
-      .filter((event: Event) => CHANNEL_WHITELIST.includes(event.channelId));
+      .filter((event: Event) => {
+        if (!CHANNEL_WHITELIST.includes(event.channelId)) {
+          return false;
+        }
+
+        if (event.endTime > endOfToday()) {
+          return false;
+        }
+
+        if (event.startTime < startOfToday()) {
+          return false;
+        }
+
+        return true;
+      });
     console.log(`[bootstrap] parsed ${events.length} events`);
   } catch (e) {
     console.error('parsing data failed', e);
