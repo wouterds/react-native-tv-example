@@ -13,5 +13,5 @@ export const dynamicPixels = (size: number) => {
 };
 
 export const epgDurationToWidth = (duration: number) => {
-  return dynamicPixels(duration * 5);
+  return dynamicPixels(duration * 6);
 };
