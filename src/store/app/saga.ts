@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { differenceInMilliseconds, endOfToday, startOfToday } from 'date-fns';
+import {
+  differenceInMilliseconds,
+  endOfToday,
+  startOfToday,
+  startOfYesterday,
+} from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
@@ -16,36 +21,33 @@ const CHANNEL_WHITELIST = [
   'VTM.be',
   'VTM2.be',
   'VTM3.be',
-  'VTM4.be',
   'Play4.be',
   'Play5.be',
   'Play6.be',
   'Play7.be',
+  'ARTEBelgique.fr',
   'Ketnet.be',
   'VTMKids.be',
   'NickelodeonFrance.fr',
-  'NickelodeonJunior.fr',
   'BloombergTVEurope.us',
   'CNBCEurope.us',
   'CNNInternationalEurope.us',
   'NPO1.nl',
   'NPO2.nl',
   'NPO3.nl',
-  'ARTEBelgique.fr',
+  'LaUne.be',
   'France2.fr',
   'France3.fr',
   'France4.fr',
-  'France5.fr',
-  'CinePlusClassic.be',
-  'CinePlusFrisson.be',
-  'CinePlusPremier.be',
-  'ClubRTL.be',
-  'LCI.fr',
-  'LaTrois.be',
-  'LaUne.be',
-  'Rai1.it',
-  'RTLTVI.be',
-  'EuronewsFrench.fr',
+  // 'France5.fr',
+  // 'CinePlusClassic.be',
+  // 'CinePlusFrisson.be',
+  // 'CinePlusPremier.be',
+  // 'LCI.fr',
+  // 'LaTrois.be',
+  // 'Rai1.it',
+  // 'RTLTVI.be',
+  // 'EuronewsFrench.fr',
 ];
 
 const parseChannel = (channel: {
@@ -143,13 +145,13 @@ function* bootstrapFlow() {
           return false;
         }
 
-        // if (event.endTime > endOfToday()) {
-        //   return false;
-        // }
+        if (event.endTime > endOfToday()) {
+          return false;
+        }
 
-        // if (event.startTime < startOfToday()) {
-        //   return false;
-        // }
+        if (event.startTime < startOfYesterday()) {
+          return false;
+        }
 
         return true;
       });
