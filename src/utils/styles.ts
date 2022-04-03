@@ -11,3 +11,7 @@ export const dynamicPixels = (size: number) => {
 
   return (size * 2.25) / PixelRatio.get();
 };
+
+export const epgDurationToWidth = (duration: number) => {
+  return dynamicPixels(duration * 4);
+};

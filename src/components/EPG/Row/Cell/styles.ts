@@ -1,5 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { dynamicPixels } from 'utils/styles';
+import { dynamicPixels, epgDurationToWidth } from 'utils/styles';
 
 interface Props {
   duration: number;
@@ -12,7 +12,7 @@ export default ({ duration, isFocused }: Props) => {
     backgroundColor: '#fff',
     marginHorizontal: dynamicPixels(1),
     padding: dynamicPixels(8),
-    width: dynamicPixels(duration * 4),
+    width: epgDurationToWidth(duration),
   };
 
   const text: TextStyle = {
