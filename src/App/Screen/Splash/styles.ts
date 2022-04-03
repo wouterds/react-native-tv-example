@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flex: 1,
     width: '100%',
     backgroundColor: '#000',
-    paddingTop: 200,
+    paddingTop: 150,
   },
   content: {
     alignItems: 'center',
@@ -23,6 +23,6 @@ export default StyleSheet.create({
   loader: {
     position: 'absolute',
     bottom: -150,
-    color: '#fff',
+    color: '#999',
   },
 });

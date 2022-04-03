@@ -1,27 +1,33 @@
-import { useAppState } from '@react-native-community/hooks';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Route } from 'App/Navigation';
-import { useDidMount, usePreviousValue } from 'beautiful-react-hooks';
 import { differenceInMilliseconds } from 'date-fns';
 import ms from 'ms';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, Alert, StatusBar, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, StatusBar, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useApp } from 'store/app/hooks';
 
 import styles from './styles';
 
 const SplashScreen = () => {
-  const [finishedLoading, setFinishedLoading] = useState(false);
+  const mountTime = useRef<Date>();
+  const { bootstrap, isLoading, hasError } = useApp();
+  const [isHidden, setIsHidden] = useState(false);
 
-  useDidMount(() => {
-    setTimeout(() => {
-      setFinishedLoading(true);
-    }, ms('2s'));
-  });
+  useEffect(() => {
+    if (mountTime.current && !isLoading && !hasError) {
+      setTimeout(() => {
+        setIsHidden(true);
+      }, Math.max(ms('2 seconds') - differenceInMilliseconds(new Date(), mountTime.current), ms('2 seconds')));
+      return;
+    }
 
-  if (finishedLoading) {
+    if (!mountTime.current) {
+      mountTime.current = new Date();
+      bootstrap();
+    }
+  }, [hasError, isLoading, bootstrap]);
+
+  if (isHidden) {
     return null;
   }
 
