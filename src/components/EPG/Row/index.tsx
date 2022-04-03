@@ -1,6 +1,7 @@
 import ms from 'ms';
 import React, { memo } from 'react';
 import { View } from 'react-native';
+import Config from 'react-native-config';
 import { Channel } from 'store/channels/types';
 import { useEvents } from 'store/events/hooks';
 import { Event } from 'store/events/types';
@@ -14,7 +15,7 @@ interface Props {
 
 const EPGRow = ({ channel }: Props) => {
   const { events } = useEvents(channel.id, {
-    window: ms('3h'),
+    window: ms(Config.EPG_WINDOW),
   });
 
   console.log(`${channel.id}: ${events.length} events`);
