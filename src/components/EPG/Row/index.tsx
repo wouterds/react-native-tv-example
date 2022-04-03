@@ -1,3 +1,4 @@
+import ms from 'ms';
 import React, { memo, useCallback } from 'react';
 import { FlatList, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -14,7 +15,7 @@ interface Props {
 }
 
 const EPGRow = ({ channel }: Props) => {
-  const { events } = useEvents(channel.id);
+  const { events } = useEvents(channel.id, { window: ms('4h') });
 
   const renderItem = useCallback(
     ({ item, index }: { index: number; item: Event }) => (
