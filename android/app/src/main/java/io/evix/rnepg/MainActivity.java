@@ -1,4 +1,4 @@
-package io.evix.rn-epg;
+package io.evix.rnepg;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;

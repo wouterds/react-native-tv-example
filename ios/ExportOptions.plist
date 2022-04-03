@@ -10,7 +10,7 @@
 	<string>manual</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>io.evix.rn-epg</key>
+		<key>io.evix.rnepg</key>
 		<string>Evix Ad Hoc</string>
 	</dict>
 	<key>teamID</key>
