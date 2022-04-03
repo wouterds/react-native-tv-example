@@ -11,8 +11,14 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3CAA46BF27FA5234001E8E6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA46BE27FA5234001E8E6B /* AppDelegate.m */; };
+		3CAA46C527FA5234001E8E6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAA46C327FA5234001E8E6B /* Main.storyboard */; };
+		3CAA46C727FA5235001E8E6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CAA46C627FA5235001E8E6B /* Assets.xcassets */; };
+		3CAA46CA27FA5235001E8E6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAA46C827FA5235001E8E6B /* LaunchScreen.storyboard */; };
+		3CAA46CC27FA5235001E8E6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA46CB27FA5235001E8E6B /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CABDA2132C39002FB940BF65 /* libPods-RNEPG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5342E1166C7F8D2D952D5621 /* libPods-RNEPG.a */; };
+		E82A9258F055577F48DFF58E /* libPods-RNEPG-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2E4FDFC6CCE806D194F787 /* libPods-RNEPG-tvos.a */; };
 		F268A4E95D9492FF53754388 /* libPods-RNEPG-RNEPGTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6462A0AC1A08A67421C09E09 /* libPods-RNEPG-RNEPGTests.a */; };
 		FE1A0C20EC43482A88A7B92E /* Hack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A32D33513434AE19FC91988 /* Hack-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -41,8 +47,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RNEPG/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNEPG/main.m; sourceTree = "<group>"; };
 		2077D5463F8A452FA7307C11 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		253CD94969F802D6DCB1CCF0 /* Pods-RNEPG-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNEPG-tvos.release.xcconfig"; path = "Target Support Files/Pods-RNEPG-tvos/Pods-RNEPG-tvos.release.xcconfig"; sourceTree = "<group>"; };
 		2F382E194D304A689AC2FC12 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		3C214DD1F97B4148803A0616 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		3CAA46BB27FA5234001E8E6B /* EPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CAA46BD27FA5234001E8E6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3CAA46BE27FA5234001E8E6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3CAA46C427FA5234001E8E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3CAA46C627FA5235001E8E6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CAA46C927FA5235001E8E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3CAA46CB27FA5235001E8E6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		44762BFCFF8B48BDB9777B68 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		4A32D33513434AE19FC91988 /* Hack-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Hack-Regular.ttf"; path = "../assets/fonts/Hack-Regular.ttf"; sourceTree = "<group>"; };
 		5342E1166C7F8D2D952D5621 /* libPods-RNEPG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNEPG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,10 +66,12 @@
 		7439C96F810841A1A730B2CF /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNEPG/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C14B82E1DA64C409C597412 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		9D2E4FDFC6CCE806D194F787 /* libPods-RNEPG-tvos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNEPG-tvos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EC1222F98C4399BFEC2E12 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		B02FA9A9B2854050B184C0AC /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		B134A40D737244C4A60C78CF /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		BFC02149694FED9C8139449E /* Pods-RNEPG-RNEPGTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNEPG-RNEPGTests.debug.xcconfig"; path = "Target Support Files/Pods-RNEPG-RNEPGTests/Pods-RNEPG-RNEPGTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1979716FBB22A84DA207D44 /* Pods-RNEPG-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNEPG-tvos.debug.xcconfig"; path = "Target Support Files/Pods-RNEPG-tvos/Pods-RNEPG-tvos.debug.xcconfig"; sourceTree = "<group>"; };
 		D332833269C64435AAAE9D07 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		D58C5D763884F54FD679FFF1 /* Pods-RNEPG-RNEPGTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNEPG-RNEPGTests.release.xcconfig"; path = "Target Support Files/Pods-RNEPG-RNEPGTests/Pods-RNEPG-RNEPGTests.release.xcconfig"; sourceTree = "<group>"; };
 		E03349B0C94F4FFC9295F221 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -78,6 +94,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CABDA2132C39002FB940BF65 /* libPods-RNEPG.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CAA46B827FA5234001E8E6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E82A9258F055577F48DFF58E /* libPods-RNEPG-tvos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +144,22 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5342E1166C7F8D2D952D5621 /* libPods-RNEPG.a */,
 				6462A0AC1A08A67421C09E09 /* libPods-RNEPG-RNEPGTests.a */,
+				9D2E4FDFC6CCE806D194F787 /* libPods-RNEPG-tvos.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CAA46BC27FA5234001E8E6B /* RNEPG-tvos */ = {
+			isa = PBXGroup;
+			children = (
+				3CAA46BD27FA5234001E8E6B /* AppDelegate.h */,
+				3CAA46BE27FA5234001E8E6B /* AppDelegate.m */,
+				3CAA46C327FA5234001E8E6B /* Main.storyboard */,
+				3CAA46C627FA5235001E8E6B /* Assets.xcassets */,
+				3CAA46C827FA5235001E8E6B /* LaunchScreen.storyboard */,
+				3CAA46CB27FA5235001E8E6B /* main.m */,
+			);
+			path = "RNEPG-tvos";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -135,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07FAE1A68108700A75B9A /* RNEPG */,
+				3CAA46BC27FA5234001E8E6B /* RNEPG-tvos */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RNEPGTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -152,6 +191,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* RNEPG.app */,
 				00E356EE1AD99517003FC87E /* RNEPGTests.xctest */,
+				3CAA46BB27FA5234001E8E6B /* EPG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,6 +227,8 @@
 				05B4FD1F015F6B22FCF2ABE8 /* Pods-RNEPG.release.xcconfig */,
 				BFC02149694FED9C8139449E /* Pods-RNEPG-RNEPGTests.debug.xcconfig */,
 				D58C5D763884F54FD679FFF1 /* Pods-RNEPG-RNEPGTests.release.xcconfig */,
+				D1979716FBB22A84DA207D44 /* Pods-RNEPG-tvos.debug.xcconfig */,
+				253CD94969F802D6DCB1CCF0 /* Pods-RNEPG-tvos.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -237,6 +279,25 @@
 			productReference = 13B07F961A680F5B00A75B9A /* RNEPG.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3CAA46BA27FA5234001E8E6B /* RNEPG-tvos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "RNEPG-tvos" */;
+			buildPhases = (
+				898555011676371830457B89 /* [CP] Check Pods Manifest.lock */,
+				3CAA46B727FA5234001E8E6B /* Sources */,
+				3CAA46B827FA5234001E8E6B /* Frameworks */,
+				3CAA46B927FA5234001E8E6B /* Resources */,
+				78636D082C466D61EF5408A7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNEPG-tvos";
+			productName = "RNEPG-tvos";
+			productReference = 3CAA46BB27FA5234001E8E6B /* EPG.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -251,6 +312,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					3CAA46BA27FA5234001E8E6B = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
@@ -269,6 +333,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* RNEPG */,
 				00E356ED1AD99517003FC87E /* RNEPGTests */,
+				3CAA46BA27FA5234001E8E6B /* RNEPG-tvos */,
 			);
 		};
 /* End PBXProject section */
@@ -288,6 +353,16 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				FE1A0C20EC43482A88A7B92E /* Hack-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CAA46B927FA5234001E8E6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CAA46CA27FA5235001E8E6B /* LaunchScreen.storyboard in Resources */,
+				3CAA46C727FA5235001E8E6B /* Assets.xcassets in Resources */,
+				3CAA46C527FA5234001E8E6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +432,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNEPG/Pods-RNEPG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78636D082C466D61EF5408A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNEPG-tvos/Pods-RNEPG-tvos-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNEPG-tvos/Pods-RNEPG-tvos-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNEPG-tvos/Pods-RNEPG-tvos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		898555011676371830457B89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNEPG-tvos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A3D243B6B7B559CB65565BE8 /* [CP] Copy Pods Resources */ = {
@@ -459,6 +573,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3CAA46B727FA5234001E8E6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CAA46CC27FA5235001E8E6B /* main.m in Sources */,
+				3CAA46BF27FA5234001E8E6B /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -468,6 +591,25 @@
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3CAA46C327FA5234001E8E6B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CAA46C427FA5234001E8E6B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3CAA46C827FA5235001E8E6B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CAA46C927FA5235001E8E6B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
@@ -580,6 +722,80 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		3CAA46CD27FA5235001E8E6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1979716FBB22A84DA207D44 /* Pods-RNEPG-tvos.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = CGZSSZ37LK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.evix.rn-epg";
+				PRODUCT_NAME = EPG;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.4;
+			};
+			name = Debug;
+		};
+		3CAA46CE27FA5235001E8E6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 253CD94969F802D6DCB1CCF0 /* Pods-RNEPG-tvos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = CGZSSZ37LK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.evix.rn-epg";
+				PRODUCT_NAME = EPG;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.4;
 			};
 			name = Release;
 		};
@@ -723,6 +939,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "RNEPG-tvos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CAA46CD27FA5235001E8E6B /* Debug */,
+				3CAA46CE27FA5235001E8E6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
