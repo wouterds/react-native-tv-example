@@ -5,6 +5,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { useEvent } from 'store/events/hooks';
 
 interface Context {
   activeEventId?: string;
@@ -36,4 +37,11 @@ export const useEPG = () => {
   return useMemo(() => {
     return { activeEventId, setActiveEventId };
   }, [activeEventId, setActiveEventId]);
+};
+
+export const useActiveEPGEvent = () => {
+  const { activeEventId } = useEPG();
+  const { event } = useEvent(activeEventId || '');
+
+  return useMemo(() => event, [event]);
 };
