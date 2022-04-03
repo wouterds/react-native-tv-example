@@ -1,28 +1,15 @@
-import React, { memo, useCallback } from 'react';
-import { ScrollView, View } from 'react-native';
-import { useChannels } from 'store/channels/hooks';
-import { Channel } from 'store/channels/types';
+import React, { memo } from 'react';
+import { View } from 'react-native';
 
 import { EPGContextProvider } from './context';
-import RowHeader from './Row/Header';
+import Row from './Row';
 import styles from './styles';
 
 const EPGGrid = () => {
-  const { channels } = useChannels();
-
-  const renderChannel = useCallback(
-    (channel: Channel) => (
-      <RowHeader channel={channel} key={`channel:${channel.id}`} />
-    ),
-    [],
-  );
-
   return (
     <EPGContextProvider>
       <View style={styles.container}>
-        <ScrollView removeClippedSubviews>
-          {channels.map(renderChannel)}
-        </ScrollView>
+        <Row.Headers />
       </View>
     </EPGContextProvider>
   );
