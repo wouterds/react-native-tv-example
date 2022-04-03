@@ -4,6 +4,7 @@ import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
 import { useEvents } from 'store/events/hooks';
 import { Event } from 'store/events/types';
+import { generateEventId } from 'utils/event';
 
 import Cell from './Cell';
 import styles from './styles';
@@ -16,10 +17,15 @@ const EPGRow = ({ channel }: Props) => {
   const { events } = useEvents(channel.id);
 
   const renderItem = useCallback(
-    ({ item, index }: { index: number; item: Event }) => {
-      return <Cell event={item} key={`channel:${channel.id}.event:${index}`} />;
-    },
-    [channel.id],
+    ({ item, index }: { index: number; item: Event }) => (
+      <Cell event={item} index={index} key={generateEventId(item, index)} />
+    ),
+    [],
+  );
+
+  const keyExtractor = useCallback(
+    (item: Event, index: number) => generateEventId(item, index),
+    [],
   );
 
   return (
@@ -32,10 +38,14 @@ const EPGRow = ({ channel }: Props) => {
         />
       </View>
       <FlatList
-        style={styles.events}
+        contentContainerStyle={styles.events}
         data={events}
         renderItem={renderItem}
         horizontal
+        removeClippedSubviews
+        scrollEventThrottle={16}
+        keyExtractor={keyExtractor}
+        windowSize={2}
       />
     </View>
   );

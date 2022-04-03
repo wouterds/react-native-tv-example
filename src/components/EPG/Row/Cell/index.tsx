@@ -1,34 +1,53 @@
+import { useEPG } from 'components/EPG/context';
 import { differenceInMinutes, lightFormat } from 'date-fns';
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { Event } from 'store/events/types';
+import { generateEventId } from 'utils/event';
 
 import createStyles from './styles';
 
 interface Props {
   event: Event;
+  index: number;
 }
 
-const EPGCell = ({ event }: Props) => {
+const EPGCell = ({ event, index }: Props) => {
   const duration = useMemo(
     () => differenceInMinutes(event.endTime, event.startTime),
     [event.endTime, event.startTime],
   );
-  const [isFocused, setIsFocused] = useState(false);
-  const onFocus = useCallback(() => setIsFocused(true), []);
-  const onBlur = useCallback(() => setIsFocused(false), []);
+
+  const eventId = useMemo(
+    () => generateEventId(event.channelId, index),
+    [event.channelId, index],
+  );
+
+  const { setActiveEvent, activeEvent } = useEPG();
+
+  const onFocus = useCallback(() => {
+    setActiveEvent(eventId);
+  }, [eventId, setActiveEvent]);
+
+  const isFocused = useMemo(() => {
+    return eventId === activeEvent;
+  }, [eventId, activeEvent]);
 
   const styles = useMemo(
     () => createStyles({ duration, isFocused }),
     [duration, isFocused],
   );
 
+  useEffect(() => {
+    console.log(eventId, isFocused);
+  }, [eventId, isFocused]);
+
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={1}
       onFocus={onFocus}
-      onBlur={onBlur}>
+      tvParallaxProperties={{ enabled: false }}>
       <Text style={[styles.text, styles.title]} numberOfLines={1}>
         {event.title}
       </Text>

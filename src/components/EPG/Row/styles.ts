@@ -3,6 +3,7 @@ import { dynamicPixels } from 'utils/styles';
 
 export default StyleSheet.create({
   container: {
+    flex: 1,
     height: dynamicPixels(60),
     marginVertical: dynamicPixels(1),
     flexDirection: 'row',

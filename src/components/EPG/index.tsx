@@ -1,8 +1,9 @@
 import React, { memo, useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { useChannels } from 'store/channels/hooks';
 import { Channel } from 'store/channels/types';
 
+import { EPGContextProvider } from './context';
 import Row from './Row';
 import styles from './styles';
 
@@ -16,12 +17,22 @@ const EPGGrid = () => {
     [],
   );
 
+  const keyExtractor = useCallback((item: Channel) => `channel:${item.id}`, []);
+
   return (
-    <FlatList
-      style={styles.container}
-      data={channels}
-      renderItem={renderItem}
-    />
+    <EPGContextProvider>
+      <View style={styles.container}>
+        <FlatList
+          style={styles.channels}
+          data={channels}
+          renderItem={renderItem}
+          removeClippedSubviews
+          scrollEventThrottle={16}
+          keyExtractor={keyExtractor}
+          windowSize={2}
+        />
+      </View>
+    </EPGContextProvider>
   );
 };
 
