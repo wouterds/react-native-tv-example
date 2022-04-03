@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import { HWKeyEvent, ScrollView, useTVEventHandler, View } from 'react-native';
 import { useChannels } from 'store/channels/hooks';
 import { Channel } from 'store/channels/types';
@@ -42,25 +42,27 @@ const EPGGrid = () => {
     );
   }, [onScreenChannels, activeEvent?.channelId]);
 
-  useEffect(() => {
-    if (currentOnScreenChannelIndex === DISPLAYED_CHANNELS - 2) {
-      setStartChannelIndex(
-        Math.min(currentChannelIndex - 1, channels.length - DISPLAYED_CHANNELS),
-      );
-    }
-  }, [currentChannelIndex, currentOnScreenChannelIndex, channels.length]);
-
   const eventHandler = useCallback(
     (event: HWKeyEvent) => {
-      if (event.eventType === 'swipeUp') {
-        if (currentOnScreenChannelIndex === 0) {
-          setStartChannelIndex(
-            Math.max(currentChannelIndex - DISPLAYED_CHANNELS, 0),
-          );
-        }
+      if (event.eventType === 'swipeUp' && currentOnScreenChannelIndex <= 1) {
+        setStartChannelIndex(
+          Math.max(currentChannelIndex + 2 - DISPLAYED_CHANNELS, 0),
+        );
+      }
+
+      if (
+        event.eventType === 'swipeDown' &&
+        currentOnScreenChannelIndex >= DISPLAYED_CHANNELS - 2
+      ) {
+        setStartChannelIndex(
+          Math.min(
+            currentChannelIndex - 1,
+            channels.length - DISPLAYED_CHANNELS,
+          ),
+        );
       }
     },
-    [currentOnScreenChannelIndex, currentChannelIndex],
+    [currentOnScreenChannelIndex, currentChannelIndex, channels.length],
   );
 
   useTVEventHandler(eventHandler);
