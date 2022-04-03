@@ -5,7 +5,6 @@ import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
 import { useEvents } from 'store/events/hooks';
 import { Event } from 'store/events/types';
-import { generateEventId } from 'utils/event';
 
 import Cell from './Cell';
 import styles from './styles';
@@ -18,16 +17,13 @@ const EPGRow = ({ channel }: Props) => {
   const { events } = useEvents(channel.id, { window: ms('4h') });
 
   const renderItem = useCallback(
-    ({ item, index }: { index: number; item: Event }) => (
-      <Cell event={item} index={index} key={generateEventId(item, index)} />
+    ({ item }: { index: number; item: Event }) => (
+      <Cell event={item} key={item.id} />
     ),
     [],
   );
 
-  const keyExtractor = useCallback(
-    (item: Event, index: number) => generateEventId(item, index),
-    [],
-  );
+  const keyExtractor = useCallback((item: Event) => item.id, []);
 
   return (
     <View style={styles.container}>

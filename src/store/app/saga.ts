@@ -73,28 +73,39 @@ const parseEventDate = (date: string) => {
   );
 };
 
-const parseEvent = (event: {
-  '@_channel': string;
-  '@_start': string;
-  '@_stop': string;
-  desc: { '#text': string };
-  category: Array<{ '#text': string }>;
-  title: { '#text': string };
-}): Event => {
+const generateEventId = (channelId: string, index: number) => {
+  return `channel:${channelId}.event:${index}`;
+};
+
+const parseEvent = (
+  data: {
+    '@_channel': string;
+    '@_start': string;
+    '@_stop': string;
+    desc: { '#text': string };
+    category: Array<{ '#text': string }>;
+    title: { '#text': string };
+  },
+  index: number,
+): Event => {
   const categories: string[] = [];
 
-  if (Array.isArray(event?.category)) {
-    categories.push(...(event?.category).map(category => category?.['#text']));
-  } else if (typeof event?.category === 'object') {
-    categories.push(event?.category?.['#text']);
+  if (Array.isArray(data?.category)) {
+    categories.push(...(data?.category).map(category => category?.['#text']));
+  } else if (typeof data?.category === 'object') {
+    categories.push(data?.category?.['#text']);
   }
 
+  const channelId = data?.['@_channel'];
+  const id = generateEventId(channelId, index);
+
   return {
-    title: event?.title?.['#text'],
-    channelId: event?.['@_channel'],
-    startTime: parseEventDate(event?.['@_start']),
-    endTime: parseEventDate(event?.['@_stop']),
-    description: event?.desc?.['#text'] || null,
+    id,
+    channelId,
+    title: data?.title?.['#text'],
+    startTime: parseEventDate(data?.['@_start']),
+    endTime: parseEventDate(data?.['@_stop']),
+    description: data?.desc?.['#text'] || null,
     categories,
   };
 };

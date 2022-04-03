@@ -1,4 +1,5 @@
 export type Event = {
+  id: string;
   title: string;
   channelId: string;
   startTime: Date;

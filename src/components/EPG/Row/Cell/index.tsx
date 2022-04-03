@@ -3,35 +3,28 @@ import { differenceInMinutes, lightFormat } from 'date-fns';
 import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { Event } from 'store/events/types';
-import { generateEventId } from 'utils/event';
 
 import createStyles from './styles';
 
 interface Props {
   event: Event;
-  index: number;
 }
 
-const EPGCell = ({ event, index }: Props) => {
+const EPGCell = ({ event }: Props) => {
   const duration = useMemo(
     () => differenceInMinutes(event.endTime, event.startTime),
     [event.endTime, event.startTime],
   );
 
-  const eventId = useMemo(
-    () => generateEventId(event.channelId, index),
-    [event.channelId, index],
-  );
-
   const { setActiveEvent, activeEvent } = useEPG();
 
   const onFocus = useCallback(() => {
-    setActiveEvent(eventId);
-  }, [eventId, setActiveEvent]);
+    setActiveEvent(event.id);
+  }, [event.id, setActiveEvent]);
 
   const isFocused = useMemo(() => {
-    return eventId === activeEvent;
-  }, [eventId, activeEvent]);
+    return event.id === activeEvent;
+  }, [event.id, activeEvent]);
 
   const styles = useMemo(
     () => createStyles({ duration, isFocused }),
@@ -39,8 +32,8 @@ const EPGCell = ({ event, index }: Props) => {
   );
 
   useEffect(() => {
-    console.log(eventId, isFocused);
-  }, [eventId, isFocused]);
+    console.log(event.id, isFocused);
+  }, [event.id, isFocused]);
 
   return (
     <TouchableOpacity
