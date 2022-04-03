@@ -4,7 +4,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 
 export enum Route {
-  Home = 'route.home',
+  EPG = 'route.epg',
 }
 
 const RootStack = createNativeStackNavigator();
@@ -14,10 +14,10 @@ const Navigation = () => {
       <StatusBar barStyle="dark-content" />
       <RootStack.Navigator>
         <RootStack.Screen
-          name={Route.Home}
-          component={Screen.Home}
+          name={Route.EPG}
+          component={Screen.EPG}
           options={{
-            title: 'Home',
+            title: 'EPG',
           }}
         />
       </RootStack.Navigator>

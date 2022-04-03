@@ -1,7 +1,7 @@
-import Home from './Home';
+import EPG from './EPG';
 import Splash from './Splash';
 
 export default {
-  Home,
+  EPG,
   Splash,
 };
