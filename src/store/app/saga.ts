@@ -3,6 +3,7 @@ import { differenceInMilliseconds } from 'date-fns';
 import { XMLParser } from 'fast-xml-parser';
 import Config from 'react-native-config';
 import { call, put, takeEvery } from 'redux-saga/effects';
+import { setChannels } from 'store/channels/slice';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 
@@ -87,7 +88,10 @@ function* bootstrapFlow() {
     const json = parser.parse(data);
 
     channels = (json.tv.channel || [])?.map(parseChannel);
+    console.log(`[bootstrap] parsed ${channels.length} channels`);
+
     events = (json.tv.programme || [])?.map(parseEvent);
+    console.log(`[bootstrap] parsed ${events.length} events`);
   } catch (e) {
     console.error('parsing data failed', e);
     yield put(bootstrapError());
@@ -95,19 +99,18 @@ function* bootstrapFlow() {
   }
 
   if (!channels?.length) {
-    console.error('no channels');
+    console.error('no channels detected');
     yield put(bootstrapError());
     return;
   }
 
   if (!events?.length) {
-    console.error('no events');
+    console.error('no events detected');
     yield put(bootstrapError());
     return;
   }
 
-  console.log(channels, events);
-
+  yield put(setChannels(channels));
   yield put(bootstrapSuccess());
 
   console.log(
