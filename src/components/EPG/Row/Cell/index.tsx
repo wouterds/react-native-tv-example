@@ -16,15 +16,15 @@ const EPGCell = ({ event }: Props) => {
     [event.endTime, event.startTime],
   );
 
-  const { setActiveEvent, activeEvent } = useEPG();
+  const { setActiveEventId, activeEventId } = useEPG();
 
   const onFocus = useCallback(() => {
-    setActiveEvent(event.id);
-  }, [event.id, setActiveEvent]);
+    setActiveEventId(event.id);
+  }, [event.id, setActiveEventId]);
 
   const isFocused = useMemo(() => {
-    return event.id === activeEvent;
-  }, [event.id, activeEvent]);
+    return event.id === activeEventId;
+  }, [event.id, activeEventId]);
 
   const styles = useMemo(
     () => createStyles({ duration, isFocused }),

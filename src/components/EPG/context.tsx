@@ -7,12 +7,12 @@ import React, {
 } from 'react';
 
 interface Context {
-  activeEvent?: string;
-  setActiveEvent: (eventId: string) => void;
+  activeEventId?: string;
+  setActiveEventId: (eventId: string) => void;
 }
 
 export const EPGContext = createContext<Context>({
-  setActiveEvent: (_eventId: string) => {},
+  setActiveEventId: (_eventId: string) => {},
 });
 
 interface EPGContextProviderProps {
@@ -21,19 +21,19 @@ interface EPGContextProviderProps {
 
 export const EPGContextProvider = (props: EPGContextProviderProps) => {
   const { children } = props;
-  const [activeEvent, setActiveEvent] = useState<string | undefined>();
+  const [activeEventId, setActiveEventId] = useState<string | undefined>();
 
   return (
-    <EPGContext.Provider value={{ activeEvent, setActiveEvent }}>
+    <EPGContext.Provider value={{ activeEventId, setActiveEventId }}>
       {children}
     </EPGContext.Provider>
   );
 };
 
 export const useEPG = () => {
-  const { activeEvent, setActiveEvent } = useContext(EPGContext);
+  const { activeEventId, setActiveEventId } = useContext(EPGContext);
 
   return useMemo(() => {
-    return { activeEvent, setActiveEvent };
-  }, [activeEvent, setActiveEvent]);
+    return { activeEventId, setActiveEventId };
+  }, [activeEventId, setActiveEventId]);
 };
