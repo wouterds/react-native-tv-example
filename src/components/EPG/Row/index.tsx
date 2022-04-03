@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Channel } from 'store/channels/types';
@@ -24,4 +24,4 @@ const EPGRow = ({ item: channel }: Props) => {
   );
 };
 
-export default EPGRow;
+export default memo(EPGRow);

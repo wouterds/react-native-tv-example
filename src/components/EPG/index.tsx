@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useChannels } from 'store/channels/hooks';
 
@@ -11,4 +11,4 @@ const EPGGrid = () => {
   return <FlatList style={styles.container} data={channels} renderItem={Row} />;
 };
 
-export default EPGGrid;
+export default memo(EPGGrid);

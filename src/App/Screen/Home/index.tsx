@@ -1,5 +1,5 @@
 import EPG from 'components/EPG';
-import React from 'react';
+import React, { memo } from 'react';
 import { SafeAreaView } from 'react-native';
 
 import styles from './styles';
@@ -12,4 +12,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default memo(HomeScreen);
