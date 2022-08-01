@@ -2,7 +2,7 @@ import FastImageBackground from 'components/FastImageBackground';
 import { useTouchable } from 'components/Touchable/useTouchable';
 import React, { memo, useMemo } from 'react';
 import { Text, View } from 'react-native';
-import { Show } from 'store/popular-on-tv/types';
+import { Show } from 'store/types/show';
 
 import createStyles from './styles';
 

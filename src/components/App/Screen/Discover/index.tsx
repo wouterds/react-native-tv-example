@@ -5,23 +5,16 @@ import DeviceInfo from 'react-native-device-info';
 
 import styles from './styles';
 
-const DiscoverScreen = () => {
-  if (Platform.isTV || DeviceInfo.isTablet()) {
-    return (
-      <View style={styles.container}>
-        <ScrollView style={styles.content}>
-          <Swimlane.PopularOnTV />
-        </ScrollView>
-      </View>
-    );
-  }
+const Wrapper = Platform.isTV || DeviceInfo.isTablet() ? View : SafeAreaView;
 
+const DiscoverScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <Wrapper style={styles.container}>
       <ScrollView style={styles.content}>
-        <Swimlane.PopularOnTV />
+        <Swimlane.PopularTVShows />
+        <Swimlane.TopRatedTVShows />
       </ScrollView>
-    </SafeAreaView>
+    </Wrapper>
   );
 };
 

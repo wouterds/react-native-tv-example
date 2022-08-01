@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { size } from 'utils/styles';
 
 export default StyleSheet.create({
   container: {
@@ -6,5 +7,6 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingVertical: size(15),
   },
 });

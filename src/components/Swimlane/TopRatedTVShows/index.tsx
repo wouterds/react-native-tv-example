@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { usePopularOnTV } from 'store/popular-on-tv/hooks';
-import { Show } from 'store/popular-on-tv/types';
+import { useTopRatedTVShows } from 'store/top-rated-tv-shows/hooks';
+import { Show } from 'store/types/show';
 
 import Item from './Item';
 import styles from './styles';
@@ -10,20 +10,20 @@ const renderItem = ({ item }: { item: Show | null; index: number }) => {
   return <Item item={item} />;
 };
 
-const PopularOnTVSwimlane = () => {
-  const { popularOnTV } = usePopularOnTV();
+const TopRatedTVShowsSwimlane = () => {
+  const { topRatedTVShows } = useTopRatedTVShows();
 
   return (
     <View style={styles.container}>
       <Text style={[styles.horizontalSpacing, styles.title]}>
-        Popular on TV
+        Top Rated TV Shows
       </Text>
       <FlatList
-        data={popularOnTV}
+        data={topRatedTVShows}
         renderItem={renderItem}
-        contentContainerStyle={styles.horizontalSpacing}
+        contentContainerStyle={[styles.horizontalSpacing, styles.flatList]}
         horizontal={true}
-        keyExtractor={({ id }) => `swimlane.popular-on-tv.${id}`}
+        keyExtractor={({ id }) => `swimlane.top-rated-tv-shows.${id}`}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
@@ -31,4 +31,4 @@ const PopularOnTVSwimlane = () => {
   );
 };
 
-export default memo(PopularOnTVSwimlane);
+export default memo(TopRatedTVShowsSwimlane);

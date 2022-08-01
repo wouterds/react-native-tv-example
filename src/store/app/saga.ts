@@ -1,6 +1,7 @@
 import { differenceInMilliseconds } from 'date-fns';
 import { put, takeEvery } from 'redux-saga/effects';
-import { fetchPopularOnTV } from 'store/popular-on-tv/actions';
+import { fetchPopularTVShows } from 'store/popular-tv-shows/actions';
+import { fetchTopRatedTVShows } from 'store/top-rated-tv-shows/actions';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 
@@ -9,8 +10,14 @@ function* bootstrapFlow() {
 
   console.log('[bootstrap] bootstrapping app');
 
-  const fetchedPopularOnTV: boolean = yield fetchPopularOnTV();
-  if (!fetchedPopularOnTV) {
+  const fetchedPopularTVShows: boolean = yield fetchPopularTVShows();
+  if (!fetchedPopularTVShows) {
+    yield put(bootstrapError());
+    return;
+  }
+
+  const fetchedTopRatedTVShows: boolean = yield fetchTopRatedTVShows();
+  if (!fetchedTopRatedTVShows) {
     yield put(bootstrapError());
     return;
   }

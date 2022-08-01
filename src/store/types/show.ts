@@ -12,7 +12,3 @@ export type Show = {
   poster_url: string;
   vote_average: number;
 };
-
-export type PopularOnTVState = {
-  data: Show[];
-};

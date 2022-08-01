@@ -1,7 +1,7 @@
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import React, { memo } from 'react';
-import { Show } from 'store/popular-on-tv/types';
+import { Show } from 'store/types/show';
 
 import styles from './styles';
 
@@ -9,7 +9,7 @@ interface Props {
   item: Show | null;
 }
 
-const PopularOnTVItem = (props: Props) => {
+const PopularTVShowsItem = (props: Props) => {
   const { item } = props;
 
   if (!item) {
@@ -23,4 +23,4 @@ const PopularOnTVItem = (props: Props) => {
   );
 };
 
-export default memo(PopularOnTVItem);
+export default memo(PopularTVShowsItem);
