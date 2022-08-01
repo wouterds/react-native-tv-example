@@ -1,9 +1,7 @@
-import Movie from './Movie';
-import Show from './Show';
+import Portrait from './Portrait';
 
 const Card = {
-  Show,
-  Movie,
+  Portrait,
 };
 
 export default Card;

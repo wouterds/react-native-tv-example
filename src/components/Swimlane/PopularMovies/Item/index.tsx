@@ -22,7 +22,7 @@ const PopularMoviesItem = ({ item }: Props) => {
     <Touchable
       style={styles.container}
       onPress={() => navigate(Route.Movie, { id: item.id, title: item.title })}>
-      <Card.Movie item={item} />
+      <Card.Portrait item={item} />
     </Touchable>
   );
 };

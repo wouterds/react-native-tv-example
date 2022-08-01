@@ -2,7 +2,7 @@ import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
 const aspectRatio = 1.5;
-const width = size(120);
+const width = size(130);
 const height = width * aspectRatio;
 
 interface Props {

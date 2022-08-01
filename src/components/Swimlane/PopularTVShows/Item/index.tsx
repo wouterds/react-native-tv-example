@@ -22,7 +22,7 @@ const PopularTVShowsItem = ({ item }: Props) => {
     <Touchable
       style={styles.container}
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}>
-      <Card.Show item={item} />
+      <Card.Portrait item={item} />
     </Touchable>
   );
 };
