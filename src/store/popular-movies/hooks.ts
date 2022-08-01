@@ -8,3 +8,14 @@ export const usePopularMovies = () => {
 
   return useMemo(() => ({ popularMovies }), [popularMovies]);
 };
+
+export const usePopularMovie = (id: number) => {
+  const { popularMovies } = usePopularMovies();
+
+  const movie = useMemo(
+    () => popularMovies.find(entry => entry.id === id),
+    [popularMovies, id],
+  );
+
+  return useMemo(() => ({ movie }), [movie]);
+};

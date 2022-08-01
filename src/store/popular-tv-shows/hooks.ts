@@ -8,3 +8,14 @@ export const usePopularTVShows = () => {
 
   return useMemo(() => ({ popularTVShows }), [popularTVShows]);
 };
+
+export const usePopularTVShow = (id: number) => {
+  const { popularTVShows } = usePopularTVShows();
+
+  const show = useMemo(
+    () => popularTVShows.find(entry => entry.id === id),
+    [popularTVShows, id],
+  );
+
+  return useMemo(() => ({ show }), [show]);
+};
