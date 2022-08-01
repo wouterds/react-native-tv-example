@@ -1,6 +1,6 @@
-# react-native-tvos-focus-bug
+# react-native-tv-example
 
-![linting](https://github.com/wouterds/react-native-tvos-focus-bug/workflows/linting/badge.svg)
+![linting](https://github.com/wouterds/react-native-tv-example/workflows/linting/badge.svg)
 
 ## Setup
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* RNTVOSFocusBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNTVOSFocusBugTests.m */; };
+		00E356F31AD99517003FC87E /* ReactNativeTVExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeTVExampleTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -17,9 +17,9 @@
 		3CAA46CA27FA5235001E8E6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAA46C827FA5235001E8E6B /* LaunchScreen.storyboard */; };
 		3CAA46CC27FA5235001E8E6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA46CB27FA5235001E8E6B /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		CABDA2132C39002FB940BF65 /* libPods-RNTVOSFocusBug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5342E1166C7F8D2D952D5621 /* libPods-RNTVOSFocusBug.a */; };
-		E82A9258F055577F48DFF58E /* libPods-RNTVOSFocusBug-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2E4FDFC6CCE806D194F787 /* libPods-RNTVOSFocusBug-tvos.a */; };
-		F268A4E95D9492FF53754388 /* libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6462A0AC1A08A67421C09E09 /* libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a */; };
+		CABDA2132C39002FB940BF65 /* libPods-ReactNativeTVExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5342E1166C7F8D2D952D5621 /* libPods-ReactNativeTVExample.a */; };
+		E82A9258F055577F48DFF58E /* libPods-ReactNativeTVExample-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2E4FDFC6CCE806D194F787 /* libPods-ReactNativeTVExample-tvos.a */; };
+		F268A4E95D9492FF53754388 /* libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6462A0AC1A08A67421C09E09 /* libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,37 +28,37 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = RNTVOSFocusBug;
+			remoteInfo = ReactNativeTVExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0042F9246C85DD03888CE1A7 /* Pods-RNTVOSFocusBug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug.debug.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug.debug.xcconfig"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* RNTVOSFocusBugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNTVOSFocusBugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0042F9246C85DD03888CE1A7 /* Pods-ReactNativeTVExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* ReactNativeTVExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeTVExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* RNTVOSFocusBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTVOSFocusBugTests.m; sourceTree = "<group>"; };
-		05B4FD1F015F6B22FCF2ABE8 /* Pods-RNTVOSFocusBug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug.release.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* RNTVOSFocusBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNTVOSFocusBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RNTVOSFocusBug/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = RNTVOSFocusBug/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RNTVOSFocusBug/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RNTVOSFocusBug/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNTVOSFocusBug/main.m; sourceTree = "<group>"; };
-		253CD94969F802D6DCB1CCF0 /* Pods-RNTVOSFocusBug-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug-tvos.release.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug-tvos/Pods-RNTVOSFocusBug-tvos.release.xcconfig"; sourceTree = "<group>"; };
-		3CAA46BB27FA5234001E8E6B /* EPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* ReactNativeTVExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeTVExampleTests.m; sourceTree = "<group>"; };
+		05B4FD1F015F6B22FCF2ABE8 /* Pods-ReactNativeTVExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ReactNativeTVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeTVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeTVExample/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeTVExample/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeTVExample/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeTVExample/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeTVExample/main.m; sourceTree = "<group>"; };
+		253CD94969F802D6DCB1CCF0 /* Pods-ReactNativeTVExample-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample-tvos.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample-tvos/Pods-ReactNativeTVExample-tvos.release.xcconfig"; sourceTree = "<group>"; };
+		3CAA46BB27FA5234001E8E6B /* ReactNativeTVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeTVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CAA46BD27FA5234001E8E6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CAA46BE27FA5234001E8E6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3CAA46C427FA5234001E8E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CAA46C627FA5235001E8E6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CAA46C927FA5235001E8E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CAA46CB27FA5235001E8E6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5342E1166C7F8D2D952D5621 /* libPods-RNTVOSFocusBug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNTVOSFocusBug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6462A0AC1A08A67421C09E09 /* libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNTVOSFocusBug/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9D2E4FDFC6CCE806D194F787 /* libPods-RNTVOSFocusBug-tvos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNTVOSFocusBug-tvos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFC02149694FED9C8139449E /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.debug.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D1979716FBB22A84DA207D44 /* Pods-RNTVOSFocusBug-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug-tvos.debug.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug-tvos/Pods-RNTVOSFocusBug-tvos.debug.xcconfig"; sourceTree = "<group>"; };
-		D58C5D763884F54FD679FFF1 /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.release.xcconfig"; path = "Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.release.xcconfig"; sourceTree = "<group>"; };
+		5342E1166C7F8D2D952D5621 /* libPods-ReactNativeTVExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeTVExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6462A0AC1A08A67421C09E09 /* libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeTVExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9D2E4FDFC6CCE806D194F787 /* libPods-ReactNativeTVExample-tvos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeTVExample-tvos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC02149694FED9C8139449E /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample-ReactNativeTVExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1979716FBB22A84DA207D44 /* Pods-ReactNativeTVExample-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample-tvos.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample-tvos/Pods-ReactNativeTVExample-tvos.debug.xcconfig"; sourceTree = "<group>"; };
+		D58C5D763884F54FD679FFF1 /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTVExample-ReactNativeTVExampleTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F268A4E95D9492FF53754388 /* libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a in Frameworks */,
+				F268A4E95D9492FF53754388 /* libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CABDA2132C39002FB940BF65 /* libPods-RNTVOSFocusBug.a in Frameworks */,
+				CABDA2132C39002FB940BF65 /* libPods-ReactNativeTVExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,20 +83,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82A9258F055577F48DFF58E /* libPods-RNTVOSFocusBug-tvos.a in Frameworks */,
+				E82A9258F055577F48DFF58E /* libPods-ReactNativeTVExample-tvos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* RNTVOSFocusBugTests */ = {
+		00E356EF1AD99517003FC87E /* ReactNativeTVExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* RNTVOSFocusBugTests.m */,
+				00E356F21AD99517003FC87E /* ReactNativeTVExampleTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = RNTVOSFocusBugTests;
+			path = ReactNativeTVExampleTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -107,7 +107,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* RNTVOSFocusBug */ = {
+		13B07FAE1A68108700A75B9A /* ReactNativeTVExample */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -117,21 +117,21 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = RNTVOSFocusBug;
+			name = ReactNativeTVExample;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5342E1166C7F8D2D952D5621 /* libPods-RNTVOSFocusBug.a */,
-				6462A0AC1A08A67421C09E09 /* libPods-RNTVOSFocusBug-RNTVOSFocusBugTests.a */,
-				9D2E4FDFC6CCE806D194F787 /* libPods-RNTVOSFocusBug-tvos.a */,
+				5342E1166C7F8D2D952D5621 /* libPods-ReactNativeTVExample.a */,
+				6462A0AC1A08A67421C09E09 /* libPods-ReactNativeTVExample-ReactNativeTVExampleTests.a */,
+				9D2E4FDFC6CCE806D194F787 /* libPods-ReactNativeTVExample-tvos.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3CAA46BC27FA5234001E8E6B /* RNTVOSFocusBug-tvos */ = {
+		3CAA46BC27FA5234001E8E6B /* ReactNativeTVExample-tvos */ = {
 			isa = PBXGroup;
 			children = (
 				3CAA46BD27FA5234001E8E6B /* AppDelegate.h */,
@@ -141,7 +141,7 @@
 				3CAA46C827FA5235001E8E6B /* LaunchScreen.storyboard */,
 				3CAA46CB27FA5235001E8E6B /* main.m */,
 			);
-			path = "RNTVOSFocusBug-tvos";
+			path = "ReactNativeTVExample-tvos";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -154,10 +154,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* RNTVOSFocusBug */,
-				3CAA46BC27FA5234001E8E6B /* RNTVOSFocusBug-tvos */,
+				13B07FAE1A68108700A75B9A /* ReactNativeTVExample */,
+				3CAA46BC27FA5234001E8E6B /* ReactNativeTVExample-tvos */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* RNTVOSFocusBugTests */,
+				00E356EF1AD99517003FC87E /* ReactNativeTVExampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D35A3151041966AADC7DD06F /* Pods */,
@@ -171,9 +171,9 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* RNTVOSFocusBug.app */,
-				00E356EE1AD99517003FC87E /* RNTVOSFocusBugTests.xctest */,
-				3CAA46BB27FA5234001E8E6B /* EPG.app */,
+				13B07F961A680F5B00A75B9A /* ReactNativeTVExample.app */,
+				00E356EE1AD99517003FC87E /* ReactNativeTVExampleTests.xctest */,
+				3CAA46BB27FA5234001E8E6B /* ReactNativeTVExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,12 +188,12 @@
 		D35A3151041966AADC7DD06F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0042F9246C85DD03888CE1A7 /* Pods-RNTVOSFocusBug.debug.xcconfig */,
-				05B4FD1F015F6B22FCF2ABE8 /* Pods-RNTVOSFocusBug.release.xcconfig */,
-				BFC02149694FED9C8139449E /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.debug.xcconfig */,
-				D58C5D763884F54FD679FFF1 /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.release.xcconfig */,
-				D1979716FBB22A84DA207D44 /* Pods-RNTVOSFocusBug-tvos.debug.xcconfig */,
-				253CD94969F802D6DCB1CCF0 /* Pods-RNTVOSFocusBug-tvos.release.xcconfig */,
+				0042F9246C85DD03888CE1A7 /* Pods-ReactNativeTVExample.debug.xcconfig */,
+				05B4FD1F015F6B22FCF2ABE8 /* Pods-ReactNativeTVExample.release.xcconfig */,
+				BFC02149694FED9C8139449E /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.debug.xcconfig */,
+				D58C5D763884F54FD679FFF1 /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.release.xcconfig */,
+				D1979716FBB22A84DA207D44 /* Pods-ReactNativeTVExample-tvos.debug.xcconfig */,
+				253CD94969F802D6DCB1CCF0 /* Pods-ReactNativeTVExample-tvos.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* RNTVOSFocusBugTests */ = {
+		00E356ED1AD99517003FC87E /* ReactNativeTVExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RNTVOSFocusBugTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeTVExampleTests" */;
 			buildPhases = (
 				D0CC785EF0EEB791EAA43F80 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -217,14 +217,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = RNTVOSFocusBugTests;
-			productName = RNTVOSFocusBugTests;
-			productReference = 00E356EE1AD99517003FC87E /* RNTVOSFocusBugTests.xctest */;
+			name = ReactNativeTVExampleTests;
+			productName = ReactNativeTVExampleTests;
+			productReference = 00E356EE1AD99517003FC87E /* ReactNativeTVExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* RNTVOSFocusBug */ = {
+		13B07F861A680F5B00A75B9A /* ReactNativeTVExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RNTVOSFocusBug" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeTVExample" */;
 			buildPhases = (
 				E7B02986BEEA3F06EC0D2357 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -239,14 +239,14 @@
 			);
 			dependencies = (
 			);
-			name = RNTVOSFocusBug;
-			productName = RNTVOSFocusBug;
-			productReference = 13B07F961A680F5B00A75B9A /* RNTVOSFocusBug.app */;
+			name = ReactNativeTVExample;
+			productName = ReactNativeTVExample;
+			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeTVExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CAA46BA27FA5234001E8E6B /* RNTVOSFocusBug-tvos */ = {
+		3CAA46BA27FA5234001E8E6B /* ReactNativeTVExample-tvos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "RNTVOSFocusBug-tvos" */;
+			buildConfigurationList = 3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "ReactNativeTVExample-tvos" */;
 			buildPhases = (
 				898555011676371830457B89 /* [CP] Check Pods Manifest.lock */,
 				3CAA46D027FA6298001E8E6B /* Start Packager */,
@@ -260,9 +260,9 @@
 			);
 			dependencies = (
 			);
-			name = "RNTVOSFocusBug-tvos";
-			productName = "RNTVOSFocusBug-tvos";
-			productReference = 3CAA46BB27FA5234001E8E6B /* EPG.app */;
+			name = "ReactNativeTVExample-tvos";
+			productName = "ReactNativeTVExample-tvos";
+			productReference = 3CAA46BB27FA5234001E8E6B /* ReactNativeTVExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RNTVOSFocusBug" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeTVExample" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -298,9 +298,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* RNTVOSFocusBug */,
-				00E356ED1AD99517003FC87E /* RNTVOSFocusBugTests */,
-				3CAA46BA27FA5234001E8E6B /* RNTVOSFocusBug-tvos */,
+				13B07F861A680F5B00A75B9A /* ReactNativeTVExample */,
+				00E356ED1AD99517003FC87E /* ReactNativeTVExampleTests */,
+				3CAA46BA27FA5234001E8E6B /* ReactNativeTVExample-tvos */,
 			);
 		};
 /* End PBXProject section */
@@ -355,15 +355,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		227F5D0D2559F43196A78F53 /* [CP] Copy Pods Resources */ = {
@@ -372,15 +372,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-ReactNativeTVExampleTests/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3CAA46D027FA6298001E8E6B /* Start Packager */ = {
@@ -426,15 +426,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78636D082C466D61EF5408A7 /* [CP] Copy Pods Resources */ = {
@@ -443,15 +443,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-tvos/Pods-RNTVOSFocusBug-tvos-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-tvos/Pods-ReactNativeTVExample-tvos-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-tvos/Pods-RNTVOSFocusBug-tvos-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-tvos/Pods-ReactNativeTVExample-tvos-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug-tvos/Pods-RNTVOSFocusBug-tvos-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample-tvos/Pods-ReactNativeTVExample-tvos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		898555011676371830457B89 /* [CP] Check Pods Manifest.lock */ = {
@@ -469,7 +469,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RNTVOSFocusBug-tvos-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeTVExample-tvos-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -482,15 +482,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNTVOSFocusBug/Pods-RNTVOSFocusBug-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTVExample/Pods-ReactNativeTVExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D0CC785EF0EEB791EAA43F80 /* [CP] Check Pods Manifest.lock */ = {
@@ -508,7 +508,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RNTVOSFocusBug-RNTVOSFocusBugTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeTVExample-ReactNativeTVExampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,7 +530,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RNTVOSFocusBug-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeTVExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -563,7 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* RNTVOSFocusBugTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ReactNativeTVExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +590,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* RNTVOSFocusBug */;
+			target = 13B07F861A680F5B00A75B9A /* ReactNativeTVExample */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -617,14 +617,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFC02149694FED9C8139449E /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.debug.xcconfig */;
+			baseConfigurationReference = BFC02149694FED9C8139449E /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RNTVOSFocusBugTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeTVExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,19 +636,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNTVOSFocusBug.app/RNTVOSFocusBug";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeTVExample.app/ReactNativeTVExample";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D58C5D763884F54FD679FFF1 /* Pods-RNTVOSFocusBug-RNTVOSFocusBugTests.release.xcconfig */;
+			baseConfigurationReference = D58C5D763884F54FD679FFF1 /* Pods-ReactNativeTVExample-ReactNativeTVExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = RNTVOSFocusBugTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeTVExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,24 +660,24 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNTVOSFocusBug.app/RNTVOSFocusBug";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeTVExample.app/ReactNativeTVExample";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0042F9246C85DD03888CE1A7 /* Pods-RNTVOSFocusBug.debug.xcconfig */;
+			baseConfigurationReference = 0042F9246C85DD03888CE1A7 /* Pods-ReactNativeTVExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = RNTVOSFocusBug/Info.plist;
+				INFOPLIST_FILE = ReactNativeTVExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -688,8 +688,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
-				PRODUCT_NAME = RNTVOSFocusBug;
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
+				PRODUCT_NAME = ReactNativeTVExample;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -700,15 +700,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05B4FD1F015F6B22FCF2ABE8 /* Pods-RNTVOSFocusBug.release.xcconfig */;
+			baseConfigurationReference = 05B4FD1F015F6B22FCF2ABE8 /* Pods-ReactNativeTVExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
-				INFOPLIST_FILE = RNTVOSFocusBug/Info.plist;
+				INFOPLIST_FILE = ReactNativeTVExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,9 +719,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
-				PRODUCT_NAME = RNTVOSFocusBug;
-				PROVISIONING_PROFILE_SPECIFIER = "Evix Ad Hoc";
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
+				PRODUCT_NAME = ReactNativeTVExample;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -730,7 +730,7 @@
 		};
 		3CAA46CD27FA5235001E8E6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1979716FBB22A84DA207D44 /* Pods-RNTVOSFocusBug-tvos.debug.xcconfig */;
+			baseConfigurationReference = D1979716FBB22A84DA207D44 /* Pods-ReactNativeTVExample-tvos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -756,8 +756,8 @@
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
-				PRODUCT_NAME = EPG;
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
+				PRODUCT_NAME = ReactNativeTVExample;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -767,7 +767,7 @@
 		};
 		3CAA46CE27FA5235001E8E6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 253CD94969F802D6DCB1CCF0 /* Pods-RNTVOSFocusBug-tvos.release.xcconfig */;
+			baseConfigurationReference = 253CD94969F802D6DCB1CCF0 /* Pods-ReactNativeTVExample-tvos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -793,8 +793,8 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.evix.rntvosfocusbug;
-				PRODUCT_NAME = EPG;
+				PRODUCT_BUNDLE_IDENTIFIER = io.evix.reactnativetvexample;
+				PRODUCT_NAME = ReactNativeTVExample;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -928,7 +928,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RNTVOSFocusBugTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeTVExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -937,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RNTVOSFocusBug" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeTVExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -946,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "RNTVOSFocusBug-tvos" */ = {
+		3CAA46CF27FA5235001E8E6B /* Build configuration list for PBXNativeTarget "ReactNativeTVExample-tvos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CAA46CD27FA5235001E8E6B /* Debug */,
@@ -955,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RNTVOSFocusBug" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeTVExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

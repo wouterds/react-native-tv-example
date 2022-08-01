@@ -1,6 +1,6 @@
 //
 //  main.m
-//  RNTVOSFocusBug-tvos
+//  ReactNativeTVExample-tvos
 //
 //  Created by Wouter De Schuyter on 04/04/2022.
 //

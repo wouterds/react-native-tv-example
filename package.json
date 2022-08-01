@@ -1,5 +1,5 @@
 {
-  "name": "@wouterds/react-native-tvos-focus-bug",
+  "name": "@wouterds/react-native-tv-example",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,11 +7,11 @@
     "pods": "pod-install",
     "ios": "arch -x86_64 react-native run-ios",
     "ios:release": "arch -x86_64 react-native run-ios --configuration=Release",
-    "ios:build:archive": "arch -x86_64 xcodebuild archive -workspace ios/RNTVOSFocusBug.xcworkspace -scheme RNTVOSFocusBug -configuration Release -destination generic/platform=iOS -archivePath ios/build/archive/RNTVOSFocusBug.xcarchive",
-    "ios:build:ipa": "arch -x86_64 xcodebuild -exportArchive -archivePath ios/build/archive/RNTVOSFocusBug.xcarchive -exportPath ios/build -exportOptionsPlist ios/ExportOptions.plist",
+    "ios:build:archive": "arch -x86_64 xcodebuild archive -workspace ios/ReactNativeTVExample.xcworkspace -scheme ReactNativeTVExample -configuration Release -destination generic/platform=iOS -archivePath ios/build/archive/ReactNativeTVExample.xcarchive",
+    "ios:build:ipa": "arch -x86_64 xcodebuild -exportArchive -archivePath ios/build/archive/ReactNativeTVExample.xcarchive -exportPath ios/build -exportOptionsPlist ios/ExportOptions.plist",
     "ios:build:folder": "open ios/build",
     "ios:build": "yarn ios:build:archive && yarn ios:build:ipa && yarn ios:build:folder",
-    "tvos": "arch -x86_64 react-native run-ios --scheme RNTVOSFocusBug-tvos --simulator \"Apple TV\"",
+    "tvos": "arch -x86_64 react-native run-ios --scheme ReactNativeTVExample-tvos --simulator \"Apple TV\"",
     "android": "react-native run-android",
     "android:release": "react-native run-android --variant=release",
     "android:build:apk": "cd android && ./gradlew assembleRelease",
