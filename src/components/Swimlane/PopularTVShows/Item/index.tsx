@@ -1,3 +1,5 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { Route } from 'components/App/Navigation';
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import React, { memo } from 'react';
@@ -9,15 +11,17 @@ interface Props {
   item: Show | null;
 }
 
-const PopularTVShowsItem = (props: Props) => {
-  const { item } = props;
+const PopularTVShowsItem = ({ item }: Props) => {
+  const { navigate } = useNavigation<NavigationProp<any>>();
 
   if (!item) {
     return null;
   }
 
   return (
-    <Touchable style={styles.container}>
+    <Touchable
+      style={styles.container}
+      onPress={() => navigate(Route.Show, { id: item.id })}>
       <Card.Show item={item} />
     </Touchable>
   );

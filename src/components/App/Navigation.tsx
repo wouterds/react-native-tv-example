@@ -1,27 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Screen from 'components/App/Screen';
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
 import { Platform } from 'react-native';
 
 export enum Route {
   Discover = 'route.discover',
+  Movie = 'route.movie',
+  Show = 'route.show',
 }
 
 const RootStack = createNativeStackNavigator();
 const Navigation = () => {
-  const navigation = useNavigation();
-
-  const onFocus = useCallback((e: any) => {
-    console.log(e);
-  }, []);
-
-  useEffect(() => {
-    navigation.addListener('focus', onFocus);
-
-    return () => navigation.removeListener('focus', onFocus);
-  }, [navigation, onFocus]);
-
   return (
     <RootStack.Navigator
       screenOptions={{
@@ -30,12 +20,33 @@ const Navigation = () => {
           backgroundColor: '#1e272e',
         },
         headerShadowVisible: false,
-      }}>
+      }}
+      screenListeners={() => ({
+        state: e => {
+          console.log('state changed', e.data);
+        },
+      })}>
       <RootStack.Screen
         name={Route.Discover}
         component={Screen.Discover}
         options={{
           title: 'Discover',
+          headerShown: !Platform.isTV,
+        }}
+      />
+      <RootStack.Screen
+        name={Route.Movie}
+        component={Screen.Movie}
+        options={{
+          title: 'Movie',
+          headerShown: !Platform.isTV,
+        }}
+      />
+      <RootStack.Screen
+        name={Route.Show}
+        component={Screen.Show}
+        options={{
+          title: 'Show',
           headerShown: !Platform.isTV,
         }}
       />
