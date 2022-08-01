@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#232731',
+  title: {
+    marginTop: size(15),
+    marginBottom: size(5),
   },
 });
 

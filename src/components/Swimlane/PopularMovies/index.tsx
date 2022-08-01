@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { usePopularMovies } from 'store/popular-movies/hooks';
 import { Movie } from 'store/types/movie';
+import { horizontalSpacing } from 'utils/styles';
 
 import Item from './Item';
 import styles from './styles';
@@ -15,13 +16,11 @@ const PopularMoviesSwimlane = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.horizontalSpacing, styles.title]}>
-        Popular Movies
-      </Text>
+      <Text style={[horizontalSpacing, styles.title]}>Popular Movies</Text>
       <FlatList
         data={popularMovies}
         renderItem={renderItem}
-        contentContainerStyle={[styles.horizontalSpacing, styles.flatList]}
+        contentContainerStyle={[horizontalSpacing, styles.flatList]}
         horizontal={true}
         keyExtractor={({ id }) => `swimlane.popular-movies.${id}`}
         showsHorizontalScrollIndicator={false}

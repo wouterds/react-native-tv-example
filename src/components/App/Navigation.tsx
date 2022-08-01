@@ -18,7 +18,7 @@ const Navigation = () => {
       screenOptions={{
         headerTintColor: '#FFF',
         headerStyle: {
-          backgroundColor: '#272c37',
+          backgroundColor: '#1b1e26',
         },
         headerShadowVisible: false,
       }}

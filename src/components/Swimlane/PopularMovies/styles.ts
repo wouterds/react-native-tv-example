@@ -5,9 +5,6 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: size(7.5),
   },
-  horizontalSpacing: {
-    paddingHorizontal: size(25),
-  },
   flatList: {
     paddingVertical: size(10),
   },

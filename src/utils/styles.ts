@@ -7,3 +7,7 @@ export const size = (value: number) => {
 
   return value;
 };
+
+export const horizontalSpacing = {
+  paddingHorizontal: size(25),
+};

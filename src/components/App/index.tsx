@@ -1,6 +1,6 @@
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import FPS from 'components/FPS';
 import { differenceInMilliseconds } from 'date-fns';
-import { withNavigation } from 'hocs/withNavigation';
 import { withSafeAreaContext } from 'hocs/withSafeAreaContext';
 import ms from 'ms';
 import React, { useEffect, useRef, useState } from 'react';
@@ -39,11 +39,20 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
-      <FPS />
-      {!isReady ? <Screen.Splash /> : <Navigation />}
+      <NavigationContainer
+        theme={{
+          ...DefaultTheme,
+          colors: {
+            ...DefaultTheme.colors,
+            background: styles.container.backgroundColor,
+          },
+        }}>
+        <StatusBar barStyle="light-content" />
+        <FPS />
+        {!isReady ? <Screen.Splash /> : <Navigation />}
+      </NavigationContainer>
     </View>
   );
 };
 
-export default withSafeAreaContext(withNavigation(withStore(App)));
+export default withSafeAreaContext(withStore(App));
