@@ -3,7 +3,7 @@ import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
   title: {
-    marginTop: size(15),
+    marginTop: size(20),
     marginBottom: size(5),
   },
 });

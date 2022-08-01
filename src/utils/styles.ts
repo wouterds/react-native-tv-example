@@ -1,4 +1,4 @@
-import { PixelRatio, Platform } from 'react-native';
+import { PixelRatio, Platform, ViewStyle } from 'react-native';
 
 export const size = (value: number) => {
   if (Platform.isTV) {
@@ -8,6 +8,6 @@ export const size = (value: number) => {
   return value;
 };
 
-export const horizontalSpacing = {
+export const horizontalSpacing: ViewStyle = {
   paddingHorizontal: size(25),
 };

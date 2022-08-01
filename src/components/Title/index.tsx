@@ -5,12 +5,14 @@ import styles from './styles';
 
 interface Props {
   children: string;
-  style?: TextStyle;
+  style?: TextStyle | TextStyle[];
 }
 
 const Title = ({ children, style }: Props) => {
   return (
-    <Text style={[styles.text, style]} numberOfLines={1}>
+    <Text
+      style={[styles.text, ...(Array.isArray(style) ? style : [style])]}
+      numberOfLines={1}>
       {children}
     </Text>
   );
