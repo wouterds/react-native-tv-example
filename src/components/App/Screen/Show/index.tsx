@@ -1,3 +1,4 @@
+import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
 import React, { memo } from 'react';
 import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
@@ -13,7 +14,7 @@ interface Props {
 const ShowScreen = (props: Props) => {
   const { show } = usePopularTVShow(props.route.params.id);
 
-  return <ScreenWrapper>{null}</ScreenWrapper>;
+  return <ScreenWrapper>{show && <Card.Hero item={show} />}</ScreenWrapper>;
 };
 
 export default memo(ShowScreen);

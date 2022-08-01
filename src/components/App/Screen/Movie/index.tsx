@@ -1,9 +1,7 @@
-import FastImageBackground from 'components/FastImageBackground';
+import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
 import React, { memo } from 'react';
 import { usePopularMovie } from 'store/popular-movies/hooks';
-
-import styles from './styles';
 
 interface Props {
   route: {
@@ -16,14 +14,7 @@ interface Props {
 const MovieScreen = (props: Props) => {
   const { movie } = usePopularMovie(props.route.params.id);
 
-  return (
-    <ScreenWrapper>
-      <FastImageBackground
-        style={styles.container}
-        source={{ uri: movie?.backdrop_url }}
-      />
-    </ScreenWrapper>
-  );
+  return <ScreenWrapper>{movie && <Card.Hero item={movie} />}</ScreenWrapper>;
 };
 
 export default memo(MovieScreen);
