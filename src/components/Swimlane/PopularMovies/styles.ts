@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   },
   flatList: {
     paddingVertical: size(10),
+    marginHorizontal: -size(2),
   },
   title: {
     fontSize: size(16),
