@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Screen from 'components/App/Screen';
 import React, { useCallback, useEffect } from 'react';
-import { Platform, StatusBar } from 'react-native';
+import { Platform } from 'react-native';
 
 export enum Route {
   Discover = 'route.discover',
