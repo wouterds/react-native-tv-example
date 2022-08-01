@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import React, { ComponentType } from 'react';
 
 export const withNavigation = <Props extends Record<string, unknown>>(
@@ -6,7 +6,11 @@ export const withNavigation = <Props extends Record<string, unknown>>(
 ) => {
   const ComponentWithNavigation = (props: Props) => {
     return (
-      <NavigationContainer>
+      <NavigationContainer
+        theme={{
+          ...DefaultTheme,
+          colors: { ...DefaultTheme.colors, background: '#1e272e' },
+        }}>
         <Component {...props} />
       </NavigationContainer>
     );

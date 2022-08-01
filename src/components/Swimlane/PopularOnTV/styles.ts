@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: size(16),
-    fontWeight: '500',
-    color: '#000',
+    fontWeight: '600',
+    color: '#fff',
     marginBottom: size(12),
   },
 });

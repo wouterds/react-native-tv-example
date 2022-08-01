@@ -24,8 +24,15 @@ const Navigation = () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <RootStack.Navigator>
+      <StatusBar barStyle="light-content" />
+      <RootStack.Navigator
+        screenOptions={{
+          headerTintColor: '#FFF',
+          headerStyle: {
+            backgroundColor: '#1e272e',
+          },
+          headerShadowVisible: false,
+        }}>
         <RootStack.Screen
           name={Route.Discover}
           component={Screen.Discover}

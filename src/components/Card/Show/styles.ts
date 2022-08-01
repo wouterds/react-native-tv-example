@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
 const aspectRatio = 1.5;
@@ -18,8 +18,15 @@ const createStyles = ({ hasFocus }: Props) => {
     width: width + size(2) * 2,
   };
 
+  const title: TextStyle = {
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: size(12),
+    fontWeight: '500',
+  };
+
   if (hasFocus) {
-    focusArea.borderColor = '#000';
+    focusArea.borderColor = '#32ff7e';
+    title.color = '#32ff7e';
   }
 
   return StyleSheet.create({
@@ -28,7 +35,7 @@ const createStyles = ({ hasFocus }: Props) => {
       alignItems: 'center',
     },
     content: {
-      width: width + size(2) * 2,
+      width: width + size(2) * 2 + size(6),
       marginRight: size(8),
     },
     focusArea,
@@ -38,19 +45,16 @@ const createStyles = ({ hasFocus }: Props) => {
       borderRadius: size(6),
       overflow: 'hidden',
       resizeMode: 'cover',
-      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      backgroundColor: 'rgba(255, 255, 255, 0.075)',
     },
     info: {
       flex: 1,
       width: '100%',
-      marginTop: size(8),
+      marginTop: size(6),
       // offset active border
       paddingLeft: size(2),
     },
-    title: {
-      color: '#000',
-      fontSize: size(14),
-    },
+    title,
   });
 };
 

@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import {
   NativeSyntheticEvent,
+  Platform,
   TargetedEvent,
   TouchableOpacity,
   TouchableOpacityProps,
@@ -52,7 +53,7 @@ const Touchable = forwardRef(
         {...props}
         onFocus={onFocusProxy}
         onBlur={onBlurProxy}
-        activeOpacity={props.activeOpacity || 0.7}
+        activeOpacity={props.activeOpacity || Platform.isTV ? 1 : 0.7}
         tvParallaxProperties={{ enabled: false }}
         ref={ref as LegacyRef<TouchableOpacity>}>
         <TouchableContextProvider hasFocus={hasFocus}>
