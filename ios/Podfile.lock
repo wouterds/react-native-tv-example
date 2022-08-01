@@ -332,6 +332,8 @@ PODS:
     - React-jsi (= 0.66.3-3)
     - React-logger (= 0.66.3-3)
     - React-perflogger (= 0.66.3-3)
+  - RNCMaskedView (0.2.7):
+    - React-Core
   - RNDeviceInfo (8.7.0):
     - React-Core
   - RNFastImage (8.5.11):
@@ -407,6 +409,7 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -496,6 +499,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-masked-view/masked-view"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNFastImage:
@@ -551,6 +556,7 @@ SPEC CHECKSUMS:
   React-RCTText: 2aa2427330de1a5973e544aff9075fae97b09db6
   React-runtimeexecutor: cb9e4f83b8fbd7afda099c9d3f9a16f3ce9e8aaa
   ReactCommon: bda18138592ca35e3af70d2d299b300782057d18
+  RNCMaskedView: cb9670ea9239998340eaab21df13fa12a1f9de15
   RNDeviceInfo: 36286df381fcaf1933ff9d2d3c34ba2abeb2d8d8
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19

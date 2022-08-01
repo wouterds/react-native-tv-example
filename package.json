@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@react-native-community/hooks": "^2.8.1",
+    "@react-native-masked-view/masked-view": "^0.2.7",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.1",
     "@reduxjs/toolkit": "^1.8.1",
