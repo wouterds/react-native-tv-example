@@ -42,13 +42,15 @@ const HeroCard = ({ item }: Props) => {
         />
       </MaskedView>
       <View style={styles.content}>
-        <Text
-          style={styles.title}
-          adjustsFontSizeToFit
-          numberOfLines={Platform.isTV ? 1 : 2}>
-          {'title' in item && item.title}
-          {'name' in item && item.name}
-        </Text>
+        {Platform.isTV && (
+          <Text
+            style={styles.title}
+            adjustsFontSizeToFit
+            numberOfLines={Platform.isTV ? 1 : 2}>
+            {'title' in item && item.title}
+            {'name' in item && item.name}
+          </Text>
+        )}
         <Text
           style={styles.overview}
           numberOfLines={Platform.isTV ? 6 : undefined}>

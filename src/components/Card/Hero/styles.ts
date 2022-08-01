@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     ...horizontalSpacing,
   },
   title: {
-    fontSize: Platform.isTV ? size(48) : size(28),
+    fontSize: size(48),
     fontWeight: 'bold',
     color: 'rgba(255, 255, 255, 0.9)',
   },
