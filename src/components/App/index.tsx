@@ -1,15 +1,17 @@
+import FPS from 'components/FPS';
 import { differenceInMilliseconds } from 'date-fns';
 import { withNavigation } from 'hocs/withNavigation';
 import { withSafeAreaContext } from 'hocs/withSafeAreaContext';
 import ms from 'ms';
 import React, { useEffect, useRef, useState } from 'react';
-import { LogBox } from 'react-native';
+import { LogBox, StatusBar, View } from 'react-native';
 import Config from 'react-native-config';
 import { useApp } from 'store/app/hooks';
 import { withStore } from 'store/withStore';
 
 import Navigation from './Navigation';
 import Screen from './Screen';
+import styles from './styles';
 
 if (Config.DISABLE_YELLOW_BOX) {
   LogBox.ignoreAllLogs();
@@ -35,11 +37,13 @@ const App = () => {
     }
   }, [hasError, isLoading, bootstrap]);
 
-  if (!isReady) {
-    return <Screen.Splash />;
-  }
-
-  return <Navigation />;
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <FPS />
+      {!isReady ? <Screen.Splash /> : <Navigation />}
+    </View>
+  );
 };
 
 export default withSafeAreaContext(withNavigation(withStore(App)));

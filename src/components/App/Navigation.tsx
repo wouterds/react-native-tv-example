@@ -23,26 +23,23 @@ const Navigation = () => {
   }, [navigation, onFocus]);
 
   return (
-    <>
-      <StatusBar barStyle="light-content" />
-      <RootStack.Navigator
-        screenOptions={{
-          headerTintColor: '#FFF',
-          headerStyle: {
-            backgroundColor: '#1e272e',
-          },
-          headerShadowVisible: false,
-        }}>
-        <RootStack.Screen
-          name={Route.Discover}
-          component={Screen.Discover}
-          options={{
-            title: 'Discover',
-            headerShown: !Platform.isTV,
-          }}
-        />
-      </RootStack.Navigator>
-    </>
+    <RootStack.Navigator
+      screenOptions={{
+        headerTintColor: '#FFF',
+        headerStyle: {
+          backgroundColor: '#1e272e',
+        },
+        headerShadowVisible: false,
+      }}>
+      <RootStack.Screen
+        name={Route.Discover}
+        component={Screen.Discover}
+        options={{
+          title: 'Discover',
+          headerShown: !Platform.isTV,
+        }}
+      />
+    </RootStack.Navigator>
   );
 };
 
