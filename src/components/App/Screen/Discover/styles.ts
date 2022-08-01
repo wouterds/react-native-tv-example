@@ -7,6 +7,6 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingVertical: size(15),
+    paddingVertical: size(10),
   },
 });

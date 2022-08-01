@@ -1,9 +1,9 @@
+import PopularMovies from './PopularMovies';
 import PopularTVShows from './PopularTVShows';
-import TopRatedTVShows from './TopRatedTVShows';
 
 const Swimlane = {
   PopularTVShows,
-  TopRatedTVShows,
+  PopularMovies,
 };
 
 export default Swimlane;

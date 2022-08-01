@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Show } from 'store/types/show';
 
-import { PopularTVShowsState, Show } from './types';
+import { PopularTVShowsState } from './types';
 
 const initialState: PopularTVShowsState = {
   data: [],

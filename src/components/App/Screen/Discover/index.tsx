@@ -11,8 +11,8 @@ const DiscoverScreen = () => {
   return (
     <Wrapper style={styles.container}>
       <ScrollView style={styles.content}>
+        <Swimlane.PopularMovies />
         <Swimlane.PopularTVShows />
-        <Swimlane.TopRatedTVShows />
       </ScrollView>
     </Wrapper>
   );

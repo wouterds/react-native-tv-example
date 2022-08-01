@@ -1,15 +1,15 @@
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import React, { memo } from 'react';
-import { Show } from 'store/types/show';
+import { Movie } from 'store/types/movie';
 
 import styles from './styles';
 
 interface Props {
-  item: Show | null;
+  item: Movie | null;
 }
 
-const TopRatedTVShowsItem = (props: Props) => {
+const PopularMoviesItem = (props: Props) => {
   const { item } = props;
 
   if (!item) {
@@ -18,9 +18,9 @@ const TopRatedTVShowsItem = (props: Props) => {
 
   return (
     <Touchable style={styles.container}>
-      <Card.Show item={item} />
+      <Card.Movie item={item} />
     </Touchable>
   );
 };
 
-export default memo(TopRatedTVShowsItem);
+export default memo(PopularMoviesItem);

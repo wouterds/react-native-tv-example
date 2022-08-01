@@ -3,7 +3,7 @@ import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: size(10),
+    marginVertical: size(7.5),
   },
   horizontalSpacing: {
     paddingHorizontal: size(25),

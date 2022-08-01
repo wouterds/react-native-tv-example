@@ -1,7 +1,7 @@
 import { differenceInMilliseconds } from 'date-fns';
 import { put, takeEvery } from 'redux-saga/effects';
+import { fetchPopularMovies } from 'store/popular-movies/actions';
 import { fetchPopularTVShows } from 'store/popular-tv-shows/actions';
-import { fetchTopRatedTVShows } from 'store/top-rated-tv-shows/actions';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 
@@ -16,8 +16,8 @@ function* bootstrapFlow() {
     return;
   }
 
-  const fetchedTopRatedTVShows: boolean = yield fetchTopRatedTVShows();
-  if (!fetchedTopRatedTVShows) {
+  const fetchedPopularMovies: boolean = yield fetchPopularMovies();
+  if (!fetchedPopularMovies) {
     yield put(bootstrapError());
     return;
   }
