@@ -61,13 +61,3 @@ yarn android
 # android release
 yarn android:release
 ```
-
-## On device performance
-
-### AppleTV 2015
-
-https://user-images.githubusercontent.com/1210628/161704771-995266e1-25bc-47f5-ba7e-75a2d094066e.mp4
-
-### Android TV Askey box
-
-https://user-images.githubusercontent.com/1210628/161706077-3e76527f-5225-4f2e-9e2e-a0ef46efaf1b.mp4
