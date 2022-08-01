@@ -1,8 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
+import { NavigationState, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Screen from 'components/App/Screen';
 import React from 'react';
 import { Platform } from 'react-native';
+import FocusService from 'services/focus';
 
 export enum Route {
   Discover = 'route.discover',
@@ -22,8 +23,13 @@ const Navigation = () => {
         headerShadowVisible: false,
       }}
       screenListeners={() => ({
-        state: e => {
-          console.log('state changed', e.data);
+        state: (e: any) => {
+          const { index, routes } = e.data.state as NavigationState;
+          const route = routes[index];
+
+          if (FocusService.instance) {
+            FocusService.instance.activeRoute = route.name;
+          }
         },
       })}>
       <RootStack.Screen

@@ -20,7 +20,7 @@ const createStyles = ({ hasFocus }: Props) => {
 
   const title: TextStyle = {
     color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: size(12),
+    fontSize: size(13),
     fontWeight: '500',
   };
 

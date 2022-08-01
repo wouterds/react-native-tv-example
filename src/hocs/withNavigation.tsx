@@ -9,7 +9,7 @@ export const withNavigation = <Props extends Record<string, unknown>>(
       <NavigationContainer
         theme={{
           ...DefaultTheme,
-          colors: { ...DefaultTheme.colors, background: '#1e272e' },
+          colors: { ...DefaultTheme.colors, background: '#2f3542' },
         }}>
         <Component {...props} />
       </NavigationContainer>

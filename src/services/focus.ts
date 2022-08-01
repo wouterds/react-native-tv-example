@@ -45,7 +45,7 @@ class FocusService {
       this._focusedTag[this._activeRoute] = data.tag || null;
 
       console.log(
-        `💡 [FocusService][${this._activeRoute}] Focus detected, tag: ${this.focusedTag}`,
+        `[FocusService][${this._activeRoute}] Focus detected, tag: ${this.focusedTag}`,
       );
     }
   };
