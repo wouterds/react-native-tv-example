@@ -21,7 +21,7 @@ const PopularTVShowsItem = ({ item }: Props) => {
   return (
     <Touchable
       style={styles.container}
-      onPress={() => navigate(Route.Show, { id: item.id })}>
+      onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}>
       <Card.Show item={item} />
     </Touchable>
   );

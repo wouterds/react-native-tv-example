@@ -28,9 +28,6 @@ const ShowCard = ({ item }: Props) => {
         <View style={styles.info}>
           <Text style={styles.title} numberOfLines={1}>
             {item.name}
-            {item.name !== item.original_name && item.original_name
-              ? ` (${item.original_name})`
-              : ''}
           </Text>
         </View>
       </View>

@@ -28,9 +28,6 @@ const MovieCard = ({ item }: Props) => {
         <View style={styles.info}>
           <Text style={styles.title} numberOfLines={1}>
             {item.title}
-            {item.title !== item.original_title && item.original_title
-              ? ` (${item.original_title})`
-              : ''}
           </Text>
         </View>
       </View>

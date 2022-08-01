@@ -18,7 +18,7 @@ const Navigation = () => {
       screenOptions={{
         headerTintColor: '#FFF',
         headerStyle: {
-          backgroundColor: '#1e272e',
+          backgroundColor: '#272c37',
         },
         headerShadowVisible: false,
       }}
@@ -43,18 +43,18 @@ const Navigation = () => {
       <RootStack.Screen
         name={Route.Movie}
         component={Screen.Movie}
-        options={{
-          title: 'Movie',
+        options={({ route }) => ({
+          title: (route.params as any)?.title || 'Movie',
           headerShown: !Platform.isTV,
-        }}
+        })}
       />
       <RootStack.Screen
         name={Route.Show}
         component={Screen.Show}
-        options={{
-          title: 'Show',
+        options={({ route }) => ({
+          title: (route.params as any)?.title || 'Show',
           headerShown: !Platform.isTV,
-        }}
+        })}
       />
     </RootStack.Navigator>
   );

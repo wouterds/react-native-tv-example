@@ -9,7 +9,7 @@ interface Props {
 const createStyles = ({ fps, average }: Props) => {
   const container: ViewStyle = {
     position: 'absolute',
-    top: 0,
+    top: -size(4),
     right: size(14),
     zIndex: 999999999,
   };
