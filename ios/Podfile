@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'RNEPG' do
+target 'RNTVOSFocusBug' do
   platform :ios, '11.0'
   config = use_native_modules!
 
@@ -11,7 +11,7 @@ target 'RNEPG' do
     :hermes_enabled => false
   )
 
-  target 'RNEPGTests' do
+  target 'RNTVOSFocusBugTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,7 +23,7 @@ target 'RNEPG' do
   use_flipper!()
 end
 
-target 'RNEPG-tvos' do
+target 'RNTVOSFocusBug-tvos' do
   platform :tvos, '14.5'
   config = use_native_modules!
 

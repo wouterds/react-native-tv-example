@@ -1,6 +1,6 @@
-# react-native epg
+# react-native-tvos-focus-bug
 
-![linting](https://github.com/wouterds/react-native-epg/workflows/linting/badge.svg)
+![linting](https://github.com/wouterds/react-native-tvos-focus-bug/workflows/linting/badge.svg)
 
 ## Setup
 

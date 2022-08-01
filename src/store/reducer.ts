@@ -1,13 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { reducer as app } from './app/slice';
-import { reducer as channels } from './channels/slice';
-import { reducer as events } from './events/slice';
+import { reducer as popularOnTV } from './popular-on-tv/slice';
 
 const reducer = combineReducers({
   app,
-  channels,
-  events,
+  popularOnTV,
 });
 
 export default reducer;
