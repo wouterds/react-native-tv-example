@@ -4,16 +4,9 @@ import { horizontalSpacing, size } from 'utils/styles';
 const styles = StyleSheet.create({
   header: {
     height: Dimensions.get('window').height,
-    ...horizontalSpacing,
-    paddingVertical: Platform.isTV ? size(32) : 0,
   },
   mask: {
     flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
   },
   gradient: {
     flex: 1,
@@ -21,6 +14,15 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: 'cover',
+  },
+  content: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    paddingVertical: Platform.isTV ? size(32) : 0,
+    ...horizontalSpacing,
   },
   title: {
     fontSize: Platform.isTV ? size(48) : size(28),
