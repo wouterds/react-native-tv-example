@@ -1,4 +1,4 @@
-import { NavigationState, useNavigation } from '@react-navigation/native';
+import { NavigationState } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Screen from 'components/App/Screen';
 import React from 'react';
