@@ -13,8 +13,6 @@ interface Props {
 const ShowScreen = (props: Props) => {
   const { show } = usePopularTVShow(props.route.params.id);
 
-  console.log(show);
-
   return <ScreenWrapper>{null}</ScreenWrapper>;
 };
 

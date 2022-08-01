@@ -14,7 +14,6 @@ interface Props {
 }
 
 const MovieScreen = (props: Props) => {
-  console.log(props);
   const { movie } = usePopularMovie(props.route.params.id);
 
   return (
