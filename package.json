@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "pods": "cd ios && arch -x86_64 pod install",
+    "pods": "pod-install",
     "ios": "arch -x86_64 react-native run-ios",
     "ios:release": "arch -x86_64 react-native run-ios --configuration=Release",
     "ios:build:archive": "arch -x86_64 xcodebuild archive -workspace ios/RNTVOSFocusBug.xcworkspace -scheme RNTVOSFocusBug -configuration Release -destination generic/platform=iOS -archivePath ios/build/archive/RNTVOSFocusBug.xcarchive",
@@ -64,6 +64,7 @@
     "jest": "^26.6.3",
     "lint-staged": "^12.3.7",
     "metro-react-native-babel-preset": "^0.66.2",
+    "pod-install": "^0.1.38",
     "react-native-flipper": "^0.137.0",
     "react-test-renderer": "17.0.2",
     "redux-flipper": "^2.0.1",
