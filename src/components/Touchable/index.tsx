@@ -1,3 +1,4 @@
+import { useIsFocused } from '@react-navigation/native';
 import React, {
   forwardRef,
   LegacyRef,
@@ -21,21 +22,30 @@ interface Props extends TouchableOpacityProps, ViewProps {}
 const Touchable = forwardRef(
   ({ onFocus, onBlur, children, ...props }: Props, ref) => {
     const [hasFocus, setHasFocus] = useState(false);
+    const isFocused = useIsFocused();
 
     const onFocusProxy = useCallback(
       (e: NativeSyntheticEvent<TargetedEvent>) => {
+        if (!isFocused) {
+          return;
+        }
+
         setHasFocus(true);
         onFocus?.(e);
       },
-      [onFocus],
+      [onFocus, isFocused],
     );
 
     const onBlurProxy = useCallback(
       (e: NativeSyntheticEvent<TargetedEvent>) => {
+        if (!isFocused) {
+          return;
+        }
+
         setHasFocus(false);
         onBlur?.(e);
       },
-      [onBlur],
+      [onBlur, isFocused],
     );
 
     return (

@@ -7,8 +7,8 @@ import { horizontalSpacing } from 'utils/styles';
 import Item from './Item';
 import styles from './styles';
 
-const renderItem = ({ item }: { item: Show | null; index: number }) => {
-  return <Item item={item} />;
+const renderItem = ({ item, index }: { item: Show | null; index: number }) => {
+  return <Item item={item} index={index} />;
 };
 
 const PopularTVShowsSwimlane = () => {

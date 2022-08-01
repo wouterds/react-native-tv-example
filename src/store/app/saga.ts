@@ -8,7 +8,7 @@ import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 function* bootstrapFlow() {
   const start = new Date();
 
-  console.log('[bootstrap] bootstrapping app');
+  console.log('[bootstrap] Bootstrapping app');
 
   const fetchedPopularTVShows: boolean = yield fetchPopularTVShows();
   if (!fetchedPopularTVShows) {
@@ -25,7 +25,7 @@ function* bootstrapFlow() {
   yield put(bootstrapSuccess());
 
   console.log(
-    '[bootstrap] finished bootstrapping app in',
+    '[bootstrap] Finished bootstrapping app in',
     differenceInMilliseconds(new Date(), start),
     'ms',
   );
