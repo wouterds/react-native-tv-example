@@ -45,7 +45,7 @@ class FocusService {
       this._focusedTag[this._activeRoute] = data.tag || null;
 
       console.log(
-        `[FocusService][${this._activeRoute}] Focus detected, tag: ${this.focusedTag}`,
+        `[FocusService][${this._activeRoute}] Focus detected - tag: ${this.focusedTag}`,
       );
     }
   };
@@ -60,7 +60,7 @@ class FocusService {
 
     if (this._previousActiveRoute) {
       console.log(
-        `[FocusService][${this._activeRoute}] Active route changed, last known focused tag: ${this.focusedTag}`,
+        `[FocusService][${this._activeRoute}] Active route changed - last known tag: ${this.focusedTag}`,
       );
     }
   }
