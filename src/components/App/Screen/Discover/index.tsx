@@ -8,6 +8,8 @@ import { horizontalSpacing } from 'utils/styles';
 import styles from './styles';
 
 const DiscoverScreen = () => {
+  console.log('Render discover screen');
+
   return (
     <ScreenWrapper>
       {Platform.isTV && (

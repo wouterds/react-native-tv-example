@@ -12,6 +12,8 @@ interface Props {
 }
 
 const MovieScreen = (props: Props) => {
+  console.log('Render movie screen');
+
   const { movie } = usePopularMovie(props.route.params.id);
 
   return <ScreenWrapper>{movie && <Card.Hero item={movie} />}</ScreenWrapper>;

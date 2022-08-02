@@ -12,6 +12,8 @@ interface Props {
 }
 
 const ShowScreen = (props: Props) => {
+  console.log('Render show screen');
+
   const { show } = usePopularTVShow(props.route.params.id);
 
   return <ScreenWrapper>{show && <Card.Hero item={show} />}</ScreenWrapper>;
