@@ -66,6 +66,10 @@ class FocusService {
   }
 
   private _handleBack = () => {
+    console.log(
+      '[FocusService] Back button pressed ✅ (this will only work on Android and not on tvOS)',
+    );
+
     if (this._previousActiveRoute) {
       this.activeRoute = this._previousActiveRoute;
     }
