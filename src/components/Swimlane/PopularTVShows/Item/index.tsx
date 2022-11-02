@@ -7,9 +7,10 @@ import { Route } from 'components/App/Navigation';
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import React, { memo, useRef } from 'react';
-import { findNodeHandle, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import FocusService from 'services/focus';
 import { Show } from 'store/types/show';
+import { findNode } from 'utils/node';
 
 import styles from './styles';
 
@@ -33,9 +34,9 @@ const PopularTVShowsItem = ({ item }: Props) => {
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}
       ref={ref}
       hasTVPreferredFocus={
-        (FocusService.instance?.focusedTag &&
-          FocusService.instance?.focusedTag === findNodeHandle(ref.current)) ||
-        false
+        // if last focused tag equals the current node
+        FocusService.instance?.focusedTag ===
+        findNode(ref, !!FocusService.instance?.focusedTag)
       }>
       <Card.Portrait item={item} />
     </Touchable>
