@@ -1,0 +1,18 @@
+post-merge:
+  parallel: true
+  commands:
+    dependencies:
+      run: yarn --frozen-lockfile
+
+post-checkout:
+  parallel: true
+  commands:
+    dependencies:
+      run: yarn --frozen-lockfile
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: yarn eslint {staged_files}
