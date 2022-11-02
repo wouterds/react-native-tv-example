@@ -62,7 +62,7 @@
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "husky": "^8.0.1",
     "jest": "^26.6.3",
-    "lint-staged": "^12.3.7",
+    "lint-staged": "^13.0.3",
     "metro-react-native-babel-preset": "^0.66.2",
     "pod-install": "^0.1.38",
     "react-native-flipper": "^0.137.0",
