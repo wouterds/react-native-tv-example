@@ -38,7 +38,7 @@
     "react-native-device-info": "^10.3.0",
     "react-native-fast-image": "^8.6.3",
     "react-native-linear-gradient": "^2.6.2",
-    "react-native-safe-area-context": "^4.2.4",
+    "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.13.0",
     "react-redux": "^7.2.8",
     "redux-saga": "^1.1.3"
