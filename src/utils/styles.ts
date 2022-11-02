@@ -2,7 +2,11 @@ import { PixelRatio, Platform, ViewStyle } from 'react-native';
 
 export const size = (value: number) => {
   if (Platform.isTV) {
-    return (value * 2.3) / PixelRatio.get();
+    if (Platform.OS === 'android') {
+      return (value * 2) / PixelRatio.get();
+    }
+
+    return value * 2;
   }
 
   return value;
