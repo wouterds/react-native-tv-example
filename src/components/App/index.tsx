@@ -1,5 +1,5 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import FPS from 'components/FPS';
+import DebugInfo from 'components/DebugInfo';
 import { differenceInMilliseconds } from 'date-fns';
 import { withSafeAreaContext } from 'hocs/withSafeAreaContext';
 import ms from 'ms';
@@ -48,7 +48,7 @@ const App = () => {
           },
         }}>
         <StatusBar barStyle="light-content" />
-        <FPS />
+        <DebugInfo />
         {!isReady ? <Screen.Splash /> : <Navigation />}
       </NavigationContainer>
     </View>
