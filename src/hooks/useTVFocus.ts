@@ -1,12 +1,5 @@
 import { useIsFocused } from '@react-navigation/native';
-import {
-  ReactNode,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { ReactNode, RefObject, useCallback, useMemo, useState } from 'react';
 import FocusService from 'services/focus';
 import { findNode } from 'utils/node';
 
@@ -21,13 +14,10 @@ export const useTVFocus = <T = ReactNode>(options: {
   // is not yet available during the initial cycle. Only in subsequent cycles
   // ref will be available, thus we're setting explicitly in state.
   const [ref, setRef] = useState<RefObject<T>>({ current: null });
-  const [hasTVPreferredFocus, setHasTVPreferredFocus] = useState(
-    FocusService.instance?.focusedTag === findNode(ref),
-  );
 
-  useEffect(() => {
-    setHasTVPreferredFocus(FocusService.instance?.focusedTag === findNode(ref));
-  }, [isFocused, setHasTVPreferredFocus, ref]);
+  const hasTVPreferredFocus = useMemo(() => {
+    return isFocused && FocusService.instance?.focusedTag === findNode(ref);
+  }, [isFocused, ref]);
 
   const nextFocusLeft = useMemo(() => {
     if (!ref?.current) {
