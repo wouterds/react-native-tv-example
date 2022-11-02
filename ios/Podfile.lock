@@ -340,7 +340,7 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNScreens (3.13.1):
+  - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
   - SDWebImage (5.11.1):
@@ -559,7 +559,7 @@ SPEC CHECKSUMS:
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
-  RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
+  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   Yoga: 2a068c7756132e680ff1f7cd51fb6fd115a0d4db
