@@ -65,7 +65,6 @@
     "is-ci": "^3.0.1",
     "jest": "^26.6.3",
     "lefthook": "^1.1.4",
-    "lint-staged": "^13.0.3",
     "metro-react-native-babel-preset": "^0.66.2",
     "pod-install": "^0.1.38",
     "prettier": "^2.7.1",
