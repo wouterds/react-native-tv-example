@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
+    "postinstall": "is-ci || lefthook install",
     "pods": "pod-install",
     "ios": "arch -x86_64 react-native run-ios",
     "ios:release": "arch -x86_64 react-native run-ios --configuration=Release",
