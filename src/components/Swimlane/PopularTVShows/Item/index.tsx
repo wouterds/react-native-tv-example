@@ -16,10 +16,11 @@ import styles from './styles';
 
 interface Props {
   item: Show | null;
-  index: number;
+  first: boolean;
+  last: boolean;
 }
 
-const PopularTVShowsItem = ({ item }: Props) => {
+const PopularTVShowsItem = ({ item, first, last }: Props) => {
   const { navigate } = useNavigation<NavigationProp<any>>();
   const ref = useRef<TouchableOpacity | null>(null);
   useIsFocused();
@@ -33,6 +34,11 @@ const PopularTVShowsItem = ({ item }: Props) => {
       style={styles.container}
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}
       ref={ref}
+      // focus item itself if it's the first item (to prevent jumping to other UI elements)
+      nextFocusLeft={findNode(ref, first)}
+      // focus item itself if it's the last item (to prevent jumping to other UI elements)
+      nextFocusRight={findNode(ref, last)}
+      // should item get initial focus
       hasTVPreferredFocus={
         // if last focused tag equals the current node
         FocusService.instance?.focusedTag ===

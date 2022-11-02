@@ -19,7 +19,13 @@ const PopularMoviesSwimlane = () => {
         showsVerticalScrollIndicator={false}
         data={popularMovies}
         keyExtractor={({ id }) => `swimlane.popular-movies.${id}`}
-        renderItem={({ item, index }) => <Item item={item} index={index} />}
+        renderItem={({ item, index }) => (
+          <Item
+            item={item}
+            first={index === 0}
+            last={index === popularMovies.length - 1}
+          />
+        )}
       />
     </View>
   );
