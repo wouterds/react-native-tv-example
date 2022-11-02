@@ -51,7 +51,7 @@
     "@types/jest": "^26.0.23",
     "@types/ms": "^0.7.31",
     "@types/react-native": "^0.66.15",
-    "@types/react-redux": "^7.1.23",
+    "@types/react-redux": "^7.1.24",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
