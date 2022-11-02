@@ -63,3 +63,4 @@ fastlane/screenshots
 # Custom
 .env
 build/
+.husky
