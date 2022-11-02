@@ -41,10 +41,6 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
     color: '#FFF',
   };
 
-  if (Platform.isTV) {
-    text.fontSize = size(10);
-  }
-
   const config: TextStyle = {};
   if (__DEV__) {
     config.color = '#FF4E02';
