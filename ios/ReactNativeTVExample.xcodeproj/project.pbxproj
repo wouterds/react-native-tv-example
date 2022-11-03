@@ -678,6 +678,7 @@
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeTVExample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "RN APP";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -709,6 +710,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
 				INFOPLIST_FILE = ReactNativeTVExample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "RN APP";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,6 +748,7 @@
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "RN APP";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -784,6 +787,7 @@
 				DEVELOPMENT_TEAM = CGZSSZ37LK;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "RN APP";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
