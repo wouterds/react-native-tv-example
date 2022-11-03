@@ -10,19 +10,18 @@ export default StyleSheet.create({
     zIndex: 99,
     flex: 1,
     width: '100%',
-    backgroundColor: '#000',
-    paddingTop: 150,
+    backgroundColor: '#13151A',
+    paddingTop: 200,
   },
   content: {
     alignItems: 'center',
   },
   logo: {
     width: 128,
-    height: 128,
+    aspectRatio: 533 / 463,
   },
   loader: {
     position: 'absolute',
     bottom: -150,
-    color: '#999',
   },
 });
