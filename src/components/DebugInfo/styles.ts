@@ -135,7 +135,7 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
       marginLeft: size(1),
     },
     separator: {
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
       width: size(1),
       height: '100%',
     },
