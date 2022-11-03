@@ -20,7 +20,7 @@ target 'ReactNativeTVExample' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
-  use_flipper!({ 'Flipper' => '0.173.0' })
+  use_flipper!()
 end
 
 target 'ReactNativeTVExample-tvos' do
