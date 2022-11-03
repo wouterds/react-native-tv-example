@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerTintColor: '#32ff7e',
+        headerTintColor: '#38eabe',
         headerTitleStyle: {
           color: '#FFF',
         },

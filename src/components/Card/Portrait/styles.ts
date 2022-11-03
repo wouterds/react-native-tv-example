@@ -25,8 +25,8 @@ const createStyles = ({ hasFocus }: Props) => {
   };
 
   if (hasFocus) {
-    focusArea.borderColor = '#32ff7e';
-    title.color = '#32ff7e';
+    focusArea.borderColor = '#38eabe';
+    title.color = '#38eabe';
   }
 
   return StyleSheet.create({
