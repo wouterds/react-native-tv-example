@@ -1,4 +1,4 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { Platform, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
 interface Props {
@@ -22,16 +22,16 @@ const createStyles = ({ active, hasFocus }: Props) => {
     color: '#FFF',
   };
 
+  if (Platform.OS === 'ios') {
+    container.borderColor = 'transparent';
+  }
+
   if (active) {
-    container.borderColor = 'rgba(255, 255, 255, 0.1)';
-    container.backgroundColor = 'rgba(255, 255, 255, 0.1)';
     text.color = '#38eabe';
   }
 
   if (hasFocus) {
-    container.backgroundColor = '#38eabe';
     container.borderColor = '#38eabe';
-    text.color = '#12151A';
   }
 
   return StyleSheet.create({
