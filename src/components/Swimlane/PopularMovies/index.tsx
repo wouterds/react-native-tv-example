@@ -10,7 +10,7 @@ const PopularMoviesSwimlane = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Popular Movies</Text>
+      <Text style={styles.title}>Movies</Text>
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal={true}
