@@ -3,9 +3,9 @@ import { size } from 'utils/styles';
 
 export default StyleSheet.create({
   container: {
-    marginTop: size(25),
-    marginBottom: size(15),
-    marginHorizontal: size(20),
+    paddingTop: size(25),
+    paddingBottom: size(15),
+    paddingHorizontal: size(20),
     flex: 1,
     flexDirection: 'row',
   },
