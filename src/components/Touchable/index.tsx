@@ -17,12 +17,14 @@ import {
 
 import { TouchableContextProvider } from './context';
 
-interface Props extends TouchableOpacityProps, ViewProps {}
+interface Props extends TouchableOpacityProps, ViewProps {
+  clearOnBlur?: boolean;
+}
 
 export type TouchableProps = Props;
 
 const Touchable = forwardRef(
-  ({ onFocus, onBlur, children, ...props }: Props, ref) => {
+  ({ onFocus, onBlur, children, clearOnBlur, ...props }: Props, ref) => {
     const [hasFocus, setHasFocus] = useState(false);
     const isFocused = useIsFocused();
 
@@ -40,14 +42,14 @@ const Touchable = forwardRef(
 
     const onBlurProxy = useCallback(
       (e: NativeSyntheticEvent<TargetedEvent>) => {
-        if (!isFocused) {
+        if (!isFocused && !clearOnBlur) {
           return;
         }
 
         setHasFocus(false);
         onBlur?.(e);
       },
-      [onBlur, isFocused],
+      [onBlur, isFocused, clearOnBlur],
     );
 
     return (

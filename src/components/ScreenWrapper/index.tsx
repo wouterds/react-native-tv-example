@@ -13,7 +13,10 @@ interface Props {
 const ScreenWrapper = ({ children, style, header }: Props) => {
   return (
     <View style={[styles.container, style]}>
-      <ScrollView style={styles.content}>
+      <ScrollView
+        style={styles.content}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}>
         {header && <TVHeaderNavigation />}
         {children}
       </ScrollView>

@@ -86,6 +86,12 @@ class FocusService {
 
     return this._focusedTag[this._activeRoute] || null;
   }
+
+  public clearFocusedTag(route?: string) {
+    console.log('[FocusService] Clearing focused tag');
+
+    this._focusedTag[route || this._activeRoute] = null;
+  }
 }
 
 export default FocusService;

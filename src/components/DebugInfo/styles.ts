@@ -16,21 +16,35 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
     paddingRight: size(10),
   };
 
-  if (landscape) {
-    if (Platform.isTV) {
-      if (Platform.OS === 'ios') {
-        container.marginTop = -size(20);
-        container.marginRight = -size(40);
-      } else {
-        container.paddingTop = size(10);
-      }
-    } else {
-      container.paddingTop = size(8);
-      container.paddingRight = 0;
+  const box: ViewStyle = {
+    flexDirection: 'row',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    paddingHorizontal: size(1),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: size(3),
+  };
 
-      if (Platform.OS === 'android') {
-        container.paddingRight = size(24);
-      }
+  if (Platform.isTV) {
+    container.marginTop = 0;
+    container.marginRight = 0;
+    container.paddingRight = 0;
+    container.paddingTop = 0;
+    box.borderTopRightRadius = 0;
+    box.borderTopLeftRadius = 0;
+    box.borderBottomRightRadius = 0;
+    box.borderBottomRightRadius = 0;
+
+    if (Platform.OS === 'ios') {
+      container.marginTop = -size(30);
+      container.marginRight = -size(40);
+    }
+  } else if (landscape) {
+    container.paddingTop = size(8);
+    container.paddingRight = 0;
+
+    if (Platform.OS === 'android') {
+      container.paddingRight = size(24);
     }
   }
 
@@ -114,14 +128,7 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
 
   return StyleSheet.create({
     container,
-    box: {
-      flexDirection: 'row',
-      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-      paddingHorizontal: size(1),
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: size(3),
-    },
+    box,
     content: {
       padding: size(3),
       flexDirection: 'row',

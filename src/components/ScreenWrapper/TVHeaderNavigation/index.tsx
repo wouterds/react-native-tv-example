@@ -5,68 +5,85 @@ import {
 } from '@react-navigation/native';
 import { Route, RouteParams } from 'components/App/Navigation';
 import { useTVFocus } from 'hooks/useTVFocus';
-import React, { memo } from 'react';
+import React, { memo, RefObject, useMemo } from 'react';
 import { Platform, TVFocusGuideView, View } from 'react-native';
+import FocusService from 'services/focus';
+import { findNode } from 'utils/node';
 
 import Button from './Button';
 import styles from './styles';
 
 const TVHeaderNavigation = () => {
   const route = useRoute();
-  const { reset } = useNavigation<NavigationProp<RouteParams>>();
+  const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
   const {
     setRef: setRefDiscover,
-    hasTVPreferredFocus: hasTVPreferredFocusDiscover,
     nextFocusLeft: nextFocusLeftDiscover,
+    ref: refDiscover,
   } = useTVFocus({
     first: true,
   });
-  const {
-    setRef: setRefMovies,
-    hasTVPreferredFocus: hasTVPreferredFocusMovies,
-  } = useTVFocus();
-  const { setRef: setRefShows, hasTVPreferredFocus: hasTVPreferredFocusShows } =
-    useTVFocus();
+  const { setRef: setRefMovies, ref: refMovies } = useTVFocus();
+  const { setRef: setRefShows, ref: refShows } = useTVFocus();
   const {
     setRef: setRefSettings,
-    hasTVPreferredFocus: hasTVPreferredFocusSettings,
     nextFocusRight: nextFocusRightSettings,
+    ref: refSettings,
   } = useTVFocus({
     last: true,
   });
+
+  const refs: Record<string, RefObject<unknown>> = useMemo(
+    () => ({
+      [Route.Discover]: refDiscover,
+      [Route.Movies]: refMovies,
+      [Route.Shows]: refShows,
+      [Route.Settings]: refSettings,
+    }),
+    [refDiscover, refMovies, refShows, refSettings],
+  );
 
   if (!Platform.isTV) {
     return null;
   }
 
   return (
-    <TVFocusGuideView style={styles.container}>
+    <TVFocusGuideView
+      style={styles.container}
+      destinations={[findNode(refs[route.name]) as number]}>
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
-          onPress={() => reset({ routes: [{ name: Route.Discover }] })}
+          clearOnBlur
+          onBlur={() => FocusService.instance?.clearFocusedTag()}
+          onPress={() => navigate(Route.Discover)}
           ref={setRefDiscover}
-          hasTVPreferredFocus={hasTVPreferredFocusDiscover}
-          nextFocusLeft={nextFocusLeftDiscover}>
+          nextFocusLeft={nextFocusLeftDiscover}
+          hasTVPreferredFocus={route.name === Route.Discover}>
           Discover
         </Button>
       </View>
       <View style={styles.item}>
         <Button
           active={route.name === Route.Movies}
-          onPress={() => reset({ routes: [{ name: Route.Movies }] })}
+          clearOnBlur
+          onBlur={() => FocusService.instance?.clearFocusedTag()}
+          onPress={() => navigate(Route.Movies)}
           ref={setRefMovies}
-          hasTVPreferredFocus={hasTVPreferredFocusMovies}>
+          hasTVPreferredFocus={route.name === Route.Movies}>
           Movies
         </Button>
       </View>
       <View style={styles.item}>
         <Button
           active={route.name === Route.Shows}
-          onPress={() => reset({ routes: [{ name: Route.Shows }] })}
+          clearOnBlur
+          onBlur={() => FocusService.instance?.clearFocusedTag()}
+          onPress={() => navigate(Route.Shows)}
           ref={setRefShows}
-          hasTVPreferredFocus={hasTVPreferredFocusShows}>
+          nextFocusRight={findNode(refSettings)}
+          hasTVPreferredFocus={route.name === Route.Shows}>
           Shows
         </Button>
       </View>
@@ -74,10 +91,13 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Settings}
-          onPress={() => reset({ routes: [{ name: Route.Settings }] })}
+          clearOnBlur
+          onBlur={() => FocusService.instance?.clearFocusedTag()}
+          onPress={() => navigate(Route.Settings)}
           ref={setRefSettings}
-          hasTVPreferredFocus={hasTVPreferredFocusSettings}
-          nextFocusRight={nextFocusRightSettings}>
+          nextFocusRight={nextFocusRightSettings}
+          nextFocusLeft={findNode(refShows)}
+          hasTVPreferredFocus={route.name === Route.Settings}>
           Settings
         </Button>
       </View>
