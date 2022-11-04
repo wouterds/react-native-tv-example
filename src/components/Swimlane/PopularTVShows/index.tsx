@@ -14,7 +14,7 @@ const PopularTVShowsSwimlane = ({ hideTitle }: Props) => {
 
   return (
     <View style={styles.container}>
-      {hideTitle && <Text style={styles.title}>Shows</Text>}
+      {!hideTitle && <Text style={styles.title}>Shows</Text>}
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal={true}
