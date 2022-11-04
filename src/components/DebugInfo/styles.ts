@@ -34,6 +34,7 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
     box.borderTopLeftRadius = 0;
     box.borderBottomRightRadius = 0;
     box.borderBottomRightRadius = 0;
+    box.paddingHorizontal = size(3);
 
     if (Platform.OS === 'ios') {
       container.marginTop = -size(30);
