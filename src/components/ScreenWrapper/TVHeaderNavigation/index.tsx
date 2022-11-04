@@ -4,11 +4,15 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import { Route, RouteParams } from 'components/App/Navigation';
-import { useTVFocus } from 'hooks/useTVFocus';
-import React, { memo, RefObject, useMemo } from 'react';
-import { Platform, TVFocusGuideView, View } from 'react-native';
+import React, { memo, RefObject, useEffect, useRef, useState } from 'react';
+import {
+  findNodeHandle,
+  Platform,
+  TouchableOpacity,
+  TVFocusGuideView,
+  View,
+} from 'react-native';
 import FocusService from 'services/focus';
-import { findNode } from 'utils/node';
 
 import Button from './Button';
 import styles from './styles';
@@ -16,50 +20,52 @@ import styles from './styles';
 const TVHeaderNavigation = () => {
   const route = useRoute();
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
+  const [refHack, setRefHack] = useState(false);
 
-  const {
-    setRef: setRefDiscover,
-    nextFocusLeft: nextFocusLeftDiscover,
-    ref: refDiscover,
-  } = useTVFocus({
-    first: true,
-  });
-  const { setRef: setRefMovies, ref: refMovies } = useTVFocus();
-  const { setRef: setRefShows, ref: refShows } = useTVFocus();
-  const {
-    setRef: setRefSettings,
-    nextFocusRight: nextFocusRightSettings,
-    ref: refSettings,
-  } = useTVFocus({
-    last: true,
-  });
+  // make sure refs can be used in the component
+  // the initial render they will be set but their values will be not
+  // yet be available for use in the render function
+  useEffect(() => {
+    setRefHack(true);
+  }, [refHack]);
 
-  const refs: Record<string, RefObject<unknown>> = useMemo(
-    () => ({
-      [Route.Discover]: refDiscover,
-      [Route.Movies]: refMovies,
-      [Route.Shows]: refShows,
-      [Route.Settings]: refSettings,
-    }),
-    [refDiscover, refMovies, refShows, refSettings],
-  );
+  const refDiscover = useRef();
+  const refMovies = useRef();
+  const refShows = useRef();
+  const refSettings = useRef();
+
+  // map of refs by route name
+  const refs: Record<string, RefObject<unknown>> = {
+    [Route.Discover]: refDiscover,
+    [Route.Movies]: refMovies,
+    [Route.Shows]: refShows,
+    [Route.Settings]: refSettings,
+  };
+
+  // button ref of current active screen
+  const activeRef = refs[route.name] as RefObject<TouchableOpacity>;
+
+  // target destinations for TVFocusGuideView
+  const destinations = activeRef.current
+    ? [findNodeHandle(activeRef.current) as number]
+    : [];
 
   if (!Platform.isTV) {
     return null;
   }
 
   return (
-    <TVFocusGuideView
-      style={styles.container}
-      destinations={[findNode(refs[route.name]) as number]}>
+    <TVFocusGuideView style={styles.container} destinations={destinations}>
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
           clearOnBlur
           onBlur={() => FocusService.instance?.clearFocusedTag()}
           onPress={() => navigate(Route.Discover)}
-          ref={setRefDiscover}
-          nextFocusLeft={nextFocusLeftDiscover}
+          ref={refDiscover}
+          nextFocusLeft={
+            refDiscover?.current && findNodeHandle(refDiscover?.current)
+          }
           hasTVPreferredFocus={route.name === Route.Discover}>
           Discover
         </Button>
@@ -70,8 +76,7 @@ const TVHeaderNavigation = () => {
           clearOnBlur
           onBlur={() => FocusService.instance?.clearFocusedTag()}
           onPress={() => navigate(Route.Movies)}
-          ref={setRefMovies}
-          hasTVPreferredFocus={route.name === Route.Movies}>
+          ref={refMovies}>
           Movies
         </Button>
       </View>
@@ -81,9 +86,11 @@ const TVHeaderNavigation = () => {
           clearOnBlur
           onBlur={() => FocusService.instance?.clearFocusedTag()}
           onPress={() => navigate(Route.Shows)}
-          ref={setRefShows}
-          nextFocusRight={findNode(refSettings)}
-          hasTVPreferredFocus={route.name === Route.Shows}>
+          hasTVPreferredFocus={route.name === Route.Shows}
+          ref={refShows}
+          nextFocusRight={
+            refSettings?.current && findNodeHandle(refSettings?.current)
+          }>
           Shows
         </Button>
       </View>
@@ -94,10 +101,11 @@ const TVHeaderNavigation = () => {
           clearOnBlur
           onBlur={() => FocusService.instance?.clearFocusedTag()}
           onPress={() => navigate(Route.Settings)}
-          ref={setRefSettings}
-          nextFocusRight={nextFocusRightSettings}
-          nextFocusLeft={findNode(refShows)}
-          hasTVPreferredFocus={route.name === Route.Settings}>
+          ref={refSettings}
+          nextFocusLeft={refShows?.current && findNodeHandle(refShows?.current)}
+          nextFocusRight={
+            refSettings?.current && findNodeHandle(refSettings?.current)
+          }>
           Settings
         </Button>
       </View>
