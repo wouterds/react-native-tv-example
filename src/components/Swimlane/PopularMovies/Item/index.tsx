@@ -4,7 +4,6 @@ import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import { useTVFocus } from 'hooks/useTVFocus';
 import React, { memo } from 'react';
-import FocusService from 'services/focus';
 import { Movie } from 'store/types/movie';
 
 import styles from './styles';
@@ -34,13 +33,7 @@ const PopularMoviesItem = ({ item, first, last }: Props) => {
       ref={setRef}
       nextFocusLeft={nextFocusLeft}
       nextFocusRight={nextFocusRight}
-      hasTVPreferredFocus={
-        hasTVPreferredFocus ||
-        // if no known last focused tag, focus the first item of the first swimlane
-        // debatable if logic should be here or in the parent component (Swimlane)
-        // it's a bit hidden which could introduce unexpected bugs if re-used elsewhere
-        (!FocusService.instance?.focusedTag && first)
-      }>
+      hasTVPreferredFocus={hasTVPreferredFocus}>
       <Card.Portrait item={item} />
     </Touchable>
   );
