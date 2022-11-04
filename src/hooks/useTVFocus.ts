@@ -12,8 +12,8 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
   const isFocused = useIsFocused();
 
   // We're using a ref in state because if the component renders only once
-  // the findNode(ref, first) expressions will return undefined as the ref
-  // is not yet available during the initial cycle. Only in subsequent cycles
+  // the findNodeHandle expression will return undefined as the ref is not
+  // yet available during the initial render. Only in subsequent renders
   // ref will be available, thus we're setting explicitly in state.
   const [ref, setRef] = useState<RefObject<T>>({ current: null });
 
