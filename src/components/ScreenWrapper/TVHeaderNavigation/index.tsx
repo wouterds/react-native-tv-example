@@ -28,10 +28,18 @@ const TVHeaderNavigation = () => {
         </Button>
       </View>
       <View style={styles.item}>
-        <Button active={route.name === Route.Movie}>Movies</Button>
+        <Button
+          active={route.name === Route.Movies}
+          onPress={() => reset({ routes: [{ name: Route.Movies }] })}>
+          Movies
+        </Button>
       </View>
       <View style={styles.item}>
-        <Button active={route.name === Route.Show}>Shows</Button>
+        <Button
+          active={route.name === Route.Shows}
+          onPress={() => reset({ routes: [{ name: Route.Shows }] })}>
+          Shows
+        </Button>
       </View>
       <View style={styles.spacer} />
       <View style={styles.item}>

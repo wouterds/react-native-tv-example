@@ -4,17 +4,17 @@ import { ScrollView, View, ViewStyle } from 'react-native';
 import styles from './styles';
 import TVHeaderNavigation from './TVHeaderNavigation';
 
-const ScreenWrapper = ({
-  children,
-  style,
-}: {
+interface Props {
   children: ReactNode;
   style?: ViewStyle;
-}) => {
+  header?: boolean;
+}
+
+const ScreenWrapper = ({ children, style, header }: Props) => {
   return (
     <View style={[styles.container, style]}>
       <ScrollView style={styles.content}>
-        <TVHeaderNavigation />
+        {header && <TVHeaderNavigation />}
         {children}
       </ScrollView>
     </View>

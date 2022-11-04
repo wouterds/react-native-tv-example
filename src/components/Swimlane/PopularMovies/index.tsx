@@ -5,12 +5,16 @@ import { usePopularMovies } from 'store/popular-movies/hooks';
 import Item from './Item';
 import styles from './styles';
 
-const PopularMoviesSwimlane = () => {
+interface Props {
+  hideTitle?: boolean;
+}
+
+const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
   const { popularMovies } = usePopularMovies();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Movies</Text>
+      {!hideTitle && <Text style={styles.title}>Movies</Text>}
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal={true}

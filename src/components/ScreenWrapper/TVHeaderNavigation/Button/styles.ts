@@ -10,10 +10,10 @@ const createStyles = ({ active, hasFocus }: Props) => {
   const container: ViewStyle = {
     paddingVertical: size(6),
     paddingHorizontal: size(18),
-    borderColor: 'transparent',
+    borderColor: 'rgba(255, 255, 255, 0.05)',
     borderWidth: size(2),
     borderRadius: size(25),
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
   };
 
   const text: TextStyle = {

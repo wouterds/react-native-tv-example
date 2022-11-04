@@ -5,12 +5,16 @@ import { usePopularTVShows } from 'store/popular-tv-shows/hooks';
 import Item from './Item';
 import styles from './styles';
 
-const PopularTVShowsSwimlane = () => {
+interface Props {
+  hideTitle?: boolean;
+}
+
+const PopularTVShowsSwimlane = ({ hideTitle }: Props) => {
   const { popularTVShows } = usePopularTVShows();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Shows</Text>
+      {hideTitle && <Text style={styles.title}>Shows</Text>}
       <FlatList
         contentContainerStyle={styles.flatList}
         horizontal={true}

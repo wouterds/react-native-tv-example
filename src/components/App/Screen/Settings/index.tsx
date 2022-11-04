@@ -7,7 +7,7 @@ import styles from './styles';
 
 const SettingsScreen = () => {
   return (
-    <ScreenWrapper>
+    <ScreenWrapper header>
       <View style={styles.container}>
         <Title>Settings</Title>
       </View>

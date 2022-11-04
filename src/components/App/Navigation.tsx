@@ -7,13 +7,17 @@ import FocusService from 'services/focus';
 
 export enum Route {
   Discover = 'route.discover',
+  Movies = 'route.movies',
+  Shows = 'route.shows',
+  Settings = 'route.settings',
   Movie = 'route.movie',
   Show = 'route.show',
-  Settings = 'route.settings',
 }
 
 export type RouteParams = {
   [Route.Discover]: undefined;
+  [Route.Movies]: undefined;
+  [Route.Shows]: undefined;
   [Route.Settings]: undefined;
   [Route.Movie]: {
     id: number;
@@ -38,7 +42,6 @@ const Navigation = () => {
           backgroundColor: '#0D0F13',
         },
         headerShadowVisible: false,
-        animation: 'fade',
       }}
       screenListeners={() => ({
         state: (e: any) => {
@@ -56,7 +59,35 @@ const Navigation = () => {
         options={{
           title: 'Discover',
           headerShown: !Platform.isTV,
+          animation: 'fade',
         }}
+      />
+      <RootStack.Screen
+        name={Route.Movies}
+        component={Screen.Movies}
+        options={() => ({
+          title: 'Movies',
+          headerShown: !Platform.isTV,
+          animation: 'fade',
+        })}
+      />
+      <RootStack.Screen
+        name={Route.Shows}
+        component={Screen.Shows}
+        options={() => ({
+          title: 'Shows',
+          headerShown: !Platform.isTV,
+          animation: 'fade',
+        })}
+      />
+      <RootStack.Screen
+        name={Route.Settings}
+        component={Screen.Settings}
+        options={() => ({
+          title: 'Settings',
+          headerShown: !Platform.isTV,
+          animation: 'fade',
+        })}
       />
       <RootStack.Screen
         name={Route.Movie}
@@ -71,14 +102,6 @@ const Navigation = () => {
         component={Screen.Show}
         options={({ route }) => ({
           title: (route.params as any)?.title || 'Show',
-          headerShown: !Platform.isTV,
-        })}
-      />
-      <RootStack.Screen
-        name={Route.Settings}
-        component={Screen.Settings}
-        options={() => ({
-          title: 'Settings',
           headerShown: !Platform.isTV,
         })}
       />

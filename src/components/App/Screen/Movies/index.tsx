@@ -2,13 +2,12 @@ import ScreenWrapper from 'components/ScreenWrapper';
 import Swimlane from 'components/Swimlane';
 import React, { memo } from 'react';
 
-const DiscoverScreen = () => {
+const MoviesScreen = () => {
   return (
     <ScreenWrapper header>
-      <Swimlane.PopularMovies />
-      <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies hideTitle />
     </ScreenWrapper>
   );
 };
 
-export default memo(DiscoverScreen);
+export default memo(MoviesScreen);
