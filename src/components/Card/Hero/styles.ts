@@ -1,5 +1,5 @@
 import { Dimensions, Platform, StyleSheet } from 'react-native';
-import { horizontalSpacing, size } from 'utils/styles';
+import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
   header: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     paddingVertical: Platform.isTV ? size(32) : 0,
-    ...horizontalSpacing,
+    paddingHorizontal: size(25),
   },
   title: {
     fontSize: size(48),
