@@ -3,8 +3,6 @@ import Swimlane from 'components/Swimlane';
 import React, { memo } from 'react';
 
 const DiscoverScreen = () => {
-  console.log('Render discover screen');
-
   return (
     <ScreenWrapper>
       <Swimlane.PopularMovies />
