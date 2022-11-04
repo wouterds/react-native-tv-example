@@ -43,9 +43,9 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
 
   const config: TextStyle = {};
   if (__DEV__) {
-    config.color = '#FD0C47';
+    config.color = '#FF4949';
   } else {
-    config.color = '#55efc4';
+    config.color = '#05FFAB';
   }
 
   const bar: ViewStyle = {
