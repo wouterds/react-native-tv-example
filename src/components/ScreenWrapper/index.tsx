@@ -2,6 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import { ScrollView, View, ViewStyle } from 'react-native';
 
 import styles from './styles';
+import TVHeaderNavigation from './TVHeaderNavigation';
 
 const ScreenWrapper = ({
   children,
@@ -12,7 +13,10 @@ const ScreenWrapper = ({
 }) => {
   return (
     <View style={[styles.container, style]}>
-      <ScrollView style={styles.content}>{children}</ScrollView>
+      <ScrollView style={styles.content}>
+        <TVHeaderNavigation />
+        {children}
+      </ScrollView>
     </View>
   );
 };
