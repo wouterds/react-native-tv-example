@@ -32,7 +32,7 @@ const Touchable = forwardRef(
           return;
         }
 
-        setHasFocus(true);
+        setHasFocus(isFocused);
         onFocus?.(e);
       },
       [onFocus, isFocused],

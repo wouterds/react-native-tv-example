@@ -1,17 +1,19 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, forwardRef } from 'react';
 
 import Touchable, { TouchableProps } from './index';
 
 export const withTouchable = <Props extends Record<string, unknown>>(
   Component: ComponentType<Props>,
 ) => {
-  const ComponentWithTouchable = (props: Props) => {
-    return (
-      <Touchable {...props}>
-        <Component {...props} />
-      </Touchable>
-    );
-  };
+  const ComponentWithTouchable = forwardRef<unknown, Props & TouchableProps>(
+    (props: Props, ref) => {
+      return (
+        <Touchable {...props} ref={ref}>
+          <Component {...props} />
+        </Touchable>
+      );
+    },
+  );
 
-  return ComponentWithTouchable as ComponentType<TouchableProps & Props>;
+  return ComponentWithTouchable;
 };
