@@ -1,5 +1,5 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Route } from 'components/App/Navigation';
+import { Route, RouteParams } from 'components/App/Navigation';
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import { useTVFocus } from 'hooks/useTVFocus';
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const PopularTVShowsItem = ({ item, first, last }: Props) => {
-  const { navigate } = useNavigation<NavigationProp<any>>();
+  const { navigate } = useNavigation<NavigationProp<RouteParams>>();
   const { setRef, hasTVPreferredFocus, nextFocusLeft, nextFocusRight } =
     useTVFocus({
       first,
