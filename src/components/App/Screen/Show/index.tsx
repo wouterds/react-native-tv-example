@@ -1,22 +1,23 @@
+import { RouteProp, useRoute } from '@react-navigation/native';
+import { Route, RouteParams } from 'components/App/Navigation';
 import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
 import React, { memo } from 'react';
 import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
 
-interface Props {
-  route: {
-    params: {
-      id: number;
-    };
-  };
-}
+const ShowScreen = () => {
+  const { params } = useRoute<RouteProp<RouteParams, Route.Show>>();
+  const { show } = usePopularTVShow(params.id);
 
-const ShowScreen = (props: Props) => {
-  console.log('Render show screen');
+  if (!show) {
+    return null;
+  }
 
-  const { show } = usePopularTVShow(props.route.params.id);
-
-  return <ScreenWrapper>{show && <Card.Hero item={show} />}</ScreenWrapper>;
+  return (
+    <ScreenWrapper>
+      <Card.Hero item={show} />
+    </ScreenWrapper>
+  );
 };
 
 export default memo(ShowScreen);

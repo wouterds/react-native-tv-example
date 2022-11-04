@@ -11,6 +11,15 @@ export enum Route {
   Show = 'route.show',
 }
 
+export type RouteParams = {
+  [Route.Movie]: {
+    id: number;
+  };
+  [Route.Show]: {
+    id: number;
+  };
+};
+
 const RootStack = createNativeStackNavigator();
 const Navigation = () => {
   return (
