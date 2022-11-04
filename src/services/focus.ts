@@ -47,7 +47,7 @@ class FocusService {
       this._focusedTag[this._activeRoute] = data.tag || null;
 
       console.log(
-        `[FocusService][${this._activeRoute}] Focus detected - tag: ${this.focusedTag}`,
+        `[FocusService][${this._activeRoute}] Focused tag: ${this.focusedTag}`,
       );
     }
   };
@@ -62,14 +62,14 @@ class FocusService {
 
     if (this._previousActiveRoute) {
       console.log(
-        `[FocusService][${this._activeRoute}] Active route changed - last known tag: ${this.focusedTag}`,
+        `[FocusService][${this._activeRoute}] Screen changed, last known tag: ${this.focusedTag}`,
       );
     }
   }
 
   private _handleBack = () => {
     console.log(
-      '[FocusService] Back button pressed ✅ (this will only work on Android and not on tvOS)',
+      '[FocusService] Back button pressed, this will work for AndroidTV but will NOT trigger for tvOS ❌',
     );
 
     if (this._previousActiveRoute) {
