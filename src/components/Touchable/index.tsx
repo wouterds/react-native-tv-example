@@ -19,6 +19,8 @@ import { TouchableContextProvider } from './context';
 
 interface Props extends TouchableOpacityProps, ViewProps {}
 
+export type TouchableProps = Props;
+
 const Touchable = forwardRef(
   ({ onFocus, onBlur, children, ...props }: Props, ref) => {
     const [hasFocus, setHasFocus] = useState(false);
