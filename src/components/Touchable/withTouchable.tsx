@@ -13,5 +13,5 @@ export const withTouchable = <Props extends Record<string, unknown>>(
     );
   };
 
-  return ComponentWithTouchable as ComponentType<Props & TouchableProps>;
+  return ComponentWithTouchable as ComponentType<TouchableProps & Props>;
 };
