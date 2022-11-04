@@ -3,10 +3,12 @@ import { ReactNode, RefObject, useCallback, useMemo, useState } from 'react';
 import FocusService from 'services/focus';
 import { findNode } from 'utils/node';
 
-export const useTVFocus = <T = ReactNode>(options: {
+interface UseTVFocusOptions {
   first?: boolean;
   last?: boolean;
-}) => {
+}
+
+export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
   const isFocused = useIsFocused();
 
   // We're using a ref in state because if the component renders only once
