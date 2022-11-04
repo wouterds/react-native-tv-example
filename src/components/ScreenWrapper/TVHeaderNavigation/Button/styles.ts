@@ -8,11 +8,12 @@ interface Props {
 
 const createStyles = ({ active, hasFocus }: Props) => {
   const container: ViewStyle = {
-    paddingVertical: size(7),
-    paddingHorizontal: size(15),
+    paddingVertical: size(6),
+    paddingHorizontal: size(18),
     borderColor: 'transparent',
     borderWidth: size(2),
     borderRadius: size(25),
+    backgroundColor: 'transparent',
   };
 
   const text: TextStyle = {
@@ -22,11 +23,15 @@ const createStyles = ({ active, hasFocus }: Props) => {
   };
 
   if (active) {
-    container.borderColor = '#fff';
+    container.borderColor = 'rgba(255, 255, 255, 0.1)';
+    container.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+    text.color = '#38eabe';
   }
 
   if (hasFocus) {
+    container.backgroundColor = '#38eabe';
     container.borderColor = '#38eabe';
+    text.color = '#12151A';
   }
 
   return StyleSheet.create({

@@ -3,14 +3,14 @@ import { size } from 'utils/styles';
 
 export default StyleSheet.create({
   container: {
-    marginTop: size(30),
+    marginTop: size(25),
     marginBottom: size(15),
-    marginHorizontal: size(15),
+    marginHorizontal: size(20),
     flex: 1,
     flexDirection: 'row',
   },
   item: {
-    marginHorizontal: size(10),
+    marginHorizontal: size(5),
   },
   spacer: {
     flex: 1,

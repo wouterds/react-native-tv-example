@@ -6,13 +6,13 @@ const styles = StyleSheet.create({
     marginVertical: size(7.5),
   },
   flatList: {
-    paddingVertical: size(10),
+    paddingVertical: size(7.5),
     paddingHorizontal: size(25),
     marginHorizontal: -size(2),
   },
   title: {
     paddingHorizontal: size(25),
-    fontSize: size(16),
+    fontSize: size(18),
     fontWeight: '500',
     color: '#fff',
   },
