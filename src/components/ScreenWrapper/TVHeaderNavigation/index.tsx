@@ -1,5 +1,6 @@
 import {
   NavigationProp,
+  useIsFocused,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
@@ -21,6 +22,9 @@ const TVHeaderNavigation = () => {
   const route = useRoute();
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
   const [refHack, setRefHack] = useState(false);
+
+  // otherwise hasPreferredFocus is not working correctly
+  useIsFocused();
 
   // make sure refs can be used in the component
   // the initial render they will be set but their values will be not
@@ -49,8 +53,6 @@ const TVHeaderNavigation = () => {
   const destinations = activeRef.current
     ? [findNodeHandle(activeRef.current) as number]
     : [];
-
-  console.log(route.name, Route.Movies, route.name === Route.Movies);
 
   if (!Platform.isTV) {
     return null;
@@ -113,6 +115,9 @@ const TVHeaderNavigation = () => {
           nextFocusLeft={refShows?.current && findNodeHandle(refShows?.current)}
           nextFocusRight={
             refSettings?.current && findNodeHandle(refSettings?.current)
+          }
+          hasTVPreferredFocus={
+            !FocusService.instance?.focusedTag && route.name === Route.Settings
           }>
           Settings
         </Button>
