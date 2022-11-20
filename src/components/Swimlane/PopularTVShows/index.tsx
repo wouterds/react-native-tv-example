@@ -7,9 +7,10 @@ import styles from './styles';
 
 interface Props {
   hideTitle?: boolean;
+  hasInitialFocus?: boolean;
 }
 
-const PopularTVShowsSwimlane = ({ hideTitle }: Props) => {
+const PopularTVShowsSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
   const { popularTVShows } = usePopularTVShows();
 
   return (
@@ -27,6 +28,7 @@ const PopularTVShowsSwimlane = ({ hideTitle }: Props) => {
             item={item}
             first={index === 0}
             last={index === popularTVShows.length - 1}
+            hasInitialFocus={hasInitialFocus}
           />
         )}
       />

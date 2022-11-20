@@ -12,12 +12,14 @@ interface Props {
   item: Show | null;
   first: boolean;
   last: boolean;
+  hasInitialFocus?: boolean;
 }
 
-const PopularTVShowsItem = ({ item, first, last }: Props) => {
+const PopularTVShowsItem = ({ item, first, last, hasInitialFocus }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
   const { ref, hasTVPreferredFocus, nextFocusLeft, nextFocusRight } =
     useTVFocus({
+      hasInitialFocus,
       first,
       last,
     });
