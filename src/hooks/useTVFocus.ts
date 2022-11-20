@@ -6,6 +6,7 @@ import { findNode } from 'utils/node';
 interface UseTVFocusOptions {
   first?: boolean;
   last?: boolean;
+  hasInitialFocus?: boolean;
 }
 
 export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
@@ -19,8 +20,24 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
   const [ref, setRef] = useState<RefObject<T>>({ current: null });
 
   const hasTVPreferredFocus = useMemo(() => {
-    return isFocused && FocusService.instance?.focusedTag === findNode(ref);
-  }, [isFocused, ref]);
+    if (!isFocused) {
+      return false;
+    }
+
+    if (!FocusService.instance?.focusedTag) {
+      if (options?.hasInitialFocus) {
+        if (options?.first === false) {
+          return false;
+        }
+
+        return true;
+      }
+
+      return false;
+    }
+
+    return FocusService.instance?.focusedTag === findNode(ref);
+  }, [isFocused, ref, options?.hasInitialFocus, options?.first]);
 
   const nextFocusLeft = useMemo(() => {
     if (!ref?.current) {
