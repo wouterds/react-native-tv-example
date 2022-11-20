@@ -14,7 +14,8 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
   // We're using a ref in state because if the component renders only once
   // the findNodeHandle expression will return undefined as the ref is not
   // yet available during the initial render. Only in subsequent renders
-  // ref will be available, thus we're setting explicitly in state.
+  // ref will be available, thus we're setting it explicitly in state.
+  // NOT IDEAL.
   const [ref, setRef] = useState<RefObject<T>>({ current: null });
 
   const hasTVPreferredFocus = useMemo(() => {
@@ -26,7 +27,6 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
       return undefined;
     }
 
-    // focus item itself if it's the first item (to prevent jumping to other UI elements)
     return findNode(ref, options?.first);
   }, [ref, options?.first]);
 
@@ -39,20 +39,24 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
   }, [ref, options?.last]);
 
   const setRefProxy = useCallback(
-    (value: T) => {
+    (value: RefObject<T>) => {
       if (ref?.current) {
         return;
       }
 
-      setRef({ current: value });
+      setRef(value);
     },
     [setRef, ref],
   );
 
   return useMemo(
     () => ({
-      ref,
-      setRef: setRefProxy,
+      set ref(value: RefObject<T>) {
+        setRefProxy(value);
+      },
+      get ref() {
+        return ref;
+      },
       hasTVPreferredFocus,
       nextFocusLeft,
       nextFocusRight,

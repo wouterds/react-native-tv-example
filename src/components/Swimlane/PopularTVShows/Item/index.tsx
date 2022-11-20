@@ -16,7 +16,7 @@ interface Props {
 
 const PopularTVShowsItem = ({ item, first, last }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
-  const { setRef, hasTVPreferredFocus, nextFocusLeft, nextFocusRight } =
+  const { ref, hasTVPreferredFocus, nextFocusLeft, nextFocusRight } =
     useTVFocus({
       first,
       last,
@@ -30,7 +30,7 @@ const PopularTVShowsItem = ({ item, first, last }: Props) => {
     <Touchable
       style={styles.container}
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}
-      ref={setRef}
+      ref={ref}
       nextFocusLeft={nextFocusLeft}
       nextFocusRight={nextFocusRight}
       hasTVPreferredFocus={hasTVPreferredFocus}>
