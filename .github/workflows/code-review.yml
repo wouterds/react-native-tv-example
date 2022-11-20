@@ -1,0 +1,29 @@
+name: code-review
+
+on:
+  push:
+    branches: ['**']
+  workflow_call:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: yarn lint
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: yarn lint:ts

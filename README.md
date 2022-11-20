@@ -1,6 +1,6 @@
 # react-native-tv-example
 
-![linting](https://github.com/wouterds/react-native-tv-example/workflows/linting/badge.svg)
+[![code-review](https://github.com/wouterds/react-native-tv-example/workflows/code-review/badge.svg)](https://github.com/wouterds/react-native-tv-example/actions/workflows/code-review.yml)
 
 ![react-native-tv-example](https://repository-images.githubusercontent.com/520076519/5f7da859-9b46-4f96-ae2b-e74bd32c6180)
 
