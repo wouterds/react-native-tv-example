@@ -1,5 +1,7 @@
-import { NavigationState } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createStackNavigator,
+  StackCardStyleInterpolator,
+} from '@react-navigation/stack';
 import Screen from 'components/App/Screen';
 import React from 'react';
 import { Platform } from 'react-native';
@@ -29,7 +31,13 @@ export type RouteParams = {
   };
 };
 
-const RootStack = createNativeStackNavigator();
+const fadeAnimation: StackCardStyleInterpolator = ({ current }) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
+
+const RootStack = createStackNavigator();
 const Navigation = () => {
   return (
     <RootStack.Navigator
@@ -45,7 +53,7 @@ const Navigation = () => {
       }}
       screenListeners={() => ({
         state: (e: any) => {
-          const { index, routes } = e.data.state as NavigationState;
+          const { index, routes } = e.data.state;
           const route = routes[index];
 
           if (FocusService.instance) {
@@ -59,7 +67,7 @@ const Navigation = () => {
         options={{
           title: 'Discover',
           headerShown: !Platform.isTV,
-          animation: 'fade',
+          cardStyleInterpolator: fadeAnimation,
         }}
       />
       <RootStack.Screen
@@ -68,7 +76,7 @@ const Navigation = () => {
         options={() => ({
           title: 'Movies',
           headerShown: !Platform.isTV,
-          animation: 'fade',
+          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
@@ -77,7 +85,7 @@ const Navigation = () => {
         options={() => ({
           title: 'Shows',
           headerShown: !Platform.isTV,
-          animation: 'fade',
+          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
@@ -86,7 +94,7 @@ const Navigation = () => {
         options={() => ({
           title: 'Settings',
           headerShown: !Platform.isTV,
-          animation: 'fade',
+          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
