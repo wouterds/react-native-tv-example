@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import {
   BackHandler,
-  HWKeyEvent,
+  HWEvent,
   Platform,
+  TVEventControl,
   TVEventHandler,
-  TVMenuControl,
 } from 'react-native';
 
 class FocusService {
@@ -29,16 +29,13 @@ class FocusService {
   private constructor() {
     console.log('[FocusService] Creating instance with tv event handler');
 
-    TVMenuControl.enableTVMenuKey();
+    TVEventControl.enableTVMenuKey();
     this._tvEventHander = new TVEventHandler();
     this._tvEventHander.enable(undefined, this._handleTVEvent);
     BackHandler.addEventListener('hardwareBackPress', this._handleBack);
   }
 
-  private _handleTVEvent = (
-    _component: Component<unknown>,
-    data: HWKeyEvent,
-  ) => {
+  private _handleTVEvent = (_component: Component<unknown>, data: HWEvent) => {
     if (data.eventType !== 'focus') {
       return;
     }

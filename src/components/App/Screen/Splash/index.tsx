@@ -11,7 +11,7 @@ const SplashScreen = () => (
     <View style={styles.container}>
       <SafeAreaView style={styles.content}>
         <FastImage
-          source={require('assets/images/logo.png')}
+          source={require('resources/images/logo.png')}
           style={styles.logo}
         />
         <ActivityIndicator style={styles.loader} size="large" />

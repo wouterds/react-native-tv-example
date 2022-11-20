@@ -2,7 +2,7 @@ import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useFPSMetrics } from 'hooks/useFPSMetrics';
 import React, { memo, useMemo } from 'react';
 import { Text, View } from 'react-native';
-import { getBuildNumber } from 'react-native-device-info';
+import { getBuildNumber, getVersion } from 'react-native-device-info';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import createStyles from './styles';
@@ -29,7 +29,9 @@ const DebugInfo = () => {
             <Text style={[styles.text, styles.config]}>
               {__DEV__ ? 'DEBUG' : 'RELEASE'}&nbsp;
             </Text>
-            <Text style={styles.text}>B. {getBuildNumber()}</Text>
+            <Text style={styles.text}>
+              V{getVersion()} B{getBuildNumber()}
+            </Text>
           </View>
           <View style={styles.separator} />
           <View style={styles.content}>
