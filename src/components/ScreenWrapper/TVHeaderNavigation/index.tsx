@@ -50,6 +50,8 @@ const TVHeaderNavigation = () => {
     ? [findNodeHandle(activeRef.current) as number]
     : [];
 
+  console.log(route.name, Route.Movies, route.name === Route.Movies);
+
   if (!Platform.isTV) {
     return null;
   }
@@ -60,13 +62,14 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Discover}
           clearOnBlur
-          onBlur={() => FocusService.instance?.clearFocusedTag()}
-          onPress={() => navigate(Route.Discover)}
+          onPress={() => {
+            FocusService.instance?.clearFocusedTag();
+            navigate(Route.Discover);
+          }}
           ref={refDiscover}
           nextFocusLeft={
             refDiscover?.current && findNodeHandle(refDiscover?.current)
-          }
-          hasTVPreferredFocus={route.name === Route.Discover}>
+          }>
           Discover
         </Button>
       </View>
@@ -74,8 +77,10 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Movies}
           clearOnBlur
-          onBlur={() => FocusService.instance?.clearFocusedTag()}
-          onPress={() => navigate(Route.Movies)}
+          onPress={() => {
+            FocusService.instance?.clearFocusedTag();
+            navigate(Route.Movies);
+          }}
           ref={refMovies}>
           Movies
         </Button>
@@ -84,9 +89,10 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Shows}
           clearOnBlur
-          onBlur={() => FocusService.instance?.clearFocusedTag()}
-          onPress={() => navigate(Route.Shows)}
-          hasTVPreferredFocus={route.name === Route.Shows}
+          onPress={() => {
+            FocusService.instance?.clearFocusedTag();
+            navigate(Route.Shows);
+          }}
           ref={refShows}
           nextFocusRight={
             refSettings?.current && findNodeHandle(refSettings?.current)
@@ -99,8 +105,10 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Settings}
           clearOnBlur
-          onBlur={() => FocusService.instance?.clearFocusedTag()}
-          onPress={() => navigate(Route.Settings)}
+          onPress={() => {
+            FocusService.instance?.clearFocusedTag();
+            navigate(Route.Settings);
+          }}
           ref={refSettings}
           nextFocusLeft={refShows?.current && findNodeHandle(refShows?.current)}
           nextFocusRight={

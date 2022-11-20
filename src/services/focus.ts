@@ -1,3 +1,4 @@
+import { Route } from 'components/App/Navigation';
 import { Component } from 'react';
 import {
   BackHandler,
@@ -10,7 +11,6 @@ import {
 class FocusService {
   private _tvEventHander: TVEventHandler;
   private _activeRoute = '';
-  private _previousActiveRoute?: string;
   private _focusedTag: Record<string, number | null> = {};
   private static _instance: FocusService;
 
@@ -27,8 +27,6 @@ class FocusService {
   }
 
   private constructor() {
-    console.log('[FocusService] Creating instance with tv event handler');
-
     TVEventControl.enableTVMenuKey();
     this._tvEventHander = new TVEventHandler();
     this._tvEventHander.enable(undefined, this._handleTVEvent);
@@ -44,7 +42,7 @@ class FocusService {
       this._focusedTag[this._activeRoute] = data.tag || null;
 
       console.log(
-        `[FocusService][${this._activeRoute}] Focused tag: ${this.focusedTag}`,
+        `[services/focus][${this._activeRoute}] Focused tag: ${this.focusedTag}`,
       );
     }
   };
@@ -54,24 +52,31 @@ class FocusService {
       return;
     }
 
-    this._previousActiveRoute = this._activeRoute;
     this._activeRoute = route;
 
-    if (this._previousActiveRoute) {
+    if (this.focusedTag) {
       console.log(
-        `[FocusService][${this._activeRoute}] Screen changed, last known tag: ${this.focusedTag}`,
+        `[services/focus][${this._activeRoute}] Previous focused tag: ${this.focusedTag}`,
+      );
+    }
+
+    // on these screens the user can exit the app
+    if ([Route.Discover].includes(route as Route)) {
+      TVEventControl.disableTVMenuKey();
+      console.log(
+        `[services/focus][${this._activeRoute}] TVEventControl: disabled (menu button = exit)`,
+      );
+      // everywhere else the user can navigate back to the previous screen
+    } else {
+      TVEventControl.enableTVMenuKey();
+      console.log(
+        `[services/focus][${this._activeRoute}] TVEventControl: enabled (menu button = back)`,
       );
     }
   }
 
   private _handleBack = () => {
-    console.log(
-      '[FocusService] Back button pressed, this will work for AndroidTV but will NOT trigger for tvOS ❌',
-    );
-
-    if (this._previousActiveRoute) {
-      this.activeRoute = this._previousActiveRoute;
-    }
+    this.clearFocusedTag();
 
     return false;
   };
@@ -85,7 +90,7 @@ class FocusService {
   }
 
   public clearFocusedTag(route?: string) {
-    console.log('[FocusService] Clearing focused tag');
+    console.log(`[services/focus][${this._activeRoute}] Clearing focused tag`);
 
     this._focusedTag[route || this._activeRoute] = null;
   }
