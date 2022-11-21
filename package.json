@@ -6,8 +6,10 @@
   "scripts": {
     "android": "react-native run-android",
     "android:release": "react-native run-android --variant release",
+    "android:logs": "react-native log-android",
     "ios": "react-native run-ios --simulator \"iPhone 14\"",
     "ios:release": "react-native run-ios --simulator \"iPhone 14\" --configuration Release",
+    "ios:logs": "react-native log-ios",
     "tvos": "react-native run-ios --scheme Example-tvOS --simulator \"Apple TV\"",
     "tvos:release": "react-native run-ios --scheme Example-tvOS --simulator \"Apple TV\" --configuration Release",
     "start": "react-native start",
