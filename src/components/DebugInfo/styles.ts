@@ -135,6 +135,9 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
       flexDirection: 'row',
     },
     text,
+    version: {
+      opacity: 0.8,
+    },
     bars: {
       flexDirection: 'row',
       alignItems: 'flex-end',

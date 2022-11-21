@@ -29,9 +29,10 @@ const DebugInfo = () => {
             <Text style={[styles.text, styles.config]}>
               {__DEV__ ? 'DEBUG' : 'RELEASE'}&nbsp;
             </Text>
-            <Text style={styles.text}>
-              V{getVersion()} B{getBuildNumber()}
+            <Text style={[styles.text, styles.version]}>
+              V{getVersion()}&nbsp;
             </Text>
+            <Text style={styles.text}>B{getBuildNumber()}</Text>
           </View>
           <View style={styles.separator} />
           <View style={styles.content}>
