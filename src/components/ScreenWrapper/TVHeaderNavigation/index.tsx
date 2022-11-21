@@ -4,7 +4,7 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import { Route, RouteParams } from 'components/App/Navigation';
+import { Route, RouteParams } from 'navigation';
 import React, { memo, RefObject, useEffect, useRef, useState } from 'react';
 import {
   findNodeHandle,

@@ -1,7 +1,7 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Route, RouteParams } from 'components/App/Navigation';
 import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
+import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { usePopularMovie } from 'store/popular-movies/hooks';
 

@@ -2,34 +2,12 @@ import {
   createStackNavigator,
   StackCardStyleInterpolator,
 } from '@react-navigation/stack';
-import Screen from 'components/App/Screen';
 import React from 'react';
 import { Platform } from 'react-native';
+import Screen from 'screens';
 import FocusService from 'services/focus';
 
-export enum Route {
-  Discover = 'route.discover',
-  Movies = 'route.movies',
-  Shows = 'route.shows',
-  Settings = 'route.settings',
-  Movie = 'route.movie',
-  Show = 'route.show',
-}
-
-export type RouteParams = {
-  [Route.Discover]: undefined;
-  [Route.Movies]: undefined;
-  [Route.Shows]: undefined;
-  [Route.Settings]: undefined;
-  [Route.Movie]: {
-    id: number;
-    title: string;
-  };
-  [Route.Show]: {
-    id: number;
-    title: string;
-  };
-};
+import { Route } from './routes';
 
 const fadeAnimation: StackCardStyleInterpolator = ({ current }) => ({
   cardStyle: {

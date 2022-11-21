@@ -1,8 +1,8 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Route, RouteParams } from 'components/App/Navigation';
 import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import { useTVFocus } from 'hooks/useTVFocus';
+import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { Movie } from 'store/types/movie';
 

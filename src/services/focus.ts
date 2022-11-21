@@ -1,4 +1,4 @@
-import { Route } from 'components/App/Navigation';
+import { Route } from 'navigation';
 import { Component } from 'react';
 import {
   BackHandler,

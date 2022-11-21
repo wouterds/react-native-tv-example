@@ -3,14 +3,14 @@ import DebugInfo from 'components/DebugInfo';
 import { differenceInMilliseconds } from 'date-fns';
 import { withSafeAreaContext } from 'hocs/withSafeAreaContext';
 import ms from 'ms';
+import { Navigation } from 'navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import { LogBox, StatusBar, View } from 'react-native';
 import Config from 'react-native-config';
+import Screen from 'screens';
 import { useApp } from 'store/app/hooks';
 import { withStore } from 'store/withStore';
 
-import Navigation from './Navigation';
-import Screen from './Screen';
 import styles from './styles';
 
 if (Config.DISABLE_YELLOW_BOX) {
