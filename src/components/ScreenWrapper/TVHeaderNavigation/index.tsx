@@ -1,19 +1,14 @@
 import {
   NavigationProp,
-  useIsFocused,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
+import { useTVFocus } from 'hooks/useTVFocus';
 import { Route, RouteParams } from 'navigation';
-import React, { memo, RefObject, useEffect, useRef, useState } from 'react';
-import {
-  findNodeHandle,
-  Platform,
-  TouchableOpacity,
-  TVFocusGuideView,
-  View,
-} from 'react-native';
+import React, { memo } from 'react';
+import { Platform, View } from 'react-native';
 import FocusService from 'services/focus';
+import { findNode } from 'utils/node';
 
 import Button from './Button';
 import styles from './styles';
@@ -21,45 +16,26 @@ import styles from './styles';
 const TVHeaderNavigation = () => {
   const route = useRoute();
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
-  const [refHack, setRefHack] = useState(false);
 
-  // otherwise hasPreferredFocus is not working correctly
-  useIsFocused();
-
-  // make sure refs can be used in the component
-  // the initial render they will be set but their values will be not
-  // yet be available for use in the render function
-  useEffect(() => {
-    setRefHack(true);
-  }, [refHack]);
-
-  const refDiscover = useRef();
-  const refMovies = useRef();
-  const refShows = useRef();
-  const refSettings = useRef();
-
-  // map of refs by route name
-  const refs: Record<string, RefObject<unknown>> = {
-    [Route.Discover]: refDiscover,
-    [Route.Movies]: refMovies,
-    [Route.Shows]: refShows,
-    [Route.Settings]: refSettings,
-  };
-
-  // button ref of current active screen
-  const activeRef = refs[route.name] as RefObject<TouchableOpacity>;
-
-  // target destinations for TVFocusGuideView
-  const destinations = activeRef.current
-    ? [findNodeHandle(activeRef.current) as number]
-    : [];
+  const { ref: refDiscover, nextFocusLeft: nextFocusLeftDiscover } = useTVFocus(
+    { first: true },
+  );
+  const { ref: refShows } = useTVFocus();
+  const {
+    ref: refSettings,
+    nextFocusRight: nextFocusRightSettings,
+    hasTVPreferredFocus: hasTVPreferredFocusSettings,
+  } = useTVFocus({
+    last: true,
+    hasInitialFocus: route.name === Route.Settings,
+  });
 
   if (!Platform.isTV) {
     return null;
   }
 
   return (
-    <TVFocusGuideView style={styles.container} destinations={destinations}>
+    <View style={styles.container}>
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
@@ -68,9 +44,7 @@ const TVHeaderNavigation = () => {
             navigate(Route.Discover);
           }}
           ref={refDiscover}
-          nextFocusLeft={
-            refDiscover?.current && findNodeHandle(refDiscover?.current)
-          }>
+          nextFocusLeft={nextFocusLeftDiscover}>
           Discover
         </Button>
       </View>
@@ -80,8 +54,7 @@ const TVHeaderNavigation = () => {
           onPress={() => {
             FocusService.instance?.clearFocusedTag();
             navigate(Route.Movies);
-          }}
-          ref={refMovies}>
+          }}>
           Movies
         </Button>
       </View>
@@ -93,9 +66,7 @@ const TVHeaderNavigation = () => {
             navigate(Route.Shows);
           }}
           ref={refShows}
-          nextFocusRight={
-            refSettings?.current && findNodeHandle(refSettings?.current)
-          }>
+          nextFocusRight={findNode(refSettings)}>
           Shows
         </Button>
       </View>
@@ -108,17 +79,13 @@ const TVHeaderNavigation = () => {
             navigate(Route.Settings);
           }}
           ref={refSettings}
-          nextFocusLeft={refShows?.current && findNodeHandle(refShows?.current)}
-          nextFocusRight={
-            refSettings?.current && findNodeHandle(refSettings?.current)
-          }
-          hasTVPreferredFocus={
-            !FocusService.instance?.focusedTag && route.name === Route.Settings
-          }>
+          nextFocusLeft={findNode(refShows)}
+          nextFocusRight={nextFocusRightSettings}
+          hasTVPreferredFocus={hasTVPreferredFocusSettings}>
           Settings
         </Button>
       </View>
-    </TVFocusGuideView>
+    </View>
   );
 };
 
