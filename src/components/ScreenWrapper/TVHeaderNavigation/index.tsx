@@ -63,7 +63,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
-          clearOnBlur
           onPress={() => {
             FocusService.instance?.clearFocusedTag();
             navigate(Route.Discover);
@@ -78,7 +77,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Movies}
-          clearOnBlur
           onPress={() => {
             FocusService.instance?.clearFocusedTag();
             navigate(Route.Movies);
@@ -90,7 +88,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Shows}
-          clearOnBlur
           onPress={() => {
             FocusService.instance?.clearFocusedTag();
             navigate(Route.Shows);
@@ -106,7 +103,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Settings}
-          clearOnBlur
           onPress={() => {
             FocusService.instance?.clearFocusedTag();
             navigate(Route.Settings);

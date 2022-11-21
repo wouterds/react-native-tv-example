@@ -16,9 +16,7 @@ import {
 
 import { TouchableContextProvider } from './context';
 
-interface Props extends TouchableOpacityProps, ViewProps {
-  clearOnBlur?: boolean;
-}
+interface Props extends TouchableOpacityProps, ViewProps {}
 
 export type TouchableProps = Props;
 
