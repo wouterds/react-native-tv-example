@@ -57,9 +57,15 @@ yarn ios
 # ios release
 yarn ios:release
 
-# android debug
+# tvos debug
+yarn tvos
+
+# tvos release
+yarn tvos:release
+
+# android (TV) debug
 yarn android
 
-# android release
+# android (TV) release
 yarn android:release
 ```
