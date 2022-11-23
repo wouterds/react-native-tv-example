@@ -1,5 +1,13 @@
 import { useIsFocused } from '@react-navigation/native';
-import { ReactNode, RefObject, useCallback, useMemo, useState } from 'react';
+import { focus } from '@wouterds/react-native-tv-focus';
+import {
+  ReactNode,
+  RefObject,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import FocusService from 'services/focus';
 import { findNode } from 'utils/node';
 
@@ -65,6 +73,23 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
     },
     [setRef, ref],
   );
+
+  // workaround for focus not being properly set using props
+  // should follow up upstream what the developments are around this
+  // https://github.com/react-native-tvos/react-native-tvos/issues?q=focus
+  useEffect(() => {
+    if (!hasTVPreferredFocus) {
+      return;
+    }
+
+    const tag = findNode(ref);
+    if (!tag) {
+      return;
+    }
+
+    // try to focus programatically
+    focus(tag);
+  }, [hasTVPreferredFocus, ref]);
 
   return useMemo(
     () => ({
