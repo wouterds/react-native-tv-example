@@ -287,6 +287,8 @@ PODS:
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
+  - react-native-tv-focus (1.0.4):
+    - React-Core
   - React-perflogger (0.69.6-0)
   - React-RCTAnimation (0.69.6-0):
     - RCT-Folly (= 2021.06.28.00-v2)
@@ -418,6 +420,7 @@ DEPENDENCIES:
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-tv-focus (from `../node_modules/@wouterds/react-native-tv-focus`)"
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -505,6 +508,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-flipper"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-tv-focus:
+    :path: "../node_modules/@wouterds/react-native-tv-focus"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTAnimation:
@@ -576,6 +581,7 @@ SPEC CHECKSUMS:
   react-native-config: bcafda5b4c51491ee1b0e1d0c4e3905bc7b56c1b
   react-native-flipper: 3d9e214b412b3ce81e0d73bdcdc8097c0b0e8578
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
+  react-native-tv-focus: e1160875a4b4d823c529c74e721cdca1e7ac64ee
   React-perflogger: b4286f50e775f757b356ed77d993e70ab4041c6e
   React-RCTAnimation: dbf81b8d90128de2413ba659269bcc2d104d7794
   React-RCTBlob: 5384bf7d73e16b1c61324e58991236bd1bbd569e

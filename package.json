@@ -25,6 +25,7 @@
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.4",
     "@reduxjs/toolkit": "^1.9.0",
+    "@wouterds/react-native-tv-focus": "^1.0.3",
     "axios": "^1.1.3",
     "date-fns": "^2.29.3",
     "ms": "^2.1.3",
