@@ -89,6 +89,14 @@ export const useTVFocus = <T = ReactNode>(options?: UseTVFocusOptions) => {
 
     // try to focus programatically
     focus(tag);
+
+    // for some reason on AndroidTV it only works with a delay of at least 1ms
+    // which means it will be invoked after the render and only works then
+    // that could indicate it's somewhere in the render cycle that it breaks
+    const timeout = setTimeout(() => focus(tag), 1);
+
+    // clear timeout in the event unmount happens before timeout
+    return () => clearTimeout(timeout);
   }, [hasTVPreferredFocus, ref]);
 
   return useMemo(
