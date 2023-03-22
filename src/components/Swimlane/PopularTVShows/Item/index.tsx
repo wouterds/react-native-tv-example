@@ -12,17 +12,14 @@ interface Props {
   item: Show | null;
   first: boolean;
   last: boolean;
-  hasInitialFocus?: boolean;
 }
 
-const PopularTVShowsItem = ({ item, first, last, hasInitialFocus }: Props) => {
+const PopularTVShowsItem = ({ item, first, last }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
-  const { ref, hasTVPreferredFocus, nextFocusLeft, nextFocusRight } =
-    useTVFocus({
-      hasInitialFocus,
-      first,
-      last,
-    });
+  const { ref, nextFocusLeft, nextFocusRight } = useTVFocus({
+    first,
+    last,
+  });
 
   if (!item) {
     return null;
@@ -34,8 +31,7 @@ const PopularTVShowsItem = ({ item, first, last, hasInitialFocus }: Props) => {
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}
       ref={ref}
       nextFocusLeft={nextFocusLeft}
-      nextFocusRight={nextFocusRight}
-      hasTVPreferredFocus={hasTVPreferredFocus}>
+      nextFocusRight={nextFocusRight}>
       <Card.Portrait item={item} />
     </Touchable>
   );

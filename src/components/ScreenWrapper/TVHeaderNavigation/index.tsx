@@ -21,14 +21,10 @@ const TVHeaderNavigation = () => {
     { first: true },
   );
   const { ref: refShows } = useTVFocus();
-  const {
-    ref: refSettings,
-    nextFocusRight: nextFocusRightSettings,
-    hasTVPreferredFocus: hasTVPreferredFocusSettings,
-  } = useTVFocus({
-    last: true,
-    hasInitialFocus: route.name === Route.Settings,
-  });
+  const { ref: refSettings, nextFocusRight: nextFocusRightSettings } =
+    useTVFocus({
+      last: true,
+    });
 
   if (!Platform.isTV) {
     return null;
@@ -80,8 +76,7 @@ const TVHeaderNavigation = () => {
           }}
           ref={refSettings}
           nextFocusLeft={findNode(refShows)}
-          nextFocusRight={nextFocusRightSettings}
-          hasTVPreferredFocus={hasTVPreferredFocusSettings}>
+          nextFocusRight={nextFocusRightSettings}>
           Settings
         </Button>
       </View>
