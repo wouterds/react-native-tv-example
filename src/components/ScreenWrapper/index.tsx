@@ -6,7 +6,6 @@ import {
   ScrollView,
   TVEventControl,
   TVFocusGuideView,
-  View,
   ViewStyle,
 } from 'react-native';
 
@@ -35,15 +34,15 @@ const ScreenWrapper = ({ children, style, header }: Props) => {
   }, [route, isFocused]);
 
   return (
-    <View style={[styles.container, style]}>
+    <TVFocusGuideView style={[styles.container, style]} autoFocus>
       <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
         {header && <TVHeaderNavigation />}
-        <TVFocusGuideView autoFocus>{children}</TVFocusGuideView>
+        {children}
       </ScrollView>
-    </View>
+    </TVFocusGuideView>
   );
 };
 
