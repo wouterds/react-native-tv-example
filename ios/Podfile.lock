@@ -281,7 +281,7 @@ PODS:
     - React-Core
   - react-native-flipper (0.125.0):
     - React-Core
-  - react-native-safe-area-context (4.4.1):
+  - react-native-safe-area-context (4.5.1):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -580,7 +580,7 @@ SPEC CHECKSUMS:
   React-logger: f0e82c6aa0088d3c6e748732fee17c1d7181fc22
   react-native-config: 5330c8258265c1e5fdb8c009d2cabd6badd96727
   react-native-flipper: 3d9e214b412b3ce81e0d73bdcdc8097c0b0e8578
-  react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
+  react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
   React-perflogger: c3dddda09a2437d43bd2dc0b5c0db88efeebd7e0
   React-RCTAnimation: c5c1a79fb81614cbe18ffa536a82e877b03eaa97
   React-RCTBlob: 676e8e63d1a15c443e1ee2ccac5458c21c8de4b8
