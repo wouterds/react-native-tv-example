@@ -1,6 +1,6 @@
 import FastImageBackground from 'components/FastImageBackground';
-import { useTouchable } from 'components/Touchable/useTouchable';
-import { useComputedStyles } from 'hooks/useComputedStyles';
+import { useTouchable } from 'components/Touchable';
+import { useComputedStyles } from 'hooks';
 import React, { memo } from 'react';
 import { Text, View } from 'react-native';
 import { Movie } from 'store/types/movie';

@@ -1,6 +1,5 @@
-import { useTouchable } from 'components/Touchable/useTouchable';
-import { withTouchable } from 'components/Touchable/withTouchable';
-import { useComputedStyles } from 'hooks/useComputedStyles';
+import { useTouchable, withTouchable } from 'components/Touchable';
+import { useComputedStyles } from 'hooks';
 import React, { memo } from 'react';
 import { Text, View } from 'react-native';
 

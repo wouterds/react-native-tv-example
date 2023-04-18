@@ -1,6 +1,5 @@
 import { useDeviceOrientation } from '@react-native-community/hooks';
-import { useComputedStyles } from 'hooks/useComputedStyles';
-import { useFPSMetrics } from 'hooks/useFPSMetrics';
+import { useComputedStyles, useFPSMetrics } from 'hooks';
 import React, { memo, useMemo } from 'react';
 import { Text, View } from 'react-native';
 import { getReadableVersion } from 'react-native-device-info';

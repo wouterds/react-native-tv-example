@@ -57,3 +57,6 @@ const Touchable = forwardRef(
 );
 
 export default memo(Touchable);
+
+export * from './useTouchable';
+export * from './withTouchable';
