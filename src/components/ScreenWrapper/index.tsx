@@ -1,15 +1,16 @@
 import { useIsFocused, useRoute } from '@react-navigation/native';
+import TVHeaderNavigation from 'components/TVHeaderNavigation';
 import { Route } from 'navigation';
 import React, { memo, ReactNode, useEffect } from 'react';
 import {
   ScrollView,
   TVEventControl,
   TVFocusGuideView,
+  View,
   ViewStyle,
 } from 'react-native';
 
 import styles from './styles';
-import TVHeaderNavigation from './TVHeaderNavigation';
 
 interface Props {
   children: ReactNode;
@@ -34,21 +35,15 @@ const ScreenWrapper = ({ children, style, header }: Props) => {
   }, [route, isFocused]);
 
   return (
-    <TVFocusGuideView
-      style={[styles.container, style]}
-      trapFocusLeft
-      trapFocusRight
-      trapFocusUp
-      trapFocusDown
-      autoFocus>
+    <View style={[styles.container, style]}>
       <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
         {header && <TVHeaderNavigation />}
-        {children}
+        <TVFocusGuideView autoFocus>{children}</TVFocusGuideView>
       </ScrollView>
-    </TVFocusGuideView>
+    </View>
   );
 };
 
