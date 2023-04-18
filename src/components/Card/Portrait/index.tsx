@@ -1,6 +1,7 @@
 import FastImageBackground from 'components/FastImageBackground';
 import { useTouchable } from 'components/Touchable/useTouchable';
-import React, { memo, useMemo } from 'react';
+import { useComputedStyles } from 'hooks/useComputedStyles';
+import React, { memo } from 'react';
 import { Text, View } from 'react-native';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
@@ -13,7 +14,7 @@ interface Props {
 
 const PortraitCard = ({ item }: Props) => {
   const { hasFocus } = useTouchable();
-  const styles = useMemo(() => createStyles({ hasFocus }), [hasFocus]);
+  const styles = useComputedStyles(createStyles, { hasFocus });
 
   return (
     <View style={styles.container}>

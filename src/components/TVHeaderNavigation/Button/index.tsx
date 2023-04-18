@@ -1,6 +1,7 @@
 import { useTouchable } from 'components/Touchable/useTouchable';
 import { withTouchable } from 'components/Touchable/withTouchable';
-import React, { memo, useMemo } from 'react';
+import { useComputedStyles } from 'hooks/useComputedStyles';
+import React, { memo } from 'react';
 import { Text, View } from 'react-native';
 
 import createStyles from './styles';
@@ -13,10 +14,7 @@ type Props = {
 const Button = (props: Props) => {
   const { hasFocus } = useTouchable();
   const active = props.active || false;
-  const styles = useMemo(
-    () => createStyles({ hasFocus, active }),
-    [hasFocus, active],
-  );
+  const styles = useComputedStyles(createStyles, { hasFocus, active });
 
   if (!props.children) {
     return null;

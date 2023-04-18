@@ -1,4 +1,5 @@
 import { useDeviceOrientation } from '@react-native-community/hooks';
+import { useComputedStyles } from 'hooks/useComputedStyles';
 import { useFPSMetrics } from 'hooks/useFPSMetrics';
 import React, { memo, useMemo } from 'react';
 import { Text, View } from 'react-native';
@@ -15,11 +16,7 @@ const DebugInfo = () => {
     () => Math.round((1 - average / 60) * 100) / 100,
     [average],
   );
-
-  const styles = useMemo(
-    () => createStyles({ cpu, cpuAvg, orientation }),
-    [cpu, cpuAvg, orientation],
-  );
+  const styles = useComputedStyles(createStyles, { cpu, cpuAvg, orientation });
 
   return (
     <View style={styles.container}>
