@@ -23,7 +23,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
-          // hasTVPreferredFocus={route.name === Route.Discover}
           onPress={() => {
             navigate(Route.Discover);
           }}>
@@ -33,7 +32,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Movies}
-          // hasTVPreferredFocus={route.name === Route.Movies}
           onPress={() => {
             navigate(Route.Movies);
           }}>
@@ -43,7 +41,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Shows}
-          // hasTVPreferredFocus={route.name === Route.Shows}
           onPress={() => {
             navigate(Route.Shows);
           }}>
@@ -54,7 +51,6 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Settings}
-          // hasTVPreferredFocus={route.name === Route.Settings}
           onPress={() => {
             navigate(Route.Settings);
           }}>
