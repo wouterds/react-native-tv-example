@@ -24,6 +24,7 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Discover}
+          hasTVPreferredFocus={route.name === Route.Discover}
           onPress={() => {
             dispatch(StackActions.replace(Route.Discover));
           }}>
@@ -33,6 +34,7 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Movies}
+          hasTVPreferredFocus={route.name === Route.Movies}
           onPress={() => {
             dispatch(StackActions.replace(Route.Movies));
           }}>
@@ -42,6 +44,7 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Shows}
+          hasTVPreferredFocus={route.name === Route.Shows}
           onPress={() => {
             dispatch(StackActions.replace(Route.Shows));
           }}>
@@ -52,6 +55,7 @@ const TVHeaderNavigation = () => {
       <View style={styles.item}>
         <Button
           active={route.name === Route.Settings}
+          hasTVPreferredFocus={route.name === Route.Settings}
           onPress={() => {
             dispatch(StackActions.replace(Route.Settings));
           }}>
