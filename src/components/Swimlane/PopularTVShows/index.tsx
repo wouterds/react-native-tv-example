@@ -22,13 +22,7 @@ const PopularTVShowsSwimlane = ({ hideTitle }: Props) => {
         showsVerticalScrollIndicator={false}
         data={popularTVShows}
         keyExtractor={({ id }) => `swimlane.popular-tv-shows.${id}`}
-        renderItem={({ item, index }) => (
-          <Item
-            item={item}
-            first={index === 0}
-            last={index === popularTVShows.length - 1}
-          />
-        )}
+        renderItem={({ item }) => <Item item={item} />}
       />
     </View>
   );

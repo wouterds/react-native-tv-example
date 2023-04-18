@@ -5,7 +5,6 @@ import {
 import React from 'react';
 import { Platform } from 'react-native';
 import Screen from 'screens';
-import FocusService from 'services/focus';
 
 import { Route } from './routes';
 
@@ -28,17 +27,7 @@ const Navigation = () => {
           backgroundColor: '#0D0F13',
         },
         headerShadowVisible: false,
-      }}
-      screenListeners={() => ({
-        state: (e: any) => {
-          const { index, routes } = e.data.state;
-          const route = routes[index];
-
-          if (FocusService.instance) {
-            FocusService.instance.activeRoute = route.name;
-          }
-        },
-      })}>
+      }}>
       <RootStack.Screen
         name={Route.Discover}
         component={Screen.Discover}
