@@ -7,9 +7,10 @@ import styles from './styles';
 
 interface Props {
   hideTitle?: boolean;
+  initialFocus?: boolean;
 }
 
-const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
+const PopularMoviesSwimlane = ({ hideTitle, initialFocus }: Props) => {
   const { popularMovies } = usePopularMovies();
 
   return (
@@ -23,7 +24,13 @@ const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
           showsVerticalScrollIndicator={false}
           data={popularMovies}
           keyExtractor={({ id }) => `swimlane.popular-movies.${id}`}
-          renderItem={({ item }) => <Item item={item} />}
+          renderItem={({ item, index }) => (
+            <Item
+              // when initialFocus is true, we want to focus the first item in the list
+              hasTVPreferredFocus={index === 0 && initialFocus}
+              item={item}
+            />
+          )}
         />
       </View>
     </TVFocusGuideView>
