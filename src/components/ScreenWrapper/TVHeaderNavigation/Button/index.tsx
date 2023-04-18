@@ -24,7 +24,9 @@ const Button = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{props.children}</Text>
+      <View style={styles.button}>
+        <Text style={styles.text}>{props.children}</Text>
+      </View>
     </View>
   );
 };

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const createStyles = ({ active, hasFocus }: Props) => {
-  const container: ViewStyle = {
+  const button: ViewStyle = {
     paddingVertical: size(6),
     paddingHorizontal: size(18),
     borderColor: 'rgba(255, 255, 255, 0.05)',
@@ -23,7 +23,7 @@ const createStyles = ({ active, hasFocus }: Props) => {
   };
 
   if (Platform.OS === 'ios') {
-    container.borderColor = 'transparent';
+    button.borderColor = 'transparent';
   }
 
   if (active) {
@@ -31,11 +31,15 @@ const createStyles = ({ active, hasFocus }: Props) => {
   }
 
   if (hasFocus) {
-    container.borderColor = '#38eabe';
+    button.borderColor = '#38eabe';
   }
 
   return StyleSheet.create({
-    container,
+    container: {
+      paddingTop: size(20),
+      paddingBottom: size(10),
+    },
+    button,
     text,
   });
 };

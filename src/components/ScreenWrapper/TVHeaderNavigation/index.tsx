@@ -19,49 +19,47 @@ const TVHeaderNavigation = () => {
   }
 
   return (
-    <TVFocusGuideView trapFocusLeft trapFocusRight>
-      <View style={styles.container}>
-        <View style={styles.item}>
-          <Button
-            active={route.name === Route.Discover}
-            hasTVPreferredFocus={route.name === Route.Discover}
-            onPress={() => {
-              navigate(Route.Discover);
-            }}>
-            Discover
-          </Button>
-        </View>
-        <View style={styles.item}>
-          <Button
-            active={route.name === Route.Movies}
-            hasTVPreferredFocus={route.name === Route.Movies}
-            onPress={() => {
-              navigate(Route.Movies);
-            }}>
-            Movies
-          </Button>
-        </View>
-        <View style={styles.item}>
-          <Button
-            active={route.name === Route.Shows}
-            hasTVPreferredFocus={route.name === Route.Shows}
-            onPress={() => {
-              navigate(Route.Shows);
-            }}>
-            Shows
-          </Button>
-        </View>
-        <View style={styles.spacer} />
-        <View style={styles.item}>
-          <Button
-            active={route.name === Route.Settings}
-            hasTVPreferredFocus={route.name === Route.Settings}
-            onPress={() => {
-              navigate(Route.Settings);
-            }}>
-            Settings
-          </Button>
-        </View>
+    <TVFocusGuideView trapFocusLeft trapFocusRight style={styles.container}>
+      <View style={styles.item}>
+        <Button
+          active={route.name === Route.Discover}
+          // hasTVPreferredFocus={route.name === Route.Discover}
+          onPress={() => {
+            navigate(Route.Discover);
+          }}>
+          Discover
+        </Button>
+      </View>
+      <View style={styles.item}>
+        <Button
+          active={route.name === Route.Movies}
+          // hasTVPreferredFocus={route.name === Route.Movies}
+          onPress={() => {
+            navigate(Route.Movies);
+          }}>
+          Movies
+        </Button>
+      </View>
+      <View style={styles.item}>
+        <Button
+          active={route.name === Route.Shows}
+          // hasTVPreferredFocus={route.name === Route.Shows}
+          onPress={() => {
+            navigate(Route.Shows);
+          }}>
+          Shows
+        </Button>
+      </View>
+      <View style={styles.spacer} />
+      <View style={styles.item}>
+        <Button
+          active={route.name === Route.Settings}
+          // hasTVPreferredFocus={route.name === Route.Settings}
+          onPress={() => {
+            navigate(Route.Settings);
+          }}>
+          Settings
+        </Button>
       </View>
     </TVFocusGuideView>
   );
