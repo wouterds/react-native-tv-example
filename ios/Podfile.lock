@@ -347,7 +347,7 @@ PODS:
     - React-perflogger (= 0.69.8-1)
   - RNCMaskedView (0.2.9):
     - React-Core
-  - RNDeviceInfo (10.3.0):
+  - RNDeviceInfo (10.6.0):
     - React-Core
   - RNFastImage (8.6.3):
     - React-Core
@@ -592,7 +592,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 10b9de31368201af527b670d562f07d4d8e9a4b0
   ReactCommon: 74ed9fec71646d5a77e71a58a56e691871a037d7
   RNCMaskedView: 949696f25ec596bfc697fc88e6f95cf0c79669b6
-  RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
+  RNDeviceInfo: 475a4c447168d0ad4c807e48ef5e0963a0f4eb1b
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
