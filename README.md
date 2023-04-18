@@ -23,28 +23,6 @@ yarn pods
 cp .env.example .env
 ```
 
-### VSCode
-
-#### Plugins
-
-- https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-
-#### Workspace settings
-
-```javascript
-{
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-  },
-}
-```
-
 ## Running
 
 ```bash
