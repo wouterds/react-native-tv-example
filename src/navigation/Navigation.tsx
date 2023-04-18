@@ -1,18 +1,9 @@
-import {
-  createStackNavigator,
-  StackCardStyleInterpolator,
-} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { Platform } from 'react-native';
 import Screen from 'screens';
 
 import { Route } from './routes';
-
-const fadeAnimation: StackCardStyleInterpolator = ({ current }) => ({
-  cardStyle: {
-    opacity: current.progress,
-  },
-});
 
 const RootStack = createStackNavigator();
 const Navigation = () => {
@@ -34,7 +25,6 @@ const Navigation = () => {
         options={{
           title: 'Discover',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
         }}
       />
       <RootStack.Screen
@@ -43,7 +33,6 @@ const Navigation = () => {
         options={() => ({
           title: 'Movies',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
@@ -52,7 +41,6 @@ const Navigation = () => {
         options={() => ({
           title: 'Shows',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
@@ -61,7 +49,6 @@ const Navigation = () => {
         options={() => ({
           title: 'Settings',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
         })}
       />
       <RootStack.Screen
