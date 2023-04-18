@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import createStyles from './styles';
 
 const DebugInfo = () => {
-  const { landscape } = useDeviceOrientation();
+  const orientation = useDeviceOrientation();
   const { fps, average } = useFPSMetrics(); // "FPS" kinda, but not really
   const cpu = useMemo(() => Math.round((1 - fps / 60) * 100) / 100, [fps]);
   const cpuAvg = useMemo(
@@ -17,8 +17,8 @@ const DebugInfo = () => {
   );
 
   const styles = useMemo(
-    () => createStyles({ cpu, cpuAvg, landscape }),
-    [cpu, cpuAvg, landscape],
+    () => createStyles({ cpu, cpuAvg, orientation }),
+    [cpu, cpuAvg, orientation],
   );
 
   return (

@@ -4,10 +4,10 @@ import { size } from 'utils/styles';
 interface Props {
   cpu: number;
   cpuAvg: number;
-  landscape: boolean;
+  orientation: 'portrait' | 'landscape';
 }
 
-const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
+const createStyles = ({ cpu, cpuAvg, orientation }: Props) => {
   const container: ViewStyle = {
     position: 'absolute',
     top: 0,
@@ -40,7 +40,7 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
       container.marginTop = -size(30);
       container.marginRight = -size(40);
     }
-  } else if (landscape) {
+  } else if (orientation === 'landscape') {
     container.paddingTop = size(8);
     container.paddingRight = 0;
 
