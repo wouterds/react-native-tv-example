@@ -1,5 +1,6 @@
 import {
   NavigationProp,
+  StackActions,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
@@ -12,7 +13,7 @@ import styles from './styles';
 
 const TVHeaderNavigation = () => {
   const route = useRoute();
-  const { navigate } = useNavigation<NavigationProp<RouteParams>>();
+  const { dispatch } = useNavigation<NavigationProp<RouteParams>>();
 
   if (!Platform.isTV) {
     return null;
@@ -24,7 +25,7 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Discover}
           onPress={() => {
-            navigate(Route.Discover);
+            dispatch(StackActions.replace(Route.Discover));
           }}>
           Discover
         </Button>
@@ -33,7 +34,7 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Movies}
           onPress={() => {
-            navigate(Route.Movies);
+            dispatch(StackActions.replace(Route.Movies));
           }}>
           Movies
         </Button>
@@ -42,7 +43,7 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Shows}
           onPress={() => {
-            navigate(Route.Shows);
+            dispatch(StackActions.replace(Route.Shows));
           }}>
           Shows
         </Button>
@@ -52,7 +53,7 @@ const TVHeaderNavigation = () => {
         <Button
           active={route.name === Route.Settings}
           onPress={() => {
-            navigate(Route.Settings);
+            dispatch(StackActions.replace(Route.Settings));
           }}>
           Settings
         </Button>
