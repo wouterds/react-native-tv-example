@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginHorizontal: size(25),
   },
   banner: {
-    marginVertical: size(20),
+    marginVertical: size(10),
   },
 });
 

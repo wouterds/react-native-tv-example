@@ -37,7 +37,6 @@ const createStyles = ({ active, hasFocus }: Props) => {
   return StyleSheet.create({
     container: {
       paddingTop: size(20),
-      paddingBottom: size(10),
     },
     button,
     text,

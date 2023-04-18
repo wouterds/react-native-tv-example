@@ -2,9 +2,8 @@ import { Platform, StyleSheet, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
 const container: ViewStyle = {
-  marginBottom: size(5),
+  marginBottom: size(10),
   paddingHorizontal: size(20),
-  flex: 1,
   flexDirection: 'row',
 };
 
