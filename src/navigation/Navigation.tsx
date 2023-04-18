@@ -1,23 +1,14 @@
-import {
-  createStackNavigator,
-  StackCardStyleInterpolator,
-} from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { Platform } from 'react-native';
 import Screen from 'screens';
 
 import { Route } from './routes';
 
-const fadeAnimation: StackCardStyleInterpolator = ({ current }) => ({
-  cardStyle: {
-    opacity: current.progress,
-  },
-});
-
-const RootStack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 const Navigation = () => {
   return (
-    <RootStack.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerTintColor: '#38eabe',
         headerTitleStyle: {
@@ -28,43 +19,43 @@ const Navigation = () => {
         },
         headerShadowVisible: false,
       }}>
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Discover}
         component={Screen.Discover}
         options={{
           title: 'Discover',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
+          animation: 'fade',
         }}
       />
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Movies}
         component={Screen.Movies}
         options={() => ({
           title: 'Movies',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
+          animation: 'fade',
         })}
       />
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Shows}
         component={Screen.Shows}
         options={() => ({
           title: 'Shows',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
+          animation: 'fade',
         })}
       />
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Settings}
         component={Screen.Settings}
         options={() => ({
           title: 'Settings',
           headerShown: !Platform.isTV,
-          cardStyleInterpolator: fadeAnimation,
+          animation: 'fade',
         })}
       />
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Movie}
         component={Screen.Movie}
         options={({ route }) => ({
@@ -72,7 +63,7 @@ const Navigation = () => {
           headerShown: !Platform.isTV,
         })}
       />
-      <RootStack.Screen
+      <Stack.Screen
         name={Route.Show}
         component={Screen.Show}
         options={({ route }) => ({
@@ -80,7 +71,7 @@ const Navigation = () => {
           headerShown: !Platform.isTV,
         })}
       />
-    </RootStack.Navigator>
+    </Stack.Navigator>
   );
 };
 
