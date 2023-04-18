@@ -5,8 +5,8 @@ import React, { memo } from 'react';
 const DiscoverScreen = () => {
   return (
     <ScreenWrapper header>
-      <Swimlane.PopularMovies />
       <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies />
     </ScreenWrapper>
   );
 };
