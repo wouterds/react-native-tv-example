@@ -7,6 +7,9 @@
 ## Setup
 
 ```bash
+# switch node version
+nvm install
+
 # install dependencies
 yarn
 
