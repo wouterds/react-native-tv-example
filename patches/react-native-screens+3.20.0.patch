@@ -1,0 +1,55 @@
+diff --git a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt
+index 86a7654..1693c8a 100644
+--- a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt
++++ b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt
+@@ -4,12 +4,7 @@ import android.annotation.SuppressLint
+ import android.content.Context
+ import android.graphics.Color
+ import android.os.Bundle
+-import android.view.LayoutInflater
+-import android.view.Menu
+-import android.view.MenuInflater
+-import android.view.MenuItem
+-import android.view.View
+-import android.view.ViewGroup
++import android.view.*
+ import android.view.animation.Animation
+ import android.view.animation.AnimationSet
+ import android.view.animation.Transformation
+@@ -25,6 +20,7 @@ class ScreenStackFragment : ScreenFragment {
+     private var mToolbar: Toolbar? = null
+     private var mShadowHidden = false
+     private var mIsTranslucent = false
++    private var mLastFocusedElement: View? = null
+ 
+     var searchView: CustomSearchView? = null
+     var onSearchViewCreate: ((searchView: CustomSearchView) -> Unit)? = null
+@@ -38,6 +34,28 @@ class ScreenStackFragment : ScreenFragment {
+         )
+     }
+ 
++    private fun getDeepestFocusedChild(): View? {
++        var v: View? = this.screen
++        while (v != null) {
++            if (v.isFocused) return v
++            v = if (v is ViewGroup) v.focusedChild else null
++        }
++        return null
++    }
++
++    override fun onStop() {
++        mLastFocusedElement = getDeepestFocusedChild()
++        super.onStop()
++    }
++
++    override fun onStart() {
++        mLastFocusedElement?.let {
++            it.requestFocus()
++        }
++
++        super.onStart()
++    }
++
+     fun removeToolbar() {
+         mAppBarLayout?.let {
+             mToolbar?.let { toolbar ->
