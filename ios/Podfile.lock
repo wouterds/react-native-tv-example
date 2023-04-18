@@ -275,9 +275,9 @@ PODS:
   - React-jsinspector (0.69.8-1)
   - React-logger (0.69.8-1):
     - glog
-  - react-native-config (1.4.11):
-    - react-native-config/App (= 1.4.11)
-  - react-native-config/App (1.4.11):
+  - react-native-config (1.5.0):
+    - react-native-config/App (= 1.5.0)
+  - react-native-config/App (1.5.0):
     - React-Core
   - react-native-flipper (0.125.0):
     - React-Core
@@ -578,7 +578,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 8a5a414e4101eeabcf9a2297e203fd48f4b14276
   React-jsinspector: 6ce39feccf99bd891341bd656b83fff17515b790
   React-logger: f0e82c6aa0088d3c6e748732fee17c1d7181fc22
-  react-native-config: bcafda5b4c51491ee1b0e1d0c4e3905bc7b56c1b
+  react-native-config: 5330c8258265c1e5fdb8c009d2cabd6badd96727
   react-native-flipper: 3d9e214b412b3ce81e0d73bdcdc8097c0b0e8578
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   React-perflogger: c3dddda09a2437d43bd2dc0b5c0db88efeebd7e0
