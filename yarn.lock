@@ -5969,10 +5969,10 @@ react-native-screens@^3.18.2:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-"react-native@npm:react-native-tvos@0.69.8-0":
-  version "0.69.8-0"
-  resolved "https://registry.yarnpkg.com/react-native-tvos/-/react-native-tvos-0.69.8-0.tgz#686f19d2588c16f6928b7a1c337081fd78616e61"
-  integrity sha512-KwiUO2xBzeQs6pFbRwkJm0EjYXdWIGGDTrwiH685NiHrLep0kHmV/W244yhXOVyIiHAjyp7qBFHteQM5cmndAw==
+"react-native@npm:react-native-tvos@0.69.8-1":
+  version "0.69.8-1"
+  resolved "https://registry.yarnpkg.com/react-native-tvos/-/react-native-tvos-0.69.8-1.tgz#15fc6800e60bbb201cb3c814df66f8693d4cb356"
+  integrity sha512-jMLn2L9M1Go500/gyiKc0JvcGikyG58jN7arLcyw2iYJOLMRYejPmrqw4s0C/zp9iEhRF0WOXsynenKB/OpYYA==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^8.0.4"
