@@ -18,7 +18,7 @@ const createStyles = ({ active, hasFocus }: Props) => {
 
   const text: TextStyle = {
     fontSize: size(16),
-    fontWeight: '500',
+    fontWeight: '600',
     color: '#FFF',
   };
 

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   title: {
     paddingHorizontal: size(25),
     fontSize: size(18),
-    fontWeight: '500',
+    fontWeight: '700',
     color: '#fff',
   },
 });
