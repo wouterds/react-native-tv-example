@@ -67,7 +67,7 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
     width: size(3),
     height: size(4),
     borderRadius: size(1),
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   };
 
   const live: ViewStyle = { marginBottom: size(1.5) };
@@ -135,9 +135,6 @@ const createStyles = ({ cpu, cpuAvg, landscape }: Props) => {
       flexDirection: 'row',
     },
     text,
-    version: {
-      opacity: 0.8,
-    },
     bars: {
       flexDirection: 'row',
       alignItems: 'flex-end',
