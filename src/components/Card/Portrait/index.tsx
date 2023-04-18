@@ -11,7 +11,7 @@ interface Props {
   item: Show | Movie;
 }
 
-const ShowCard = ({ item }: Props) => {
+const PortraitCard = ({ item }: Props) => {
   const { hasFocus } = useTouchable();
   const styles = useMemo(() => createStyles({ hasFocus }), [hasFocus]);
 
@@ -35,4 +35,4 @@ const ShowCard = ({ item }: Props) => {
   );
 };
 
-export default memo(ShowCard);
+export default memo(PortraitCard);
