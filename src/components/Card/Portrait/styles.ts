@@ -1,21 +1,18 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
-const aspectRatio = 1.5;
 const width = size(130);
-const height = width * aspectRatio;
 
 interface Props {
   hasFocus?: boolean;
 }
 
 const createStyles = ({ hasFocus }: Props) => {
-  const focusArea: ViewStyle = {
+  const content: ViewStyle = {
     borderRadius: size(8),
     borderWidth: size(2),
     borderColor: 'transparent',
     overflow: 'hidden',
-    width: width + size(2) * 2,
   };
 
   const title: TextStyle = {
@@ -25,7 +22,7 @@ const createStyles = ({ hasFocus }: Props) => {
   };
 
   if (hasFocus) {
-    focusArea.borderColor = '#38eabe';
+    content.borderColor = '#38eabe';
     title.color = '#38eabe';
   }
 
@@ -33,15 +30,13 @@ const createStyles = ({ hasFocus }: Props) => {
     container: {
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    content: {
-      width: width + size(2) * 2 + size(6),
-      marginRight: size(8),
-    },
-    focusArea,
-    coverImage: {
       width,
-      height,
+      marginRight: size(12),
+    },
+    content,
+    image: {
+      aspectRatio: 2 / 3,
+      width: '100%',
       borderRadius: size(6),
       overflow: 'hidden',
       resizeMode: 'cover',

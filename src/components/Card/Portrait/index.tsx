@@ -18,20 +18,18 @@ const ShowCard = ({ item }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.focusArea}>
-          <FastImageBackground
-            source={{
-              uri: item.poster_url,
-            }}
-            style={styles.coverImage}
-          />
-        </View>
-        <View style={styles.info}>
-          <Text style={styles.title} numberOfLines={1}>
-            {'name' in item && item.name}
-            {'title' in item && item.title}
-          </Text>
-        </View>
+        <FastImageBackground
+          source={{
+            uri: item.poster_url,
+          }}
+          style={styles.image}
+        />
+      </View>
+      <View style={styles.info}>
+        <Text style={styles.title} numberOfLines={1}>
+          {'name' in item && item.name}
+          {'title' in item && item.title}
+        </Text>
       </View>
     </View>
   );
