@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: size(25),
   },
+  banner: {
+    marginVertical: size(20),
+  },
 });
 
 export default styles;
