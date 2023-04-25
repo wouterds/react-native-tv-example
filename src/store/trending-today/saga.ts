@@ -15,7 +15,7 @@ const TAG = '[store/trending-today/saga]';
 function* fetchTrendingTodayFlow() {
   const start = new Date();
 
-  console.log(TAG, 'fetching trending today');
+  console.log(TAG, 'fetching trending today...');
 
   const response: AxiosResponse = yield call(
     Api.get,

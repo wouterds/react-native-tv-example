@@ -31,9 +31,6 @@ const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
       <TVFocusGuideView trapFocusLeft trapFocusRight>
         {!hideTitle && <Text style={styles.title}>Trending today</Text>}
         <FlatList
-          ListHeaderComponent={
-            isLoading && data.length === 0 ? ListHeaderLoaderComponent : null
-          }
           contentContainerStyle={styles.flatList}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -46,6 +43,9 @@ const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
               hasTVPreferredFocus={hasInitialFocus && index === 0}
             />
           )}
+          ListHeaderComponent={
+            isLoading && data.length === 0 ? ListHeaderLoaderComponent : null
+          }
         />
       </TVFocusGuideView>
     </View>

@@ -11,7 +11,7 @@ const TAG = '[store/app/saga]';
 function* bootstrapFlow() {
   const start = new Date();
 
-  console.log(TAG, 'bootstrapping');
+  console.log(TAG, 'bootstrapping...');
 
   // const fetchedPopularTVShows: boolean = yield fetchPopularTVShows();
   // if (!fetchedPopularTVShows) {

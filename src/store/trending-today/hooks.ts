@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'store';
+import { useDispatch, useSelector } from 'store';
 
 import {
   selectTrendingToday,
