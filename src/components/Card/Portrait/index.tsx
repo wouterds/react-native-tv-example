@@ -1,18 +1,20 @@
 import FastImageBackground from 'components/FastImageBackground';
 import { useTouchable } from 'components/Touchable';
 import { useComputedStyles } from 'hooks';
-import React, { memo } from 'react';
+import React, { memo, MemoExoticComponent } from 'react';
 import { Text, View } from 'react-native';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
+import PortraitCardShimmer from './Shimmer';
+import Shimmer from './Shimmer';
 import createStyles from './styles';
 
 interface Props {
   item: Show | Movie;
 }
 
-const PortraitCard = ({ item }: Props) => {
+const PortraitCard = memo(({ item }: Props) => {
   const { hasFocus } = useTouchable();
   const styles = useComputedStyles(createStyles, { hasFocus });
 
@@ -34,6 +36,10 @@ const PortraitCard = ({ item }: Props) => {
       </View>
     </View>
   );
+}) as MemoExoticComponent<(props: Props) => JSX.Element> & {
+  Shimmer: typeof PortraitCardShimmer;
 };
 
-export default memo(PortraitCard);
+PortraitCard.Shimmer = Shimmer;
+
+export default PortraitCard;

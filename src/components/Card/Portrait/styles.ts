@@ -42,6 +42,14 @@ const createStyles = ({ hasFocus }: Props) => {
       resizeMode: 'cover',
       backgroundColor: 'rgba(255, 255, 255, 0.075)',
     },
+    imageShimmerContainer: {
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+    },
+    imageShimmer: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+    },
     info: {
       flex: 1,
       width: '100%',
@@ -50,6 +58,17 @@ const createStyles = ({ hasFocus }: Props) => {
       paddingLeft: size(2),
     },
     title,
+    titleShimmerContainer: {
+      height: title.fontSize,
+      borderRadius: size(6),
+      overflow: 'hidden',
+      maxWidth: '80%',
+    },
+    titleShimmer: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+    },
   });
 };
 
