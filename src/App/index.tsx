@@ -13,7 +13,7 @@ import { withStore } from 'store/withStore';
 
 import styles from './styles';
 
-if (Config.DISABLE_YELLOW_BOX) {
+if (Config.DISABLE_YELLOW_BOX === 'true') {
   LogBox.ignoreAllLogs();
 }
 
