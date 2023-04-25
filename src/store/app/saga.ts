@@ -6,10 +6,12 @@ import { put, takeEvery } from 'redux-saga/effects';
 // import { fetchTrendingToday } from 'store/trending-today/actions';
 import { bootstrap, bootstrapSuccess } from './slice';
 
+const TAG = '[store/app/saga]';
+
 function* bootstrapFlow() {
   const start = new Date();
 
-  console.log('[bootstrap] Bootstrapping app');
+  console.log(TAG, 'bootstrapping');
 
   // const fetchedPopularTVShows: boolean = yield fetchPopularTVShows();
   // if (!fetchedPopularTVShows) {
@@ -32,7 +34,8 @@ function* bootstrapFlow() {
   yield put(bootstrapSuccess());
 
   console.log(
-    '[bootstrap] Finished bootstrapping app in',
+    TAG,
+    'finished bootstrapping in',
     differenceInMilliseconds(new Date(), start),
     'ms',
   );
