@@ -2,6 +2,7 @@ import { differenceInMilliseconds } from 'date-fns';
 import { put, takeEvery } from 'redux-saga/effects';
 import { fetchPopularMovies } from 'store/popular-movies/actions';
 import { fetchPopularTVShows } from 'store/popular-tv-shows/actions';
+import { fetchTrendingToday } from 'store/trending-today/actions';
 
 import { bootstrap, bootstrapError, bootstrapSuccess } from './slice';
 
@@ -18,6 +19,12 @@ function* bootstrapFlow() {
 
   const fetchedPopularMovies: boolean = yield fetchPopularMovies();
   if (!fetchedPopularMovies) {
+    yield put(bootstrapError());
+    return;
+  }
+
+  const fetchedTrendingToday: boolean = yield fetchTrendingToday();
+  if (!fetchedTrendingToday) {
     yield put(bootstrapError());
     return;
   }
