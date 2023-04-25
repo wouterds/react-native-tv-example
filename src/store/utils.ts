@@ -7,3 +7,14 @@ export const normalizeResult = (item: any) => {
     backdrop_url: Config.IMAGE_BASE_URL + item.backdrop_path,
   };
 };
+
+export const AxiosFactory = {
+  get headers() {
+    const headers: Record<string, string> = {};
+    if (Config.DISABLE_API_CACHE === 'true') {
+      headers['Cache-Control'] = 'no-cache';
+    }
+
+    return headers;
+  },
+};
