@@ -13,4 +13,8 @@ export type RouteParams = {
     id: number;
     title: string;
   };
+  [Route.TrendingToday]: {
+    id: number;
+    title: string;
+  };
 };
