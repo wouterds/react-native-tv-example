@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { useTrendingToday } from 'store/trending-today/hooks';
 
+import ListHeaderLoaderComponent from '../ListHeaderLoaderComponent';
 import Item from './Item';
 import styles from './styles';
 
@@ -11,7 +12,9 @@ interface Props {
 }
 
 const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
-  const { data, isEmpty, hasError } = useTrendingToday({ fetch: true });
+  const { data, isLoading, isEmpty, hasError } = useTrendingToday({
+    fetch: true,
+  });
 
   if (isEmpty) {
     // render empty state?
@@ -28,6 +31,9 @@ const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
       <TVFocusGuideView trapFocusLeft trapFocusRight>
         {!hideTitle && <Text style={styles.title}>Trending today</Text>}
         <FlatList
+          ListHeaderComponent={
+            isLoading && data.length === 0 ? ListHeaderLoaderComponent : null
+          }
           contentContainerStyle={styles.flatList}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
