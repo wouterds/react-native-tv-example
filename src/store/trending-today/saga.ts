@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { differenceInMilliseconds } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { normalizeResult } from 'store/utils/show';
+import { normalizeResult } from 'store/utils';
 
 import {
   fetchTrendingToday,

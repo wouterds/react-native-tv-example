@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { normalizeResult } from 'store/utils/show';
+import { normalizeResult } from 'store/utils';
 
 import { setPopularTVShows } from './slice';
 
