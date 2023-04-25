@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { usePopularMovies } from 'store/popular-movies/hooks';
 
+import ListHeaderLoaderComponent from '../ListHeaderLoaderComponent';
 import Item from './Item';
 import styles from './styles';
 
@@ -11,7 +12,19 @@ interface Props {
 }
 
 const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
-  const { popularMovies } = usePopularMovies();
+  const { data, isLoading, isEmpty, hasError } = usePopularMovies({
+    fetch: true,
+  });
+
+  if (isEmpty) {
+    // render empty state?
+    return null;
+  }
+
+  if (hasError) {
+    // render error state?
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -22,7 +35,7 @@ const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          data={popularMovies}
+          data={data}
           keyExtractor={({ id }) => `swimlane.popular-movies.${id}`}
           renderItem={({ item, index }) => (
             <Item
@@ -30,6 +43,9 @@ const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
               hasTVPreferredFocus={hasInitialFocus && index === 0}
             />
           )}
+          ListHeaderComponent={
+            isLoading && data.length === 0 ? ListHeaderLoaderComponent : null
+          }
         />
       </TVFocusGuideView>
     </View>

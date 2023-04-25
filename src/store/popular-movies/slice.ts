@@ -4,18 +4,38 @@ import { Movie } from 'store/types/movie';
 import { PopularMoviesState } from './types';
 
 const initialState: PopularMoviesState = {
+  isLoading: false,
+  isEmpty: false,
+  hasError: false,
   data: [],
 };
 
 const slice = createSlice({
-  name: 'app',
+  name: 'popular-movies',
   initialState,
   reducers: {
-    setPopularMovies(state: PopularMoviesState, action: { payload: Movie[] }) {
+    fetchPopularMovies(state: PopularMoviesState) {
+      state.isLoading = true;
+    },
+    fetchPopularMoviesSuccess(
+      state: PopularMoviesState,
+      action: { payload: Movie[] },
+    ) {
+      state.isLoading = false;
+      state.hasError = false;
       state.data = action.payload;
+      state.isEmpty = !state.data?.length;
+    },
+    fetchPopularMoviesError(state: PopularMoviesState) {
+      state.isLoading = false;
+      state.hasError = true;
     },
   },
 });
 
-export const { setPopularMovies } = slice.actions;
+export const {
+  fetchPopularMovies,
+  fetchPopularMoviesSuccess,
+  fetchPopularMoviesError,
+} = slice.actions;
 export const { reducer } = slice;

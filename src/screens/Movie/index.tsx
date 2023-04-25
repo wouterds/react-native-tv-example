@@ -7,8 +7,8 @@ import { usePopularMovie } from 'store/popular-movies/hooks';
 
 const MovieScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Movie>>();
-  const { movie } = usePopularMovie(params.id);
 
+  const { movie } = usePopularMovie(params.id);
   if (!movie) {
     return null;
   }
