@@ -16,7 +16,7 @@ const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
   return (
     <View style={styles.container}>
       <TVFocusGuideView trapFocusLeft trapFocusRight>
-        {!hideTitle && <Text style={styles.title}>Movies</Text>}
+        {!hideTitle && <Text style={styles.title}>Popular movies</Text>}
         <FlatList
           contentContainerStyle={styles.flatList}
           horizontal={true}
