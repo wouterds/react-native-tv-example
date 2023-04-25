@@ -1,21 +1,43 @@
-import { useMemo } from 'react';
-import { useSelector } from 'store';
+import { useEffect, useMemo, useRef } from 'react';
+import { useDispatch, useSelector } from 'store';
 
-import { selectPopularTVShows } from './selectors';
+import {
+  selectPopularTVShows,
+  selectPopularTVShowsHasError,
+  selectPopularTVShowsIsEmpty,
+  selectPopularTVShowsIsLoading,
+} from './selectors';
+import { fetchPopularTVShows } from './slice';
 
-export const usePopularTVShows = () => {
-  const popularTVShows = useSelector(selectPopularTVShows);
+interface Options {
+  fetch?: boolean;
+}
 
-  return useMemo(() => ({ popularTVShows }), [popularTVShows]);
+export const usePopularTVShows = (options?: Options) => {
+  const data = useSelector(selectPopularTVShows);
+  const isLoading = useSelector(selectPopularTVShowsIsLoading);
+  const isEmpty = useSelector(selectPopularTVShowsIsEmpty);
+  const hasError = useSelector(selectPopularTVShowsHasError);
+
+  const dispatch = useDispatch();
+  const fetch = useRef(() => dispatch(fetchPopularTVShows())).current;
+
+  useEffect(() => {
+    if (options?.fetch) {
+      fetch();
+    }
+  }, [options?.fetch, fetch]);
+
+  return useMemo(
+    () => ({ fetch, isLoading, isEmpty, hasError, data }),
+    [fetch, isLoading, isEmpty, hasError, data],
+  );
 };
 
 export const usePopularTVShow = (id: number) => {
-  const { popularTVShows } = usePopularTVShows();
+  const { data } = usePopularTVShows();
 
-  const show = useMemo(
-    () => popularTVShows.find(entry => entry.id === id),
-    [popularTVShows, id],
-  );
+  const show = useMemo(() => data.find(entry => entry.id === id), [data, id]);
 
   return useMemo(() => ({ show }), [show]);
 };

@@ -7,8 +7,8 @@ import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
 
 const ShowScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Show>>();
-  const { show } = usePopularTVShow(params.id);
 
+  const { show } = usePopularTVShow(params.id);
   if (!show) {
     return null;
   }
