@@ -1,21 +1,44 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'store';
 
-import { selectTrendingToday } from './selectors';
+import {
+  selectTrendingToday,
+  selectTrendingTodayHasError,
+  selectTrendingTodayIsEmpty,
+  selectTrendingTodayIsLoading,
+} from './selectors';
+import { fetchTrendingToday } from './slice';
 
-export const useTrendingToday = () => {
-  const trendingToday = useSelector(selectTrendingToday);
+interface Options {
+  fetch?: boolean;
+}
 
-  return useMemo(() => ({ trendingToday }), [trendingToday]);
+export const useTrendingToday = (options?: Options) => {
+  const data = useSelector(selectTrendingToday);
+  const isLoading = useSelector(selectTrendingTodayIsLoading);
+  const isEmpty = useSelector(selectTrendingTodayIsEmpty);
+  const hasError = useSelector(selectTrendingTodayHasError);
+
+  const dispatch = useDispatch();
+  const fetch = useRef(() => dispatch(fetchTrendingToday())).current;
+
+  useEffect(() => {
+    if (options?.fetch) {
+      fetch();
+    }
+  }, [options?.fetch, fetch]);
+
+  return useMemo(
+    () => ({ fetch, isLoading, isEmpty, hasError, data }),
+    [fetch, isLoading, isEmpty, hasError, data],
+  );
 };
 
-export const useTrendingTodayEntry = (id: number) => {
-  const { trendingToday: trendingTodayEntries } = useTrendingToday();
+export const useTrendingTodayItem = (id: number) => {
+  const { data } = useTrendingToday();
 
-  const trendingToday = useMemo(
-    () => trendingTodayEntries.find(entry => entry.id === id),
-    [trendingTodayEntries, id],
-  );
+  const item = useMemo(() => data.find(entry => entry.id === id), [data, id]);
 
-  return useMemo(() => ({ trendingToday }), [trendingToday]);
+  return useMemo(() => ({ item }), [item]);
 };
