@@ -23,17 +23,17 @@ const App = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    if (!mountTime.current) {
+      mountTime.current = new Date();
+      bootstrap();
+    }
+
     if (mountTime.current && !isLoading && !hasError) {
       setTimeout(() => {
         setIsReady(true);
         // some arbitrary logic to make sure the splash is always shown at least 1 second
       }, Math.max(ms('1 seconds') - differenceInMilliseconds(new Date(), mountTime.current), ms('1 seconds')));
       return;
-    }
-
-    if (!mountTime.current) {
-      mountTime.current = new Date();
-      bootstrap();
     }
   }, [hasError, isLoading, bootstrap]);
 
