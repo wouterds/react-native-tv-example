@@ -21,14 +21,16 @@ const HeroCard = ({ item }: Props) => {
         maskElement={
           <LinearGradient
             style={styles.gradient}
-            angle={-30}
+            angle={10}
+            useAngle
             colors={[
               'rgba(255, 255, 255, 0)',
+              'rgba(255, 255, 255, 0.1)',
               'rgba(255, 255, 255, 0.2)',
+              'rgba(255, 255, 255, 0.3)',
               'rgba(255, 255, 255, 0.4)',
-              'rgba(255, 255, 255, 0.6)',
-              'rgba(255, 255, 255, 0.8)',
-              'rgba(255, 255, 255, 1)',
+              'rgba(255, 255, 255, 0.5)',
+              'rgba(255, 255, 255, 0.75)',
               'rgba(255, 255, 255, 1)',
               'rgba(255, 255, 255, 0.5)',
               'rgba(255, 255, 255, 0.25)',
@@ -43,19 +45,24 @@ const HeroCard = ({ item }: Props) => {
       </MaskedView>
       <View style={styles.content}>
         {Platform.isTV && (
+          <>
+            <View style={styles.spacer} />
+            <Text
+              style={styles.title}
+              adjustsFontSizeToFit
+              numberOfLines={Platform.isTV ? 1 : 2}>
+              {'title' in item && item.title}
+              {'name' in item && item.name}
+            </Text>
+          </>
+        )}
+        {!!item.overview && (
           <Text
-            style={styles.title}
-            adjustsFontSizeToFit
-            numberOfLines={Platform.isTV ? 1 : 2}>
-            {'title' in item && item.title}
-            {'name' in item && item.name}
+            style={styles.overview}
+            numberOfLines={Platform.isTV ? 4 : undefined}>
+            {item.overview}
           </Text>
         )}
-        <Text
-          style={styles.overview}
-          numberOfLines={Platform.isTV ? 6 : undefined}>
-          {item.overview}
-        </Text>
       </View>
     </View>
   );
