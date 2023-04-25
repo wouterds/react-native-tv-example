@@ -5,6 +5,7 @@ import Settings from './Settings';
 import Show from './Show';
 import Shows from './Shows';
 import Splash from './Splash';
+import TrendingToday from './TrendingToday';
 
 export default {
   Splash,
@@ -14,4 +15,5 @@ export default {
   Settings,
   Movie,
   Show,
+  TrendingToday,
 };

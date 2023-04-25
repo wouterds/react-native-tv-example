@@ -71,6 +71,14 @@ const Navigation = () => {
           headerShown: !Platform.isTV,
         })}
       />
+      <Stack.Screen
+        name={Route.TrendingToday}
+        component={Screen.TrendingToday}
+        options={({ route }) => ({
+          title: (route.params as any)?.title,
+          headerShown: !Platform.isTV,
+        })}
+      />
     </Stack.Navigator>
   );
 };
