@@ -15,18 +15,16 @@ interface Props {
 const PopularMoviesItem = ({ item, hasTVPreferredFocus }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
+  if (!item) {
+    return <Card.Portrait.Shimmer />;
+  }
+
   return (
     <Touchable
       style={styles.container}
       hasTVPreferredFocus={hasTVPreferredFocus}
-      onPress={() => {
-        if (!item) {
-          return;
-        }
-
-        navigate(Route.Movie, { id: item.id, title: item.title });
-      }}>
-      {item ? <Card.Portrait item={item} /> : <Card.Portrait.Shimmer />}
+      onPress={() => navigate(Route.Movie, { id: item.id, title: item.title })}>
+      <Card.Portrait item={item} />
     </Touchable>
   );
 };
