@@ -17,11 +17,9 @@ function* fetchPopularTVShowsFlow() {
 
   console.log(TAG, 'fetching popular TV shows...');
 
-  const response: AxiosResponse = yield call(
-    Api.get,
-    '/tv/popular',
-    AxiosFactory.headers,
-  );
+  const response: AxiosResponse = yield call(Api.get, '/tv/popular', {
+    headers: { ...AxiosFactory.headers },
+  });
   if (response.status !== 200) {
     yield put(fetchPopularTVShowsError());
     return;

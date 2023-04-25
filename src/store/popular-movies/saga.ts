@@ -17,11 +17,9 @@ function* fetchPopularMoviesFlow() {
 
   console.log(TAG, 'fetching popular movies...');
 
-  const response: AxiosResponse = yield call(
-    Api.get,
-    '/movie/popular',
-    AxiosFactory.headers,
-  );
+  const response: AxiosResponse = yield call(Api.get, '/movie/popular', {
+    headers: { ...AxiosFactory.headers },
+  });
   if (response.status !== 200) {
     yield put(fetchPopularMoviesError());
     return;

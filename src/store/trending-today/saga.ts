@@ -17,11 +17,9 @@ function* fetchTrendingTodayFlow() {
 
   console.log(TAG, 'fetching trending today...');
 
-  const response: AxiosResponse = yield call(
-    Api.get,
-    '/trending/all/day',
-    AxiosFactory.headers,
-  );
+  const response: AxiosResponse = yield call(Api.get, '/trending/all/day', {
+    headers: { ...AxiosFactory.headers },
+  });
   if (response.status !== 200) {
     yield put(fetchTrendingTodayError());
     return;
