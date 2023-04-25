@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     borderWidth: size(2),
     borderRadius: size(8),
     borderColor: '#ff5252',
-    backgroundColor: '#ff525250',
+    backgroundColor: '#ff525230',
     overflow: 'hidden',
     alignSelf: 'flex-start',
   },
