@@ -16,21 +16,21 @@ interface Props {
 const TrendingTodayItem = ({ item, hasTVPreferredFocus }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
-  if (!item) {
-    return null;
-  }
-
   return (
     <Touchable
       style={styles.container}
       hasTVPreferredFocus={hasTVPreferredFocus}
-      onPress={() =>
+      onPress={() => {
+        if (!item) {
+          return;
+        }
+
         navigate(Route.TrendingToday, {
           id: item.id,
           title: (item as Movie).title || (item as Show).name,
-        })
-      }>
-      <Card.Portrait item={item} />
+        });
+      }}>
+      {item ? <Card.Portrait item={item} /> : <Card.Portrait.Shimmer />}
     </Touchable>
   );
 };

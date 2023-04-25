@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { useTrendingToday } from 'store/trending-today/hooks';
 
-import ListHeaderLoaderComponent from '../ListHeaderLoaderComponent';
 import Item from './Item';
 import styles from './styles';
 
@@ -35,17 +34,16 @@ const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          data={data}
-          keyExtractor={({ id }) => `swimlane.trending-today.${id}`}
+          data={isLoading && data.length === 0 ? new Array(6).fill(null) : data}
+          keyExtractor={(item, index) =>
+            `swimlane.trending-today.${item?.id || index}`
+          }
           renderItem={({ item, index }) => (
             <Item
               item={item}
               hasTVPreferredFocus={hasInitialFocus && index === 0}
             />
           )}
-          ListHeaderComponent={
-            isLoading && data.length === 0 ? ListHeaderLoaderComponent : null
-          }
         />
       </TVFocusGuideView>
     </View>
