@@ -3,21 +3,18 @@ import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
-import { useTrendingTodayEntry } from 'store/trending-today/hooks';
+import { useTrendingTodayItem } from 'store/trending-today/hooks';
 
 const TrendingTodayScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.TrendingToday>>();
-  const { trendingToday } = useTrendingTodayEntry(params.id);
 
-  if (!trendingToday) {
+  const { item } = useTrendingTodayItem(params.id);
+  if (!item) {
+    // render empty state?
     return null;
   }
 
-  return (
-    <ScreenWrapper>
-      {trendingToday && <Card.Hero item={trendingToday} />}
-    </ScreenWrapper>
-  );
+  return <ScreenWrapper>{item && <Card.Hero item={item} />}</ScreenWrapper>;
 };
 
 export default memo(TrendingTodayScreen);

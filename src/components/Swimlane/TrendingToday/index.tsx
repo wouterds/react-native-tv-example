@@ -11,7 +11,17 @@ interface Props {
 }
 
 const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
-  const { trendingToday } = useTrendingToday();
+  const { data, isEmpty, hasError } = useTrendingToday({ fetch: true });
+
+  if (isEmpty) {
+    // render empty state?
+    return null;
+  }
+
+  if (hasError) {
+    // render error state?
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -22,7 +32,7 @@ const TrendingTodaySwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          data={trendingToday}
+          data={data}
           keyExtractor={({ id }) => `swimlane.trending-today.${id}`}
           renderItem={({ item, index }) => (
             <Item
