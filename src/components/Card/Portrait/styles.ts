@@ -1,4 +1,4 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { Platform, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { size } from 'utils/styles';
 
 const width = size(130);
@@ -62,7 +62,15 @@ const createStyles = ({ hasFocus }: Props) => {
       height: title.fontSize,
       borderRadius: size(6),
       overflow: 'hidden',
+      resizeMode: 'cover',
       maxWidth: '80%',
+      marginTop: size(1.5),
+      marginBottom: size(1.5),
+      ...Platform.select({
+        android: {
+          marginBottom: size(3.5),
+        },
+      }),
     },
     titleShimmer: {
       flex: 1,
