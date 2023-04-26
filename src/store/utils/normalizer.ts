@@ -1,7 +1,7 @@
 import Config from 'react-native-config';
 
 export const Normalizer = {
-  result: (item: any) => {
+  mediaAsset: (item: any) => {
     let type = item.media_type || 'unknown';
     if (type === 'tv') {
       type = 'show';
@@ -15,9 +15,9 @@ export const Normalizer = {
     };
   },
 
-  movie: (item: any) => Normalizer.result({ ...item, media_type: 'movie' }),
+  movie: (item: any) => Normalizer.mediaAsset({ ...item, media_type: 'movie' }),
 
-  show: (item: any) => Normalizer.result({ ...item, media_type: 'show' }),
+  show: (item: any) => Normalizer.mediaAsset({ ...item, media_type: 'show' }),
 
   video: (item: any) => {
     return {

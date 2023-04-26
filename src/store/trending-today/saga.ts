@@ -32,7 +32,7 @@ function* fetchTrendingTodayFlow() {
 
   const data = response.data.results
     .filter((item: any) => item?.media_type !== 'person')
-    .map(Normalizer.result);
+    .map(Normalizer.mediaAsset);
 
   yield put(fetchTrendingTodaySuccess(data));
 
