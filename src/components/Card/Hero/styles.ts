@@ -36,7 +36,7 @@ const createStyles = ({ bottom }: Props) => {
       flexDirection: Platform.isTV ? 'row' : 'column',
     },
     watchTrailer: {
-      alignItems: Platform.isTV ? 'center' : undefined,
+      alignItems: Platform.isTV ? 'flex-end' : undefined,
       justifyContent: Platform.isTV ? 'center' : undefined,
       marginTop: Platform.isTV ? 0 : size(20),
       flex: Platform.isTV ? 1 : 0,
