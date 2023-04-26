@@ -2259,6 +2259,14 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
+beautiful-react-hooks@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/beautiful-react-hooks/-/beautiful-react-hooks-4.3.0.tgz#83155dd07e654d0028a8fc305608ef8dc5b2fcea"
+  integrity sha512-sCqmVtFPDjo8G/wKBp/wrYTgAZMh/a3vcWKqcbcCXbmkFx+i/Zm5uOUlBeujbnC9uZOsxjChQ8sTnHZak+TdOg==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+
 bl@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/bl/-/bl-4.1.0.tgz#451535264182bec2fbbc83a62ab98cf11d9f7b3a"
