@@ -1,4 +1,4 @@
-import { MediaAsset } from './media';
+import { MediaAsset } from './media-asset';
 
 export interface Show extends MediaAsset {
   type: 'show';

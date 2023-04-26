@@ -5,7 +5,7 @@ import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { MediaAsset } from 'store/types/media';
+import { MediaAsset } from 'store/types/media-asset';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 

@@ -3,7 +3,7 @@ import { useTouchable } from 'components/Touchable';
 import { useComputedStyles } from 'hooks';
 import React, { memo, MemoExoticComponent } from 'react';
 import { Text, View } from 'react-native';
-import { MediaAsset } from 'store/types/media';
+import { MediaAsset } from 'store/types/media-asset';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
