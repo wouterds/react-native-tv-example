@@ -1,4 +1,5 @@
 export interface MediaAsset {
+  id: number;
   backdrop_path: string;
   backdrop_url: string;
   original_language: string;
