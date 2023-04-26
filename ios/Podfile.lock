@@ -102,6 +102,9 @@ PODS:
     - FBLazyVector (= 0.69.8-1)
     - RCTRequired (= 0.69.8-1)
     - React-Core (= 0.69.8-1)
+  - RCTYouTube (2.0.2):
+    - React
+    - YoutubePlayer-in-WKWebView (~> 0.3.1)
   - React (0.69.8-1):
     - React-Core (= 0.69.8-1)
     - React-Core/DevSupport (= 0.69.8-1)
@@ -370,6 +373,7 @@ PODS:
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga
+  - YoutubePlayer-in-WKWebView (0.3.8)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
@@ -404,6 +408,7 @@ DEPENDENCIES:
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
+  - RCTYouTube (from `../node_modules/react-native-youtube`)
   - React (from `../node_modules/react-native/`)
   - React-bridging (from `../node_modules/react-native/ReactCommon`)
   - React-callinvoker (from `../node_modules/react-native/ReactCommon/callinvoker`)
@@ -458,6 +463,7 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
+    - YoutubePlayer-in-WKWebView
 
 EXTERNAL SOURCES:
   boost:
@@ -480,6 +486,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
     :path: "../node_modules/react-native/Libraries/TypeSafety"
+  RCTYouTube:
+    :path: "../node_modules/react-native-youtube"
   React:
     :path: "../node_modules/react-native/"
   React-bridging:
@@ -567,6 +575,7 @@ SPEC CHECKSUMS:
   RCT-Folly: 6955e7728b76277c5df5a5aba37ee1ff1dd99976
   RCTRequired: 950521848475d18aaa7914635cca03f99c6dc5ef
   RCTTypeSafety: ac2189c1b65bf2b8496ed3c40a4a0b3f92bf1fc4
+  RCTYouTube: a8bb45705622a6fc9decf64be04128d3658ed411
   React: d1f56aa00c6eac06e76301214d0787f6689a7e57
   React-bridging: 2f4bef4599a5bb04862ef5009b3c767efd4c0d45
   React-callinvoker: eaf2b34bd68a491ea9b272786045c79e7235e99f
@@ -602,6 +611,7 @@ SPEC CHECKSUMS:
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 4a0788440c29e71c40dc8b5f7f4d1495134223f9
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5
+  YoutubePlayer-in-WKWebView: 4fca3b4f6f09940077bfbae7bddb771f2b43aacd
 
 PODFILE CHECKSUM: 5f8427a88f017a810e248f1f586929b7c9457a80
 
