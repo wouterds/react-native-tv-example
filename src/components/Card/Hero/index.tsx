@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MediaAsset } from 'store/types/media-asset';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
+import { useVideos } from 'store/videos/hooks';
 
 import BackButton from './BackButton';
 import createStyles from './styles';
@@ -21,6 +22,13 @@ const HeroCard = ({ item }: Props) => {
   const { bottom } = useSafeAreaInsets();
   const styles = useComputedStyles(createStyles, { bottom });
   const { goBack } = useNavigation();
+
+  const { data, isLoading, hasError, isEmpty } = useVideos({
+    id: item.id,
+    type: item.type,
+  });
+
+  console.log({ data, isLoading, hasError, isEmpty });
 
   return (
     <View style={styles.header}>
