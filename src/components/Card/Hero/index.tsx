@@ -1,9 +1,10 @@
 import MaskedView from '@react-native-masked-view/masked-view';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import FastImageBackground from 'components/FastImageBackground';
 import { useComputedStyles } from 'hooks';
-import React, { useCallback, useMemo } from 'react';
-import { Platform, Text, View } from 'react-native';
+import { RouteParams } from 'navigation';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { Alert, Linking, Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MediaAsset } from 'store/types/media-asset';
@@ -22,29 +23,45 @@ interface Props {
 const HeroCard = ({ item }: Props) => {
   const { bottom } = useSafeAreaInsets();
   const styles = useComputedStyles(createStyles, { bottom });
-  const { goBack } = useNavigation();
+  const { goBack } = useNavigation<NavigationProp<RouteParams>>();
 
-  const { fetch, data, isEmpty } = useVideos({
+  const { fetch, data } = useVideos({
     id: item.id,
     type: item.type,
   });
 
-  const video = useMemo(() => {
-    if (isEmpty) {
+  const youtubeUrl = useMemo(() => {
+    if (!data?.[0]?.key) {
       return null;
     }
 
-    return data?.[0] || null;
-  }, [data, isEmpty]);
+    return `https://www.youtube.com/watch?v=${data[0].key}`;
+  }, [data]);
+
+  const openYoutubeUrl = useCallback(async () => {
+    if (youtubeUrl) {
+      try {
+        await Linking.openURL(youtubeUrl);
+      } catch {
+        Alert.alert('Could not open YouTube video');
+      }
+    }
+  }, [youtubeUrl]);
+
+  useEffect(() => {
+    if (youtubeUrl) {
+      openYoutubeUrl();
+    }
+  }, [youtubeUrl, openYoutubeUrl]);
 
   const onWatchTrailerPress = useCallback(() => {
-    if (video) {
-      console.log(video);
+    if (youtubeUrl) {
+      openYoutubeUrl();
       return;
     }
 
     fetch();
-  }, [fetch, video]);
+  }, [fetch, youtubeUrl, openYoutubeUrl]);
 
   return (
     <View style={styles.header}>
