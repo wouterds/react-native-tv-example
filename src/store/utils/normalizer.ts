@@ -18,4 +18,11 @@ export const Normalizer = {
   movie: (item: any) => Normalizer.result({ ...item, media_type: 'movie' }),
 
   show: (item: any) => Normalizer.result({ ...item, media_type: 'show' }),
+
+  video: (item: any) => {
+    return {
+      ...item,
+      published_at: new Date(item.published_at),
+    };
+  },
 };
