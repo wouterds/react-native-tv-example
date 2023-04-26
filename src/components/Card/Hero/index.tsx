@@ -1,5 +1,6 @@
 import MaskedView from '@react-native-masked-view/masked-view';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import usePreviousValue from 'beautiful-react-hooks/usePreviousValue';
 import FastImageBackground from 'components/FastImageBackground';
 import { useComputedStyles } from 'hooks';
 import { RouteParams } from 'navigation';
@@ -25,7 +26,7 @@ const HeroCard = ({ item }: Props) => {
   const styles = useComputedStyles(createStyles, { bottom });
   const { goBack } = useNavigation<NavigationProp<RouteParams>>();
 
-  const { fetch, data } = useVideos({
+  const { fetch, data, isLoading } = useVideos({
     id: item.id,
     type: item.type,
   });
@@ -48,11 +49,12 @@ const HeroCard = ({ item }: Props) => {
     }
   }, [youtubeUrl]);
 
+  const wasLoading = usePreviousValue(isLoading);
   useEffect(() => {
-    if (youtubeUrl) {
+    if (wasLoading && youtubeUrl) {
       openYoutubeUrl();
     }
-  }, [youtubeUrl, openYoutubeUrl]);
+  }, [youtubeUrl, wasLoading, openYoutubeUrl]);
 
   const onWatchTrailerPress = useCallback(() => {
     if (youtubeUrl) {
