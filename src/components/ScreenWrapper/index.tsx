@@ -1,5 +1,6 @@
 import { useIsFocused, useRoute } from '@react-navigation/native';
 import TVHeaderNavigation from 'components/TVHeaderNavigation';
+import { useComputedStyles } from 'hooks';
 import { Route } from 'navigation';
 import React, { memo, ReactNode, useEffect } from 'react';
 import {
@@ -8,8 +9,9 @@ import {
   TVFocusGuideView,
   ViewStyle,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import styles from './styles';
+import createStyles from './styles';
 
 interface Props {
   children: ReactNode;
@@ -20,6 +22,8 @@ interface Props {
 const ScreenWrapper = ({ children, style, header }: Props) => {
   const isFocused = useIsFocused();
   const { name: route } = useRoute();
+  const { bottom } = useSafeAreaInsets();
+  const styles = useComputedStyles(createStyles, { bottom });
 
   useEffect(() => {
     if (isFocused) {
@@ -36,7 +40,7 @@ const ScreenWrapper = ({ children, style, header }: Props) => {
   return (
     <TVFocusGuideView style={[styles.container, style]} autoFocus>
       <ScrollView
-        style={styles.content}
+        contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
         {header && <TVHeaderNavigation />}
