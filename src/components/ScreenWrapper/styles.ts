@@ -1,20 +1,21 @@
-import { Platform, StyleSheet } from 'react-native';
-import { size } from 'utils/styles';
+import { StyleSheet } from 'react-native';
 
-interface Options {
-  bottom: number;
+interface Props {
+  height: number;
+  headerHeight: number;
 }
 
-const createStyles = ({ bottom }: Options) => {
-  return StyleSheet.create({
+const createStyles = ({ height, headerHeight }: Props) =>
+  StyleSheet.create({
     container: {
       flex: 1,
     },
+    contentContainer: {
+      flex: 1,
+    },
     content: {
-      paddingTop: !Platform.isTV ? size(20) : 0,
-      paddingBottom: bottom,
+      minHeight: height - headerHeight,
     },
   });
-};
 
 export default createStyles;

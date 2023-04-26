@@ -1,18 +1,23 @@
 import MaskedView from '@react-native-masked-view/masked-view';
 import FastImageBackground from 'components/FastImageBackground';
+import { useComputedStyles } from 'hooks';
 import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
-import styles from './styles';
+import createStyles from './styles';
 
 interface Props {
   item: Show | Movie;
 }
 
 const HeroCard = ({ item }: Props) => {
+  const { bottom } = useSafeAreaInsets();
+  const styles = useComputedStyles(createStyles, { bottom });
+
   return (
     <View style={styles.header}>
       <MaskedView
@@ -44,18 +49,14 @@ const HeroCard = ({ item }: Props) => {
         />
       </MaskedView>
       <View style={styles.content}>
-        {Platform.isTV && (
-          <>
-            <View style={styles.spacer} />
-            <Text
-              style={styles.title}
-              adjustsFontSizeToFit
-              numberOfLines={Platform.isTV ? 1 : 2}>
-              {'title' in item && item.title}
-              {'name' in item && item.name}
-            </Text>
-          </>
-        )}
+        <View style={styles.spacer} />
+        <Text
+          style={styles.title}
+          adjustsFontSizeToFit
+          numberOfLines={Platform.isTV ? 1 : 2}>
+          {'title' in item && item.title}
+          {'name' in item && item.name}
+        </Text>
         {!!item.overview && (
           <Text
             style={styles.overview}
