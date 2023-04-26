@@ -5,7 +5,7 @@ import React, { memo } from 'react';
 const MoviesScreen = () => {
   return (
     <ScreenWrapper header>
-      <Swimlane.PopularMovies hasInitialFocus />
+      <Swimlane.PopularMovies />
     </ScreenWrapper>
   );
 };

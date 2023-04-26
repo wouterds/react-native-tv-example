@@ -12,7 +12,7 @@ const DiscoverScreen = () => {
 
   return (
     <ScreenWrapper header contentStyle={styles.container}>
-      <Swimlane.TrendingToday hasInitialFocus />
+      <Swimlane.TrendingToday />
       <Swimlane.PopularTVShows />
       <Swimlane.PopularMovies />
     </ScreenWrapper>

@@ -7,10 +7,9 @@ import styles from './styles';
 
 interface Props {
   hideTitle?: boolean;
-  hasInitialFocus?: boolean;
 }
 
-const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
+const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
   const { data, isLoading, isEmpty, hasError } = usePopularMovies({
     fetch: true,
   });
@@ -38,12 +37,7 @@ const PopularMoviesSwimlane = ({ hideTitle, hasInitialFocus }: Props) => {
           keyExtractor={(item, index) =>
             `swimlane.popular-movies.${item?.id || index}`
           }
-          renderItem={({ item, index }) => (
-            <Item
-              item={item}
-              hasTVPreferredFocus={hasInitialFocus && index === 0}
-            />
-          )}
+          renderItem={({ item }) => <Item item={item} />}
         />
       </TVFocusGuideView>
     </View>

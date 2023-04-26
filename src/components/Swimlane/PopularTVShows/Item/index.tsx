@@ -9,10 +9,9 @@ import styles from './styles';
 
 interface Props {
   item: Show | null;
-  hasTVPreferredFocus?: boolean;
 }
 
-const PopularTVShowsItem = ({ item, hasTVPreferredFocus }: Props) => {
+const PopularTVShowsItem = ({ item }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
   if (!item) {
@@ -22,7 +21,6 @@ const PopularTVShowsItem = ({ item, hasTVPreferredFocus }: Props) => {
   return (
     <Touchable
       style={styles.container}
-      hasTVPreferredFocus={hasTVPreferredFocus}
       onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}>
       <Card.Portrait item={item} />
     </Touchable>
