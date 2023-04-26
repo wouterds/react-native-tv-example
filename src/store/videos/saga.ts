@@ -33,7 +33,9 @@ function* fetchVideosFlow({ payload: { id } }: FetchVideosAction) {
     return;
   }
 
-  const data: Video[] = response.data.results.map(Normalizer.video);
+  const data: Video[] = response.data.results
+    .map(Normalizer.video)
+    .filter((item: Video) => item.site === 'YouTube');
 
   yield put(fetchVideosSuccess({ id, data }));
 
