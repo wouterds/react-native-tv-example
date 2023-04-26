@@ -6256,10 +6256,10 @@ react-native-vector-icons@^9.2.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-"react-native@npm:react-native-tvos@0.69.8-1":
-  version "0.69.8-1"
-  resolved "https://registry.yarnpkg.com/react-native-tvos/-/react-native-tvos-0.69.8-1.tgz#15fc6800e60bbb201cb3c814df66f8693d4cb356"
-  integrity sha512-jMLn2L9M1Go500/gyiKc0JvcGikyG58jN7arLcyw2iYJOLMRYejPmrqw4s0C/zp9iEhRF0WOXsynenKB/OpYYA==
+"react-native@npm:react-native-tvos@0.69.8-2":
+  version "0.69.8-2"
+  resolved "https://registry.yarnpkg.com/react-native-tvos/-/react-native-tvos-0.69.8-2.tgz#986ea04df7684dd9f0026979a2d6923ae14e329a"
+  integrity sha512-TwObUNKg3HgZNWcBgcP9SZ6LM+LQ1ABse9JWShJH/gitHbVTD/nNTGq30Gqx4XBVRV2tYKTORPL4sUEff/uwGw==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^8.0.4"
