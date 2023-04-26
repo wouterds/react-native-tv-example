@@ -10,6 +10,7 @@ const Navigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{
+        orientation: 'portrait',
         headerTintColor: '#38eabe',
         headerTitleStyle: {
           color: '#FFF',
