@@ -2,7 +2,7 @@ import MaskedView from '@react-native-masked-view/masked-view';
 import { useNavigation } from '@react-navigation/native';
 import FastImageBackground from 'components/FastImageBackground';
 import { useComputedStyles } from 'hooks';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,6 +13,7 @@ import { useVideos } from 'store/videos/hooks';
 
 import BackButton from './BackButton';
 import createStyles from './styles';
+import WatchTrailer from './WatchTrailer';
 
 interface Props {
   item: MediaAsset;
@@ -23,12 +24,27 @@ const HeroCard = ({ item }: Props) => {
   const styles = useComputedStyles(createStyles, { bottom });
   const { goBack } = useNavigation();
 
-  const { data, isLoading, hasError, isEmpty } = useVideos({
+  const { fetch, data, isEmpty } = useVideos({
     id: item.id,
     type: item.type,
   });
 
-  console.log({ data, isLoading, hasError, isEmpty });
+  const video = useMemo(() => {
+    if (isEmpty) {
+      return null;
+    }
+
+    return data?.[0] || null;
+  }, [data, isEmpty]);
+
+  const onWatchTrailerPress = useCallback(() => {
+    if (video) {
+      console.log(video);
+      return;
+    }
+
+    fetch();
+  }, [fetch, video]);
 
   return (
     <View style={styles.header}>
@@ -77,6 +93,7 @@ const HeroCard = ({ item }: Props) => {
             {item.overview}
           </Text>
         )}
+        <WatchTrailer onPress={onWatchTrailerPress} />
       </View>
     </View>
   );

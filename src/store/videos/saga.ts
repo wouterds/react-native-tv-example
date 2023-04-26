@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
+import { Video } from 'store/types/video';
 import { AxiosFactory, Normalizer } from 'store/utils';
 
 import { fetchVideos, fetchVideosError, fetchVideosSuccess } from './slice';
@@ -32,13 +33,13 @@ function* fetchVideosFlow({ payload: { id } }: FetchVideosAction) {
     return;
   }
 
-  const data = response.data.results.map(Normalizer.video);
+  const data: Video[] = response.data.results.map(Normalizer.video);
 
-  yield put(fetchVideosSuccess(data));
+  yield put(fetchVideosSuccess({ id, data }));
 
   console.log(
     TAG,
-    `fetched videos for type: ${id.type}, id: ${
+    `fetched videos (${data.length}) for type: ${id.type}, id: ${
       id.id
     } in ${formatDistanceToNowStrict(start)}`,
   );
