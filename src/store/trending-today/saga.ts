@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { differenceInMilliseconds } from 'date-fns';
+import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
 import { AxiosFactory, normalizeResult } from 'store/utils';
@@ -38,9 +38,7 @@ function* fetchTrendingTodayFlow() {
 
   console.log(
     TAG,
-    'fetched trending today in',
-    differenceInMilliseconds(new Date(), start),
-    'ms',
+    `fetched trending today in ${formatDistanceToNowStrict(start)}`,
   );
 }
 

@@ -1,4 +1,4 @@
-import { differenceInMilliseconds } from 'date-fns';
+import { formatDistanceToNowStrict } from 'date-fns';
 import { put, takeEvery } from 'redux-saga/effects';
 
 // import { fetchPopularMovies } from 'store/popular-movies/actions';
@@ -35,9 +35,7 @@ function* bootstrapFlow() {
 
   console.log(
     TAG,
-    'finished bootstrapping in',
-    differenceInMilliseconds(new Date(), start),
-    'ms',
+    `finished bootstrapping in ${formatDistanceToNowStrict(start)}`,
   );
 }
 
