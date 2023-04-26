@@ -26,7 +26,7 @@ const HeroCard = ({ item }: Props) => {
   const styles = useComputedStyles(createStyles, { bottom });
   const { goBack } = useNavigation<NavigationProp<RouteParams>>();
 
-  const { fetch, data, isLoading } = useVideos({
+  const { fetch, data, isLoading, isEmpty } = useVideos({
     id: item.id,
     type: item.type,
   });
@@ -51,19 +51,29 @@ const HeroCard = ({ item }: Props) => {
 
   const wasLoading = usePreviousValue(isLoading);
   useEffect(() => {
+    if (wasLoading && isEmpty) {
+      Alert.alert('No trailers available');
+      return;
+    }
+
     if (wasLoading && youtubeUrl) {
       openYoutubeUrl();
     }
-  }, [youtubeUrl, wasLoading, openYoutubeUrl]);
+  }, [youtubeUrl, wasLoading, isEmpty, openYoutubeUrl]);
 
   const onWatchTrailerPress = useCallback(() => {
+    if (isEmpty) {
+      Alert.alert('No trailers available');
+      return;
+    }
+
     if (youtubeUrl) {
       openYoutubeUrl();
       return;
     }
 
     fetch();
-  }, [fetch, youtubeUrl, openYoutubeUrl]);
+  }, [fetch, youtubeUrl, openYoutubeUrl, isEmpty]);
 
   return (
     <View style={styles.header}>
