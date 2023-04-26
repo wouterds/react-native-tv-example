@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { AxiosFactory, normalizeResult } from 'store/utils';
+import { AxiosFactory, normalizeMovieResult } from 'store/utils';
 
 import {
   fetchPopularMovies,
@@ -30,9 +30,7 @@ function* fetchPopularMoviesFlow() {
     return;
   }
 
-  const data = response.data.results
-    .filter((item: any) => item?.media_type !== 'person')
-    .map(normalizeResult);
+  const data = response.data.results.map(normalizeMovieResult);
 
   yield put(fetchPopularMoviesSuccess(data));
 

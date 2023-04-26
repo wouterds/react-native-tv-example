@@ -10,4 +10,5 @@ export type Movie = {
   poster_path: string;
   poster_url: string;
   vote_average: number;
+  type: 'movie';
 };

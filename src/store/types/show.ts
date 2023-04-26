@@ -11,4 +11,5 @@ export type Show = {
   poster_path: string;
   poster_url: string;
   vote_average: number;
+  type: 'show';
 };
