@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { AxiosFactory, normalizeResult } from 'store/utils';
+import { AxiosFactory, Normalizer } from 'store/utils';
 
 import {
   fetchTrendingToday,
@@ -32,7 +32,7 @@ function* fetchTrendingTodayFlow() {
 
   const data = response.data.results
     .filter((item: any) => item?.media_type !== 'person')
-    .map(normalizeResult);
+    .map(Normalizer.result);
 
   yield put(fetchTrendingTodaySuccess(data));
 

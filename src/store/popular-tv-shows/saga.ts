@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { AxiosFactory, normalizeShowResult } from 'store/utils';
+import { AxiosFactory, Normalizer } from 'store/utils';
 
 import {
   fetchPopularTVShows,
@@ -30,7 +30,7 @@ function* fetchPopularTVShowsFlow() {
     return;
   }
 
-  const data = response.data.results.map(normalizeShowResult);
+  const data = response.data.results.map(Normalizer.show);
 
   yield put(fetchPopularTVShowsSuccess(data));
 
