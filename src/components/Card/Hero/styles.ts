@@ -32,6 +32,15 @@ const createStyles = ({ bottom }: Props) => {
     spacer: {
       flex: 1,
     },
+    details: {
+      flexDirection: Platform.isTV ? 'row' : 'column',
+    },
+    watchTrailer: {
+      alignItems: Platform.isTV ? 'center' : undefined,
+      justifyContent: Platform.isTV ? 'center' : undefined,
+      marginTop: Platform.isTV ? 0 : size(20),
+      flex: Platform.isTV ? 1 : 0,
+    },
     title: {
       fontSize: size(48),
       fontWeight: 'bold',
@@ -39,6 +48,7 @@ const createStyles = ({ bottom }: Props) => {
     },
     overview: {
       maxWidth: size(640),
+      width: '100%',
       marginTop: size(12),
       fontSize: size(16),
       lineHeight: size(16 * 1.4),

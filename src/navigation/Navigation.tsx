@@ -10,13 +10,13 @@ const Navigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        orientation: 'portrait',
-        headerTintColor: '#38eabe',
+        orientation: Platform.isTV ? 'landscape' : 'portrait',
+        headerTintColor: '#fff',
         headerTitleStyle: {
           color: '#FFF',
         },
         headerStyle: {
-          backgroundColor: '#0D0F13',
+          backgroundColor: '#1c2029',
         },
         headerShadowVisible: false,
       }}>

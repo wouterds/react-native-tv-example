@@ -10,10 +10,8 @@ const WatchTrailer = () => {
   const styles = useComputedStyles(createStyles, { hasFocus });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.button}>
-        <Text style={styles.text}>Watch trailer</Text>
-      </View>
+    <View style={styles.button}>
+      <Text style={styles.text}>Watch trailer</Text>
     </View>
   );
 };

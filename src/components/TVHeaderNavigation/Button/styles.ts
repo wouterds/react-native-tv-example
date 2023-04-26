@@ -9,11 +9,12 @@ interface Props {
 const createStyles = ({ active, hasFocus }: Props) => {
   const button: ViewStyle = {
     paddingVertical: size(6),
+    paddingBottom: Platform.OS === 'android' ? size(7) : size(6),
     paddingHorizontal: size(18),
-    borderColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'transparent',
     borderWidth: size(2),
     borderRadius: size(25),
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: 'transparent',
   };
 
   const text: TextStyle = {
@@ -22,16 +23,12 @@ const createStyles = ({ active, hasFocus }: Props) => {
     color: '#FFF',
   };
 
-  if (Platform.OS === 'ios') {
-    button.borderColor = 'transparent';
-  }
-
   if (active) {
-    text.color = '#38eabe';
+    button.backgroundColor = 'rgba(255, 255, 255, 0.05)';
   }
 
   if (hasFocus) {
-    button.borderColor = '#38eabe';
+    button.borderColor = '#fff';
   }
 
   return StyleSheet.create({

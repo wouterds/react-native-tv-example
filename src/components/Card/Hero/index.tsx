@@ -98,6 +98,7 @@ const HeroCard = ({ item }: Props) => {
       <View style={styles.content}>
         {Platform.isTV && <BackButton onPress={goBack} />}
         <View style={styles.spacer} />
+
         <Text
           style={styles.title}
           adjustsFontSizeToFit
@@ -105,14 +106,18 @@ const HeroCard = ({ item }: Props) => {
           {item.type === 'movie' ? (item as Movie).title : null}
           {item.type === 'show' ? (item as Show).name : null}
         </Text>
-        {!!item.overview && (
-          <Text
-            style={styles.overview}
-            numberOfLines={Platform.isTV ? 4 : undefined}>
-            {item.overview}
-          </Text>
-        )}
-        <WatchTrailer onPress={onWatchTrailerPress} />
+        <View style={styles.details}>
+          {!!item.overview && (
+            <Text
+              style={styles.overview}
+              numberOfLines={Platform.isTV ? 4 : undefined}>
+              {item.overview}
+            </Text>
+          )}
+          <View style={styles.watchTrailer}>
+            <WatchTrailer onPress={onWatchTrailerPress} />
+          </View>
+        </View>
       </View>
     </View>
   );
