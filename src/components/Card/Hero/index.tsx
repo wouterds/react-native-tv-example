@@ -1,4 +1,5 @@
 import MaskedView from '@react-native-masked-view/masked-view';
+import { useNavigation } from '@react-navigation/native';
 import FastImageBackground from 'components/FastImageBackground';
 import { useComputedStyles } from 'hooks';
 import React from 'react';
@@ -9,6 +10,7 @@ import { MediaAsset } from 'store/types/media-asset';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
+import BackButton from './BackButton';
 import createStyles from './styles';
 
 interface Props {
@@ -18,6 +20,7 @@ interface Props {
 const HeroCard = ({ item }: Props) => {
   const { bottom } = useSafeAreaInsets();
   const styles = useComputedStyles(createStyles, { bottom });
+  const { goBack } = useNavigation();
 
   return (
     <View style={styles.header}>
@@ -50,6 +53,7 @@ const HeroCard = ({ item }: Props) => {
         />
       </MaskedView>
       <View style={styles.content}>
+        {Platform.isTV && <BackButton onPress={goBack} />}
         <View style={styles.spacer} />
         <Text
           style={styles.title}

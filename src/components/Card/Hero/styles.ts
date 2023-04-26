@@ -5,8 +5,8 @@ interface Props {
   bottom: number;
 }
 
-const createStyles = ({ bottom }: Props) =>
-  StyleSheet.create({
+const createStyles = ({ bottom }: Props) => {
+  return StyleSheet.create({
     header: {
       flex: 1,
     },
@@ -26,7 +26,6 @@ const createStyles = ({ bottom }: Props) =>
       top: 0,
       right: 0,
       bottom: 0,
-      paddingTop: Platform.isTV ? size(32) : 0,
       paddingBottom: Platform.isTV ? size(32) : bottom,
       paddingHorizontal: size(25),
     },
@@ -47,5 +46,6 @@ const createStyles = ({ bottom }: Props) =>
       color: 'rgba(255, 255, 255, 0.8)',
     },
   });
+};
 
 export default createStyles;
