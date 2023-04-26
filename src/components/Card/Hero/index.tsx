@@ -5,13 +5,14 @@ import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { MediaAsset } from 'store/types/media';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
 import createStyles from './styles';
 
 interface Props {
-  item: Show | Movie;
+  item: MediaAsset;
 }
 
 const HeroCard = ({ item }: Props) => {
@@ -54,8 +55,8 @@ const HeroCard = ({ item }: Props) => {
           style={styles.title}
           adjustsFontSizeToFit
           numberOfLines={Platform.isTV ? 1 : 2}>
-          {'title' in item && item.title}
-          {'name' in item && item.name}
+          {item.type === 'movie' ? (item as Movie).title : null}
+          {item.type === 'show' ? (item as Show).name : null}
         </Text>
         {!!item.overview && (
           <Text

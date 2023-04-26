@@ -3,6 +3,7 @@ import { useTouchable } from 'components/Touchable';
 import { useComputedStyles } from 'hooks';
 import React, { memo, MemoExoticComponent } from 'react';
 import { Text, View } from 'react-native';
+import { MediaAsset } from 'store/types/media';
 import { Movie } from 'store/types/movie';
 import { Show } from 'store/types/show';
 
@@ -11,7 +12,7 @@ import Shimmer from './Shimmer';
 import createStyles from './styles';
 
 interface Props {
-  item: Show | Movie;
+  item: MediaAsset;
 }
 
 const PortraitCard = memo(({ item }: Props) => {
@@ -30,8 +31,8 @@ const PortraitCard = memo(({ item }: Props) => {
       </View>
       <View style={styles.info}>
         <Text style={styles.title} numberOfLines={1}>
-          {'name' in item && item.name}
-          {'title' in item && item.title}
+          {item.type === 'movie' ? (item as Movie).title : null}
+          {item.type === 'show' ? (item as Show).name : null}
         </Text>
       </View>
     </View>
