@@ -15,6 +15,18 @@ const DiscoverScreen = () => {
       <Swimlane.TrendingToday />
       <Swimlane.PopularTVShows />
       <Swimlane.PopularMovies />
+      <Swimlane.TrendingToday />
+      <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies />
+      <Swimlane.TrendingToday />
+      <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies />
+      <Swimlane.TrendingToday />
+      <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies />
+      <Swimlane.TrendingToday />
+      <Swimlane.PopularTVShows />
+      <Swimlane.PopularMovies />
     </ScreenWrapper>
   );
 };

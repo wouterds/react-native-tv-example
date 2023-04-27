@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { usePopularMovies } from 'store/popular-movies/hooks';
 
@@ -13,6 +13,15 @@ const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
   const { data, isLoading, isEmpty, hasError } = usePopularMovies({
     fetch: true,
   });
+
+  const [forceShimmers, setForceShimmers] = useState(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setForceShimmers(!forceShimmers);
+    }, Math.random() * 5000 + 2000);
+
+    return () => clearTimeout(timeout);
+  }, [forceShimmers]);
 
   if (isEmpty) {
     // render empty state?
@@ -33,7 +42,11 @@ const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          data={isLoading && data.length === 0 ? new Array(6).fill(null) : data}
+          data={
+            forceShimmers || (isLoading && data.length === 0)
+              ? new Array(6).fill(null)
+              : data
+          }
           keyExtractor={(item, index) =>
             `swimlane.popular-movies.${item?.id || index}`
           }
