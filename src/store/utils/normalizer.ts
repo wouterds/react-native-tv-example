@@ -15,9 +15,19 @@ export const Normalizer = {
     };
   },
 
-  movie: (item: any) => Normalizer.mediaAsset({ ...item, media_type: 'movie' }),
+  movie: (item: any) => {
+    return {
+      ...Normalizer.mediaAsset({ ...item, media_type: 'movie' }),
+      release_date: new Date(item.release_date),
+    };
+  },
 
-  show: (item: any) => Normalizer.mediaAsset({ ...item, media_type: 'show' }),
+  show: (item: any) => {
+    return {
+      ...Normalizer.mediaAsset({ ...item, media_type: 'show' }),
+      first_air_date: new Date(item.first_air_date),
+    };
+  },
 
   video: (item: any) => {
     return {
