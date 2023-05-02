@@ -50,7 +50,7 @@ const UpcomingMovies = () => {
           <View style={styles.content}>
             <Text style={styles.subTitle}>
               Coming to theaters on{' '}
-              {format(item?.release_date || new Date(), 'MMMM Mo')}
+              {format(item?.release_date || new Date(), 'MMMM do')}
             </Text>
             <Text style={styles.title} adjustsFontSizeToFit numberOfLines={1}>
               {item?.title}
