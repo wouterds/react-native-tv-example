@@ -1,7 +1,7 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import DebugInfo from 'components/DebugInfo';
 import { differenceInMilliseconds } from 'date-fns';
-import { withSafeAreaContext } from 'hocs/withSafeAreaContext';
+import { withSafeAreaContext } from 'hocs';
 import ms from 'ms';
 import { Navigation } from 'navigation';
 import React, { useEffect, useRef, useState } from 'react';
