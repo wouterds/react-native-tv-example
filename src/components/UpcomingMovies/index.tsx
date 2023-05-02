@@ -22,7 +22,7 @@ const UpcomingMovies = () => {
   }, [data]);
 
   const onPress = useCallback(() => {
-    Alert.alert("This doesn't do anything yet", '¯\\_(ツ)_/¯');
+    Alert.alert("This doesn't do anything (yet)", '¯\\_(ツ)_/¯');
   }, []);
 
   if (isEmpty) {
