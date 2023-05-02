@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import React, { memo, useCallback, useMemo } from 'react';
-import { Alert, Platform, Text, View } from 'react-native';
+import { Alert, Text, TVFocusGuideView, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
 
@@ -39,7 +39,7 @@ const UpcomingMovies = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <TVFocusGuideView style={styles.container} autoFocus>
       <View style={styles.col}>
         <View style={styles.box}>
           <FastImage
@@ -67,7 +67,7 @@ const UpcomingMovies = () => {
           </View>
         </View>
       </View>
-    </View>
+    </TVFocusGuideView>
   );
 };
 
