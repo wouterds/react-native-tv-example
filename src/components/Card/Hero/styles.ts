@@ -1,4 +1,5 @@
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Device } from 'react-native-device-select';
 import { size } from 'utils/styles';
 
 interface Props {
@@ -26,20 +27,35 @@ const createStyles = ({ bottom }: Props) => {
       top: 0,
       right: 0,
       bottom: 0,
-      paddingBottom: Platform.isTV ? size(32) : bottom,
+      paddingBottom: bottom,
       paddingHorizontal: size(25),
+      ...Device.select({
+        tv: {
+          paddingBottom: size(32),
+        },
+      }),
     },
     spacer: {
       flex: 1,
     },
     details: {
-      flexDirection: Platform.isTV ? 'row' : 'column',
+      flexDirection: 'column',
+      ...Device.select({
+        tv: {
+          flexDirection: 'row',
+        },
+      }),
     },
     watchTrailer: {
-      alignItems: Platform.isTV ? 'flex-end' : undefined,
-      justifyContent: Platform.isTV ? 'center' : undefined,
-      marginTop: Platform.isTV ? 0 : size(20),
-      flex: Platform.isTV ? 1 : 0,
+      marginTop: size(20),
+      ...Device.select({
+        tv: {
+          alignItems: 'flex-end',
+          justifyContent: 'center',
+          marginTop: 0,
+          flex: 1,
+        },
+      }),
     },
     title: {
       fontSize: size(48),

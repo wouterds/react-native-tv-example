@@ -1,4 +1,5 @@
-import { Platform, StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { Device } from 'react-native-device-select';
 import { size } from 'utils/styles';
 
 interface Props {
@@ -10,13 +11,23 @@ const createStyles = ({ hasFocus }: Props) => {
     borderColor: 'transparent',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderWidth: size(2),
-    height: size(Platform.isTV ? 46 : 52),
-    paddingHorizontal: size(Platform.isTV ? 23 : 26),
-    paddingBottom: Platform.OS === 'android' ? size(1) : 0,
+    height: size(52),
+    paddingHorizontal: size(26),
+    paddingBottom: 0,
     borderRadius: size(26),
     alignItems: 'center',
     justifyContent: 'center',
-    width: Platform.isTV ? 'auto' : '100%',
+    width: '100%',
+    ...Device.select({
+      tv: {
+        height: size(46),
+        paddingHorizontal: size(23),
+        width: 'auto',
+      },
+      android: {
+        paddingBottom: size(1),
+      },
+    }),
   };
 
   const text: TextStyle = {
