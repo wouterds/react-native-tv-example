@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { withTVSpecific } from 'hocs';
 import React, { memo, useCallback, useMemo } from 'react';
 import { Alert, Text, TVFocusGuideView, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -23,10 +24,6 @@ const UpcomingMovies = () => {
   const onPress = useCallback(() => {
     Alert.alert("This doesn't do anything yet", '¯\\_(ツ)_/¯');
   }, []);
-
-  if (!Platform.isTV) {
-    return null;
-  }
 
   if (isEmpty) {
     // render empty state?
@@ -71,4 +68,4 @@ const UpcomingMovies = () => {
   );
 };
 
-export default memo(UpcomingMovies);
+export default memo(withTVSpecific(UpcomingMovies));
