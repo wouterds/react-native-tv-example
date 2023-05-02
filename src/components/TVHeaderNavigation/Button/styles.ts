@@ -30,7 +30,7 @@ const createStyles = ({ active, hasFocus }: Props) => {
   };
 
   if (active) {
-    button.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+    button.backgroundColor = 'rgba(255, 255, 255, 0.075)';
   }
 
   if (hasFocus) {

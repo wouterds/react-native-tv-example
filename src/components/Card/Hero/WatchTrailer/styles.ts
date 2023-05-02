@@ -9,7 +9,7 @@ interface Props {
 const createStyles = ({ hasFocus }: Props) => {
   const button: ViewStyle = {
     borderColor: 'transparent',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderWidth: size(2),
     height: size(52),
     paddingHorizontal: size(26),
