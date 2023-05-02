@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     aspectRatio: 16 / 9,
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
   box: {
     flex: 1,
@@ -22,6 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderRadius: size(6),
     overflow: 'hidden',
+    resizeMode: 'cover',
   },
   content: {
     margin: size(25),
@@ -33,17 +37,41 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.5)',
     marginBottom: size(4),
   },
+  subTitleShimmer: {
+    height: size(18),
+    borderRadius: size(4),
+    marginBottom: size(4),
+    overflow: 'hidden',
+    resizeMode: 'cover',
+  },
   title: {
     fontSize: size(32),
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: size(8),
+    height: size(43),
+  },
+  titleShimmer: {
+    borderRadius: size(4),
+    minWidth: '70%',
+    marginTop: size(6),
+    height: size(36),
+    overflow: 'hidden',
+    resizeMode: 'cover',
   },
   text: {
     fontSize: size(12),
     lineHeight: size(18),
     fontWeight: '500',
     color: 'rgba(255, 255, 255, 0.9)',
+  },
+  textShimmer: {
+    borderRadius: size(4),
+    minWidth: '80%',
+    marginTop: size(6),
+    height: size(12),
+    overflow: 'hidden',
+    resizeMode: 'cover',
   },
   spacer: {
     flex: 1,
