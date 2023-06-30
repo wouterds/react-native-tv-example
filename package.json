@@ -14,7 +14,7 @@
     "tvos:release": "react-native run-ios --scheme Example-tvOS --simulator \"Apple TV\" --configuration Release",
     "start": "react-native start",
     "postinstall": "patch-package",
-    "pods": "pod-install",
+    "pods": "bundle exec pod install --project-directory=ios",
     "test": "jest",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
