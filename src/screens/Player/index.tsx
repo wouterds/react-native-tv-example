@@ -65,6 +65,7 @@ const PlayerScreen = () => {
             source={{ uri: url }}
             disableFocus
             controls
+            resizeMode="cover"
             fullscreen
             onEnd={goBack}
             preventsDisplaySleepDuringVideoPlayback
