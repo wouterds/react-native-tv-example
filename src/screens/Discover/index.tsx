@@ -12,8 +12,8 @@ const DiscoverScreen = () => {
   const styles = useComputedStyles(createStyles, { bottom });
 
   return (
-    <ScreenWrapper header contentStyle={styles.container}>
-      <Swimlane.TrendingToday />
+    <ScreenWrapper contentStyle={styles.container}>
+      <Swimlane.TrendingToday hasTVPreferredFocus />
       <Banner.UpcomingMovies />
       <Swimlane.PopularMovies />
       <Swimlane.PopularTVShows />

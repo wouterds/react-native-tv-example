@@ -10,9 +10,10 @@ import styles from './styles';
 
 interface Props {
   item: Movie | Show | null;
+  hasTVPreferredFocus?: boolean;
 }
 
-const TrendingTodayItem = ({ item }: Props) => {
+const TrendingTodayItem = ({ item, hasTVPreferredFocus }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
   if (!item) {
@@ -22,6 +23,7 @@ const TrendingTodayItem = ({ item }: Props) => {
   return (
     <Touchable
       style={styles.container}
+      hasTVPreferredFocus={hasTVPreferredFocus}
       onPress={() =>
         navigate(Route.TrendingToday, {
           id: item.id,

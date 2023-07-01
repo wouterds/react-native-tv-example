@@ -7,9 +7,10 @@ import styles from './styles';
 
 interface Props {
   hideTitle?: boolean;
+  hasTVPreferredFocus?: boolean;
 }
 
-const TrendingTodaySwimlane = ({ hideTitle }: Props) => {
+const TrendingTodaySwimlane = ({ hideTitle, hasTVPreferredFocus }: Props) => {
   const { data, isLoading, isEmpty, hasError } = useTrendingToday({
     fetch: true,
   });
@@ -37,7 +38,12 @@ const TrendingTodaySwimlane = ({ hideTitle }: Props) => {
           keyExtractor={(item, index) =>
             `swimlane.trending-today.${item?.id || index}`
           }
-          renderItem={({ item }) => <Item item={item} />}
+          renderItem={({ item, index }) => (
+            <Item
+              item={item}
+              hasTVPreferredFocus={hasTVPreferredFocus && index === 0}
+            />
+          )}
         />
       </TVFocusGuideView>
     </View>
