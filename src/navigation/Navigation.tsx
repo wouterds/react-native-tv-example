@@ -61,6 +61,7 @@ const Navigation = () => {
           orientation: 'landscape',
           presentation: 'fullScreenModal',
           autoHideHomeIndicator: true,
+          animation: 'fade',
         }}
       />
     </Stack.Navigator>

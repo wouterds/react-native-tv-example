@@ -37,7 +37,7 @@ const UpcomingMovies = () => {
   }
 
   return (
-    <TVFocusGuideView style={styles.container} autoFocus>
+    <TVFocusGuideView style={styles.container}>
       <View style={styles.col}>
         <View style={styles.box}>
           {isLoading && !item ? (
@@ -81,7 +81,7 @@ const UpcomingMovies = () => {
                 <Shimmer style={styles.textShimmer} />
               </View>
             ) : (
-              <Text style={styles.text} numberOfLines={4}>
+              <Text style={styles.text} numberOfLines={3}>
                 {item?.overview}
               </Text>
             )}

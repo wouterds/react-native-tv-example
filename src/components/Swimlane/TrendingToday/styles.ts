@@ -3,15 +3,15 @@ import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: size(12),
+    marginTop: size(16),
   },
   flatList: {
-    paddingHorizontal: size(25),
+    paddingHorizontal: size(32),
     marginHorizontal: -size(2),
     marginVertical: size(6),
   },
   title: {
-    paddingHorizontal: size(25),
+    paddingHorizontal: size(32),
     fontSize: size(18),
     fontWeight: '700',
     color: '#fff',

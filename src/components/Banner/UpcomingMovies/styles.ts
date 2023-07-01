@@ -3,10 +3,10 @@ import { size } from 'utils/styles';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: size(12),
+    marginTop: size(18),
     marginHorizontal: -size(10),
     flexDirection: 'row',
-    paddingHorizontal: size(25),
+    paddingHorizontal: size(24),
   },
   col: {
     flex: 1,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   content: {
-    margin: size(25),
+    margin: size(32),
     flex: 1,
   },
   subTitle: {

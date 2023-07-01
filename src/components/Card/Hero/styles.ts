@@ -19,7 +19,7 @@ const createStyles = ({ bottom }: Props) => {
       right: 0,
       bottom: 0,
       paddingBottom: bottom,
-      paddingHorizontal: size(25),
+      paddingHorizontal: size(32),
       ...Device.select({
         tv: {
           paddingBottom: size(32),
@@ -54,7 +54,7 @@ const createStyles = ({ bottom }: Props) => {
     overview: {
       maxWidth: size(640),
       width: '100%',
-      marginTop: size(12),
+      marginTop: size(16),
       fontSize: size(16),
       lineHeight: size(16 * 1.4),
       fontWeight: '600',

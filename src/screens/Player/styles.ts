@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   loaderText: {
     color: '#fff',
-    fontSize: size(10),
+    fontSize: size(11),
     fontWeight: '600',
   },
   content: {
