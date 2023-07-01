@@ -4,8 +4,7 @@ import FastImageBackground from 'components/FastImageBackground';
 import { useYouTubeMP4 } from 'hooks';
 import { Route, RouteParams } from 'navigation';
 import React, { memo, useEffect } from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
-import { Device } from 'react-native-device-select';
+import { ActivityIndicator, Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Video from 'react-native-video';
 
@@ -65,11 +64,10 @@ const PlayerScreen = () => {
             style={styles.video}
             source={{ uri: url }}
             disableFocus
-            fullscreen
             controls
+            fullscreen
             preventsDisplaySleepDuringVideoPlayback
-            pictureInPicture={!Device.isTV}
-            playInBackground={!Device.isTV}
+            pictureInPicture={!Platform.isTV}
             ignoreSilentSwitch="ignore"
           />
         )}
