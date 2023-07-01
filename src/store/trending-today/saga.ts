@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { AxiosFactory, Normalizer } from 'store/utils';
+import { Normalizer } from 'store/utils';
 
 import {
   fetchTrendingToday,
@@ -17,9 +17,7 @@ function* fetchTrendingTodayFlow() {
 
   console.log(TAG, 'fetching trending today...');
 
-  const response: AxiosResponse = yield call(Api.get, '/trending/all/day', {
-    headers: { ...AxiosFactory.headers },
-  });
+  const response: AxiosResponse = yield call(Api.get, '/trending/all/day');
   if (response.status !== 200) {
     yield put(fetchTrendingTodayError());
     return;

@@ -3,7 +3,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
 import { Video } from 'store/types/video';
-import { AxiosFactory, Normalizer } from 'store/utils';
+import { Normalizer } from 'store/utils';
 
 import { fetchVideos, fetchVideosError, fetchVideosSuccess } from './slice';
 import { FetchVideosAction } from './types';
@@ -19,9 +19,6 @@ function* fetchVideosFlow({ payload: { id } }: FetchVideosAction) {
     Api.get,
     // could be /tv/1234/videos or /movie/1234/videos
     `/${id.type === 'show' ? 'tv' : id.type}/${id.id}/videos`,
-    {
-      headers: { ...AxiosFactory.headers },
-    },
   );
   if (response.status !== 200) {
     yield put(fetchVideosError({ id }));

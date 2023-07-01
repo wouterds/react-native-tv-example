@@ -3,7 +3,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
 import { Movie } from 'store/types/movie';
-import { AxiosFactory, Normalizer } from 'store/utils';
+import { Normalizer } from 'store/utils';
 
 import {
   fetchUpcomingMovies,
@@ -18,9 +18,7 @@ function* fetchUpcomingMoviesFlow() {
 
   console.log(TAG, 'fetching upcoming movies...');
 
-  const response: AxiosResponse = yield call(Api.get, '/movie/upcoming', {
-    headers: { ...AxiosFactory.headers },
-  });
+  const response: AxiosResponse = yield call(Api.get, '/movie/upcoming');
   if (response.status !== 200) {
     yield put(fetchUpcomingMoviesError());
     return;

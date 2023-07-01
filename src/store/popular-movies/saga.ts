@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Api } from 'services/api';
-import { AxiosFactory, Normalizer } from 'store/utils';
+import { Normalizer } from 'store/utils';
 
 import {
   fetchPopularMovies,
@@ -17,9 +17,7 @@ function* fetchPopularMoviesFlow() {
 
   console.log(TAG, 'fetching popular movies...');
 
-  const response: AxiosResponse = yield call(Api.get, '/movie/popular', {
-    headers: { ...AxiosFactory.headers },
-  });
+  const response: AxiosResponse = yield call(Api.get, '/movie/popular');
   if (response.status !== 200) {
     yield put(fetchPopularMoviesError());
     return;
