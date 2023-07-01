@@ -80,6 +80,15 @@ const Navigation = () => {
           headerShown: !Platform.isTV,
         })}
       />
+      <Stack.Screen
+        name={Route.Player}
+        component={Screen.Player}
+        options={{
+          headerShown: false,
+          orientation: 'landscape',
+          presentation: 'fullScreenModal',
+        }}
+      />
     </Stack.Navigator>
   );
 };

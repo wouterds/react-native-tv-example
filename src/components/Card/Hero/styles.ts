@@ -8,19 +8,10 @@ interface Props {
 
 const createStyles = ({ bottom }: Props) => {
   return StyleSheet.create({
-    header: {
-      flex: 1,
-    },
-    mask: {
-      flex: 1,
-    },
-    gradient: {
-      flex: 1,
-    },
-    image: {
-      flex: 1,
-      resizeMode: 'cover',
-    },
+    header: { flex: 1 },
+    mask: { flex: 1 },
+    gradient: { flex: 1 },
+    image: { flex: 1, resizeMode: 'cover' },
     content: {
       position: 'absolute',
       left: 0,
@@ -35,9 +26,7 @@ const createStyles = ({ bottom }: Props) => {
         },
       }),
     },
-    spacer: {
-      flex: 1,
-    },
+    spacer: { flex: 1 },
     details: {
       flexDirection: 'column',
       ...Device.select({

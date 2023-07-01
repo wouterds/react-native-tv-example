@@ -17,4 +17,8 @@ export type RouteParams = {
     id: number;
     title: string;
   };
+  [Route.Player]: {
+    youTubeId: string;
+    backgroundImageUrl?: string;
+  };
 };

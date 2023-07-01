@@ -3,9 +3,9 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import usePreviousValue from 'beautiful-react-hooks/usePreviousValue';
 import FastImageBackground from 'components/FastImageBackground';
 import { useComputedStyles } from 'hooks';
-import { RouteParams } from 'navigation';
+import { Route, RouteParams } from 'navigation';
 import React, { useCallback, useEffect, useMemo } from 'react';
-import { Alert, Linking, Platform, Text, View } from 'react-native';
+import { Alert, Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MediaAsset } from 'store/types/media-asset';
@@ -24,30 +24,20 @@ interface Props {
 const HeroCard = ({ item }: Props) => {
   const { bottom } = useSafeAreaInsets();
   const styles = useComputedStyles(createStyles, { bottom });
-  const { goBack } = useNavigation<NavigationProp<RouteParams>>();
+  const { goBack, navigate } = useNavigation<NavigationProp<RouteParams>>();
 
   const { fetch, data, isLoading, isEmpty } = useVideos({
     id: item.id,
     type: item.type,
   });
 
-  const youtubeUrl = useMemo(() => {
-    if (!data?.[0]?.key) {
-      return null;
-    }
-
-    return `https://www.youtube.com/watch?v=${data[0].key}`;
+  const youTubeId = useMemo(() => {
+    return data?.[0]?.key || null;
   }, [data]);
 
-  const openYoutubeUrl = useCallback(async () => {
-    if (youtubeUrl) {
-      try {
-        await Linking.openURL(youtubeUrl);
-      } catch {
-        Alert.alert('Could not open YouTube video');
-      }
-    }
-  }, [youtubeUrl]);
+  const backgroundImageUrl = useMemo(() => {
+    return item.backdrop_url;
+  }, [item?.backdrop_url]);
 
   const wasLoading = usePreviousValue(isLoading);
   useEffect(() => {
@@ -56,10 +46,10 @@ const HeroCard = ({ item }: Props) => {
       return;
     }
 
-    if (wasLoading && youtubeUrl) {
-      openYoutubeUrl();
+    if (wasLoading && youTubeId) {
+      navigate(Route.Player, { youTubeId, backgroundImageUrl });
     }
-  }, [youtubeUrl, wasLoading, isEmpty, openYoutubeUrl]);
+  }, [youTubeId, backgroundImageUrl, wasLoading, isEmpty, navigate]);
 
   const onWatchTrailerPress = useCallback(() => {
     if (isEmpty) {
@@ -67,13 +57,12 @@ const HeroCard = ({ item }: Props) => {
       return;
     }
 
-    if (youtubeUrl) {
-      openYoutubeUrl();
-      return;
+    if (youTubeId) {
+      navigate(Route.Player, { youTubeId });
     }
 
     fetch();
-  }, [fetch, youtubeUrl, openYoutubeUrl, isEmpty]);
+  }, [fetch, youTubeId, navigate, isEmpty]);
 
   return (
     <View style={styles.header}>

@@ -6,4 +6,5 @@ export enum Route {
   Movie = 'route.movie',
   Show = 'route.show',
   TrendingToday = 'route.trending-today',
+  Player = 'route.player',
 }
