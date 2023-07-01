@@ -87,6 +87,7 @@ const Navigation = () => {
           headerShown: false,
           orientation: 'landscape',
           presentation: 'fullScreenModal',
+          autoHideHomeIndicator: true,
         }}
       />
     </Stack.Navigator>
