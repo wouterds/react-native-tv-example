@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const fetchMP4Url = async (youTubeId: string) => {
   try {
@@ -10,7 +10,14 @@ const fetchMP4Url = async (youTubeId: string) => {
       return null;
     }
 
-    return data?.data?.player_response?.streamingData?.formats?.[0]?.url;
+    const formats = data?.data?.player_response?.streamingData?.formats || [];
+
+    const video = (formats as { height: number; url: string }[])
+      .filter(item => item.height <= 1080)
+      .sort((a, b) => b.height - a.height)
+      .shift();
+
+    return video?.url || null;
   } catch {
     return null;
   }
@@ -26,5 +33,5 @@ export const useYouTubeMP4 = (youTubeId: string) => {
       .finally(() => setLoading(false));
   }, [setUrl, youTubeId]);
 
-  return { url, loading };
+  return useMemo(() => ({ url, loading }), [url, loading]);
 };
