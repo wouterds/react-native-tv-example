@@ -66,6 +66,7 @@ const PlayerScreen = () => {
             disableFocus
             controls
             fullscreen
+            onEnd={goBack}
             preventsDisplaySleepDuringVideoPlayback
             pictureInPicture={!Platform.isTV}
             ignoreSilentSwitch="ignore"
