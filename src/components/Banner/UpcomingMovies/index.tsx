@@ -1,8 +1,10 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import Shimmer from 'components/Shimmer';
 import { format } from 'date-fns';
 import { withTVSpecific } from 'hocs';
+import { Route, RouteParams } from 'navigation';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Easing, Text, TVFocusGuideView, View } from 'react-native';
+import { Easing, Text, TVFocusGuideView, View } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import FastImage from 'react-native-fast-image';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
@@ -14,6 +16,7 @@ import styles from './styles';
 const INTERVAL = 20;
 
 const UpcomingMovies = () => {
+  const { navigate } = useNavigation<NavigationProp<RouteParams>>();
   const { data, isEmpty, hasError, isLoading } = useUpcomingMovies({
     fetch: true,
   });
@@ -45,8 +48,8 @@ const UpcomingMovies = () => {
   }, [nextIndex, index]);
 
   const onPress = useCallback(() => {
-    Alert.alert('TODO');
-  }, []);
+    navigate(Route.Movie, { id: item.id, title: item.title });
+  }, [item, navigate]);
 
   if (isEmpty) {
     // render empty state?
