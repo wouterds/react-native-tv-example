@@ -1,7 +1,7 @@
 import Shimmer from 'components/Shimmer';
 import { format } from 'date-fns';
 import { withTVSpecific } from 'hocs';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, Text, TVFocusGuideView, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
@@ -14,13 +14,22 @@ const UpcomingMovies = () => {
     fetch: true,
   });
 
-  const item = useMemo(() => {
-    if (!data) {
-      return null;
-    }
+  const [index, setIndex] = useState(-1);
+  const item = useMemo(() => data[index], [data, index]);
 
-    return data[Math.floor(Math.random() * data.length)];
-  }, [data]);
+  useEffect(() => {
+    if (index === -1 && !isLoading && !isEmpty && !hasError && data.length) {
+      setIndex(Math.floor(Math.random() * data.length));
+    }
+  }, [data, index, isLoading, isEmpty, hasError]);
+
+  useEffect(() => {
+    if (index !== -1) {
+      setTimeout(() => {
+        setIndex((index + 1) % data.length);
+      }, 20000);
+    }
+  }, [index, data.length]);
 
   const onPress = useCallback(() => {
     Alert.alert('TODO');
