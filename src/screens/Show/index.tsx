@@ -1,16 +1,27 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import Card from 'components/Card';
 import ScreenWrapper from 'components/ScreenWrapper';
+import Warning from 'components/Warning';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
+import { size } from 'utils/styles';
 
 const ShowScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Show>>();
 
   const { show } = usePopularTVShow(params.id);
   if (!show) {
-    return null;
+    return (
+      <ScreenWrapper style={{ padding: size(35) }}>
+        <Warning>
+          Still to do: rework data-store and store movies and shows per object
+          type instead of per api endpoint. Right now a detail page does a
+          lookup in the popular shows reducer, which is obviously not entirely
+          correct and why we can't find this item.
+        </Warning>
+      </ScreenWrapper>
+    );
   }
 
   return (
