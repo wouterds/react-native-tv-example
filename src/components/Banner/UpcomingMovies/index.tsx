@@ -2,12 +2,16 @@ import Shimmer from 'components/Shimmer';
 import { format } from 'date-fns';
 import { withTVSpecific } from 'hocs';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Text, TVFocusGuideView, View } from 'react-native';
+import { Alert, Easing, Text, TVFocusGuideView, View } from 'react-native';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import FastImage from 'react-native-fast-image';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
+import { size } from 'utils/styles';
 
 import MoreInfo from './MoreInfo';
 import styles from './styles';
+
+const INTERVAL = 20;
 
 const UpcomingMovies = () => {
   const { data, isEmpty, hasError, isLoading } = useUpcomingMovies({
@@ -15,21 +19,30 @@ const UpcomingMovies = () => {
   });
 
   const [index, setIndex] = useState(-1);
+  const [nextIndex, setNextIndex] = useState(index);
   const item = useMemo(() => data[index], [data, index]);
 
   useEffect(() => {
-    if (index === -1 && !isLoading && !isEmpty && !hasError && data.length) {
-      setIndex(Math.floor(Math.random() * data.length));
+    if (data.length && index === -1) {
+      setNextIndex(Math.floor(Math.random() * data.length));
     }
-  }, [data, index, isLoading, isEmpty, hasError]);
+  }, [data.length, index]);
 
   useEffect(() => {
     if (index !== -1) {
-      setTimeout(() => {
-        setIndex((index + 1) % data.length);
-      }, 20000);
+      const timeout = setTimeout(() => {
+        setNextIndex((index + 1) % data.length);
+      }, INTERVAL * 1000);
+
+      return () => clearTimeout(timeout);
     }
   }, [index, data.length]);
+
+  useEffect(() => {
+    if (nextIndex > -1 && nextIndex !== index) {
+      setIndex(nextIndex);
+    }
+  }, [nextIndex, index]);
 
   const onPress = useCallback(() => {
     Alert.alert('TODO');
@@ -57,6 +70,18 @@ const UpcomingMovies = () => {
               style={styles.image}
             />
           )}
+          <AnimatedCircularProgress
+            style={styles.loader}
+            size={size(12)}
+            width={size(2)}
+            fillLineCap="round"
+            tintColor="rgba(255, 255, 255, 0.8)"
+            backgroundColor="rgba(255, 255, 255, 0.2)"
+            rotation={0}
+            fill={nextIndex !== index ? 100 : 0}
+            duration={nextIndex !== index ? 0 : INTERVAL * 1000}
+            easing={Easing.linear}
+          />
         </View>
       </View>
       <View style={styles.col}>

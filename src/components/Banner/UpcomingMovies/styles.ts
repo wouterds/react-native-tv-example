@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  loader: {
+    position: 'absolute',
+    top: size(12),
+    right: size(12),
+  },
   box: {
     flex: 1,
     aspectRatio: 16 / 9,
