@@ -1,6 +1,5 @@
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useIsFocused, useRoute } from '@react-navigation/native';
-import TVHeaderNavigation from 'components/TVHeaderNavigation';
 import { useComputedStyles } from 'hooks';
 import { Route } from 'navigation';
 import React, { memo, ReactNode, useEffect } from 'react';
@@ -18,10 +17,9 @@ interface Props {
   children: ReactNode;
   style?: ViewStyle;
   contentStyle?: ViewStyle;
-  header?: boolean;
 }
 
-const ScreenWrapper = ({ children, style, contentStyle, header }: Props) => {
+const ScreenWrapper = ({ children, style, contentStyle }: Props) => {
   const isFocused = useIsFocused();
   const { name: route } = useRoute();
 
@@ -48,7 +46,6 @@ const ScreenWrapper = ({ children, style, contentStyle, header }: Props) => {
         contentContainerStyle={[styles.content, contentStyle]}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
-        {header && <TVHeaderNavigation />}
         {children}
       </ScrollView>
     </TVFocusGuideView>

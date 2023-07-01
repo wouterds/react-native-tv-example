@@ -30,33 +30,6 @@ const Navigation = () => {
         }}
       />
       <Stack.Screen
-        name={Route.Movies}
-        component={Screen.Movies}
-        options={() => ({
-          title: 'Movies',
-          headerShown: !Platform.isTV,
-          animation: 'fade',
-        })}
-      />
-      <Stack.Screen
-        name={Route.Shows}
-        component={Screen.Shows}
-        options={() => ({
-          title: 'Shows',
-          headerShown: !Platform.isTV,
-          animation: 'fade',
-        })}
-      />
-      <Stack.Screen
-        name={Route.Settings}
-        component={Screen.Settings}
-        options={() => ({
-          title: 'Settings',
-          headerShown: !Platform.isTV,
-          animation: 'fade',
-        })}
-      />
-      <Stack.Screen
         name={Route.Movie}
         component={Screen.Movie}
         options={({ route }) => ({
