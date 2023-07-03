@@ -2,8 +2,9 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import Shimmer from 'components/Shimmer';
 import { format } from 'date-fns';
 import { withTVSpecific } from 'hocs';
+import ms from 'ms';
 import { Route, RouteParams } from 'navigation';
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo } from 'react';
 import { Easing, Text, TVFocusGuideView, View } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import FastImage from 'react-native-fast-image';
@@ -13,49 +14,15 @@ import { size } from 'styles';
 
 import MoreInfo from './MoreInfo';
 import styles from './styles';
+import { useRandomUpcomingMovieId } from './useRandomUpcomingMovieId';
 
-const INTERVAL = 20;
+const REFRESH_INTERVAL = ms('20 seconds');
 
 const UpcomingMovies = () => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
-  const { data, isEmpty, hasError, isLoading } = useUpcomingMovies({
-    fetch: true,
-  });
-
-  const [index, setIndex] = useState(-1);
-  const [nextIndex, setNextIndex] = useState(index);
-  const movieId = useMemo(() => data[index], [data, index]);
+  const { isLoading, isEmpty, hasError } = useUpcomingMovies();
+  const { movieId, nextMovieId } = useRandomUpcomingMovieId(REFRESH_INTERVAL);
   const movie = useMovie(movieId);
-
-  useEffect(() => {
-    if (data.length && index === -1) {
-      setNextIndex(Math.floor(Math.random() * data.length));
-    }
-  }, [data.length, index]);
-
-  useEffect(() => {
-    if (index !== -1) {
-      const timeout = setTimeout(() => {
-        setNextIndex((index + 1) % data.length);
-      }, INTERVAL * 1000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [index, data.length]);
-
-  useEffect(() => {
-    if (nextIndex > -1 && nextIndex !== index) {
-      setIndex(nextIndex);
-    }
-  }, [nextIndex, index]);
-
-  const onPress = useCallback(() => {
-    if (!movie) {
-      return;
-    }
-
-    navigate(Route.Movie, { id: movie.id, title: movie.title });
-  }, [movie, navigate]);
 
   if (isEmpty) {
     // render empty state?
@@ -87,8 +54,8 @@ const UpcomingMovies = () => {
             tintColor="rgba(255, 255, 255, 0.8)"
             backgroundColor="rgba(255, 255, 255, 0.2)"
             rotation={0}
-            fill={nextIndex !== index ? 100 : 0}
-            duration={nextIndex !== index ? 0 : INTERVAL * 1000}
+            fill={nextMovieId !== movieId ? 100 : 0}
+            duration={nextMovieId !== movieId ? 0 : REFRESH_INTERVAL}
             easing={Easing.linear}
           />
         </View>
@@ -129,7 +96,13 @@ const UpcomingMovies = () => {
               </Text>
             )}
             <View style={styles.more}>
-              <MoreInfo onPress={onPress} />
+              <MoreInfo
+                onPress={() => {
+                  if (movie) {
+                    navigate(Route.Movie, { id: movie.id, title: movie.title });
+                  }
+                }}
+              />
             </View>
           </View>
         </View>
