@@ -1,7 +1,5 @@
-import { Movie } from 'store/types/movie';
+import { Movie, MovieId } from 'store/types/movie';
 import { Show } from 'store/types/show';
-
-type MovieId = number;
 
 export type MoviesState = Record<MovieId, Movie>;
 

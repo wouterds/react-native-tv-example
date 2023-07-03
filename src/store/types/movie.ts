@@ -6,3 +6,5 @@ export interface Movie extends MediaAsset {
   release_date: Date;
   original_title: string;
 }
+
+export type MovieId = Movie['id'];
