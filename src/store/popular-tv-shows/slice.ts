@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Show } from 'store/types/show';
 
-import { PopularTVShowsState } from './types';
+import { FetchPopularTVShowsAction, PopularTVShowsState } from './types';
 
 const initialState: PopularTVShowsState = {
   isLoading: false,
@@ -19,11 +18,11 @@ const slice = createSlice({
     },
     fetchPopularTVShowsSuccess(
       state: PopularTVShowsState,
-      action: { payload: Show[] },
+      action: FetchPopularTVShowsAction,
     ) {
       state.isLoading = false;
       state.hasError = false;
-      state.data = action.payload;
+      state.data = action.payload.map(show => show.id);
       state.isEmpty = !state.data?.length;
     },
     fetchPopularTVShowsError(state: PopularTVShowsState) {

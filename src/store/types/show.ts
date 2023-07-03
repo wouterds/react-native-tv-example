@@ -7,3 +7,5 @@ export interface Show extends MediaAsset {
   original_name: string;
   origin_country: string[];
 }
+
+export type ShowId = Show['id'];

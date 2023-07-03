@@ -1,8 +1,13 @@
-import { Show } from 'store/types/show';
+import { Show, ShowId } from 'store/types/show';
 
 export type TopRatedTVShowsState = {
   isLoading: boolean;
   isEmpty: boolean;
   hasError: boolean;
-  data: Show[];
+  data: ShowId[];
 };
+
+export interface FetchTopRatedTVShowsAction {
+  type: string;
+  payload: Show[];
+}
