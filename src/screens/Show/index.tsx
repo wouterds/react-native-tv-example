@@ -14,12 +14,7 @@ const ShowScreen = () => {
   if (!show) {
     return (
       <ScreenWrapper style={{ padding: size(35) }}>
-        <Warning>
-          Still to do: rework data-store and store movies and shows per object
-          type instead of per api endpoint. Right now a detail page does a
-          lookup in the popular shows reducer, which is obviously not entirely
-          correct and why we can't find this item.
-        </Warning>
+        <Warning>Didn't find the show you were looking for.</Warning>
       </ScreenWrapper>
     );
   }
