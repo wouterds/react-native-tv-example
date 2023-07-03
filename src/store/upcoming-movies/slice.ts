@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Movie } from 'store/types/movie';
 
-import { UpcomingMoviesState } from './types';
+import { FetchUpcomingMoviesAction, UpcomingMoviesState } from './types';
 
 const initialState: UpcomingMoviesState = {
   isLoading: false,
@@ -19,11 +18,11 @@ const slice = createSlice({
     },
     fetchUpcomingMoviesSuccess(
       state: UpcomingMoviesState,
-      action: { payload: Movie[] },
+      action: FetchUpcomingMoviesAction,
     ) {
       state.isLoading = false;
       state.hasError = false;
-      state.data = action.payload;
+      state.data = action.payload.map(movie => movie.id);
       state.isEmpty = !state.data?.length;
     },
     fetchUpcomingMoviesError(state: UpcomingMoviesState) {

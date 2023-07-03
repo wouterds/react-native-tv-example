@@ -1,8 +1,13 @@
-import { Movie } from 'store/types/movie';
+import { Movie, MovieId } from 'store/types/movie';
 
 export type PopularMoviesState = {
   isLoading: boolean;
   isEmpty: boolean;
   hasError: boolean;
-  data: Movie[];
+  data: MovieId[];
 };
+
+export interface FetchPopularMoviesAction {
+  type: string;
+  payload: Movie[];
+}
