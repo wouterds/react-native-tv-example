@@ -18,7 +18,7 @@ const DiscoverScreen = () => {
       <Banner.UpcomingMovies />
       <Swimlane.TopRatedTVShows />
       <Swimlane.TopRatedMovies />
-      <Swimlane.PopularTVShows />
+      {/* <Swimlane.PopularTVShows /> */}
     </ScreenWrapper>
   );
 };
