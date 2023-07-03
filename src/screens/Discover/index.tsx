@@ -14,6 +14,7 @@ const DiscoverScreen = () => {
   return (
     <ScreenWrapper contentStyle={styles.container}>
       <Swimlane.TrendingToday hasTVPreferredFocus />
+      <Swimlane.TopRatedTVShows />
       <Banner.UpcomingMovies />
       <Swimlane.PopularMovies />
       <Swimlane.PopularTVShows />
