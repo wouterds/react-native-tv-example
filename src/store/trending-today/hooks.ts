@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'store';
 
 import {
-  selectTrendingToday,
+  selectTrendingTodayData,
   selectTrendingTodayHasError,
   selectTrendingTodayIsEmpty,
   selectTrendingTodayIsLoading,
@@ -14,7 +14,7 @@ interface Options {
 }
 
 export const useTrendingToday = (options?: Options) => {
-  const data = useSelector(selectTrendingToday);
+  const data = useSelector(selectTrendingTodayData);
   const isLoading = useSelector(selectTrendingTodayIsLoading);
   const isEmpty = useSelector(selectTrendingTodayIsEmpty);
   const hasError = useSelector(selectTrendingTodayHasError);

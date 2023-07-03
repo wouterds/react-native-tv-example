@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Movie } from 'store/types/movie';
-import { Show } from 'store/types/show';
 
-import { TrendingTodayState } from './types';
+import { FetchTrendingTodaySuccessAction, TrendingTodayState } from './types';
 
 const initialState: TrendingTodayState = {
   isLoading: false,
@@ -20,11 +18,14 @@ const slice = createSlice({
     },
     fetchTrendingTodaySuccess(
       state: TrendingTodayState,
-      action: { payload: Array<Movie | Show> },
+      action: FetchTrendingTodaySuccessAction,
     ) {
       state.isLoading = false;
       state.hasError = false;
-      state.data = action.payload;
+      state.data = action.payload.map(item => ({
+        id: item.id,
+        type: item.type,
+      }));
       state.isEmpty = !state.data?.length;
     },
     fetchTrendingTodayError(state: TrendingTodayState) {

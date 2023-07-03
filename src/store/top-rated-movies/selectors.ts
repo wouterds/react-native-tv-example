@@ -1,7 +1,15 @@
 import { RootState } from 'store';
+import { selectMovies } from 'store/movies/selectors';
 
 export const selectTopRatedMovies = ({ topRatedMovies: state }: RootState) => {
-  return state.data;
+  return state;
+};
+
+export const selectTopRatedMoviesData = (state: RootState) => {
+  const { data: ids } = selectTopRatedMovies(state);
+  const movies = selectMovies(state);
+
+  return ids.map(id => movies[id] || null).filter(Boolean);
 };
 
 export const selectTopRatedMoviesIsLoading = ({

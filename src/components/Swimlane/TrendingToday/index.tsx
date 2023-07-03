@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { useTrendingToday } from 'store/trending-today/hooks';
+import { Movie } from 'store/types/movie';
+import { Show } from 'store/types/show';
 
 import Item from './Item';
 import styles from './styles';
@@ -38,9 +40,16 @@ const TrendingTodaySwimlane = ({ hideTitle, hasTVPreferredFocus }: Props) => {
           keyExtractor={(item, index) =>
             `swimlane.trending-today.${item?.id || index}`
           }
-          renderItem={({ item, index }) => (
+          renderItem={({
+            item,
+            index,
+          }: {
+            item: Movie | Show | null;
+            index: number;
+          }) => (
             <Item
-              item={item}
+              id={item?.id || null}
+              type={item?.type || null}
               hasTVPreferredFocus={hasTVPreferredFocus && index === 0}
             />
           )}

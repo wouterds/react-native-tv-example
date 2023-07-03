@@ -7,6 +7,6 @@ export type RouteParams = {
   [Route.Settings]: undefined;
   [Route.Movie]: { id: number; title: string };
   [Route.Show]: { id: number; title: string };
-  [Route.TrendingToday]: { id: number; title: string };
+  [Route.TrendingToday]: { id: number; title: string; type: string };
   [Route.Player]: { youTubeId: string; backgroundImageUrl?: string };
 };

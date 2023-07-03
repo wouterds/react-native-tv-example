@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'store';
 
 import {
-  selectPopularTVShows,
+  selectPopularTVShowsData,
   selectPopularTVShowsHasError,
   selectPopularTVShowsIsEmpty,
   selectPopularTVShowsIsLoading,
@@ -14,7 +14,7 @@ interface Options {
 }
 
 export const usePopularTVShows = (options?: Options) => {
-  const data = useSelector(selectPopularTVShows);
+  const data = useSelector(selectPopularTVShowsData);
   const isLoading = useSelector(selectPopularTVShowsIsLoading);
   const isEmpty = useSelector(selectPopularTVShowsIsEmpty);
   const hasError = useSelector(selectPopularTVShowsHasError);

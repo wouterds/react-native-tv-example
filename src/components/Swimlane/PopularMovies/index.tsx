@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { usePopularMovies } from 'store/popular-movies/hooks';
+import { Movie } from 'store/types/movie';
 
 import Item from './Item';
 import styles from './styles';
@@ -35,9 +36,11 @@ const PopularMoviesSwimlane = ({ hideTitle }: Props) => {
           showsVerticalScrollIndicator={false}
           data={isLoading && data.length === 0 ? new Array(6).fill(null) : data}
           keyExtractor={(item, index) =>
-            `swimlane.popular-movies.${item || `index-${index}`}`
+            `swimlane.popular-movies.${item?.id || `index-${index}`}`
           }
-          renderItem={({ item }) => <Item id={item} />}
+          renderItem={({ item }: { item: Movie }) => (
+            <Item id={item?.id || null} />
+          )}
         />
       </TVFocusGuideView>
     </View>

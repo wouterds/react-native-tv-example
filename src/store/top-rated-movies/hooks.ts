@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'store';
 
 import {
-  selectTopRatedMovies,
+  selectTopRatedMoviesData,
   selectTopRatedMoviesHasError,
   selectTopRatedMoviesIsEmpty,
   selectTopRatedMoviesIsLoading,
@@ -14,7 +14,7 @@ interface Options {
 }
 
 export const useTopRatedMovies = (options?: Options) => {
-  const data = useSelector(selectTopRatedMovies);
+  const data = useSelector(selectTopRatedMoviesData);
   const isLoading = useSelector(selectTopRatedMoviesIsLoading);
   const isEmpty = useSelector(selectTopRatedMoviesIsEmpty);
   const hasError = useSelector(selectTopRatedMoviesHasError);
