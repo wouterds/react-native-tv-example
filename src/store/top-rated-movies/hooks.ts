@@ -33,11 +33,3 @@ export const useTopRatedMovies = (options?: Options) => {
     [fetch, isLoading, isEmpty, hasError, data],
   );
 };
-
-export const useTopRatedMovie = (id: number) => {
-  const { data } = useTopRatedMovies();
-
-  const movie = useMemo(() => data.find(entry => entry.id === id), [data, id]);
-
-  return useMemo(() => ({ movie }), [movie]);
-};

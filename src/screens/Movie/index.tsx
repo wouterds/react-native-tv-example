@@ -4,13 +4,13 @@ import ScreenWrapper from 'components/ScreenWrapper';
 import Warning from 'components/Warning';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
-import { usePopularMovie } from 'store/popular-movies/hooks';
+import { useMovie } from 'store/movies/hooks';
 import { size } from 'styles';
 
 const MovieScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Movie>>();
+  const movie = useMovie(params.id);
 
-  const { movie } = usePopularMovie(params.id);
   if (!movie) {
     return (
       <ScreenWrapper style={{ padding: size(35) }}>

@@ -33,11 +33,3 @@ export const useTrendingToday = (options?: Options) => {
     [fetch, isLoading, isEmpty, hasError, data],
   );
 };
-
-export const useTrendingTodayItem = (id: number) => {
-  const { data } = useTrendingToday();
-
-  const item = useMemo(() => data.find(entry => entry.id === id), [data, id]);
-
-  return useMemo(() => ({ item }), [item]);
-};

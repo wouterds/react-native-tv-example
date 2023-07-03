@@ -35,9 +35,9 @@ const TopRatedMoviesSwimlane = ({ hideTitle }: Props) => {
           showsVerticalScrollIndicator={false}
           data={isLoading && data.length === 0 ? new Array(6).fill(null) : data}
           keyExtractor={(item, index) =>
-            `swimlane.top-rated-movies.${item?.id || index}`
+            `swimlane.top-rated-movies.${item || `index-${index}`}`
           }
-          renderItem={({ item }) => <Item item={item} />}
+          renderItem={({ item }) => <Item id={item} />}
         />
       </TVFocusGuideView>
     </View>

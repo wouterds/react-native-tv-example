@@ -7,6 +7,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Easing, Text, TVFocusGuideView, View } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import FastImage from 'react-native-fast-image';
+import { useMovie } from 'store/movies/hooks';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
 import { size } from 'styles';
 
@@ -23,7 +24,8 @@ const UpcomingMovies = () => {
 
   const [index, setIndex] = useState(-1);
   const [nextIndex, setNextIndex] = useState(index);
-  const item = useMemo(() => data[index], [data, index]);
+  const movieId = useMemo(() => data[index], [data, index]);
+  const movie = useMovie(movieId);
 
   useEffect(() => {
     if (data.length && index === -1) {
@@ -48,8 +50,12 @@ const UpcomingMovies = () => {
   }, [nextIndex, index]);
 
   const onPress = useCallback(() => {
-    navigate(Route.Movie, { id: item.id, title: item.title });
-  }, [item, navigate]);
+    if (!movie) {
+      return;
+    }
+
+    navigate(Route.Movie, { id: movie.id, title: movie.title });
+  }, [movie, navigate]);
 
   if (isEmpty) {
     // render empty state?
@@ -65,11 +71,11 @@ const UpcomingMovies = () => {
     <TVFocusGuideView style={styles.container}>
       <View style={styles.col}>
         <View style={styles.box}>
-          {isLoading && !item ? (
+          {isLoading && !movie ? (
             <Shimmer style={styles.image} />
           ) : (
             <FastImage
-              source={{ uri: item?.backdrop_url }}
+              source={{ uri: movie?.backdrop_url }}
               style={styles.image}
             />
           )}
@@ -90,28 +96,28 @@ const UpcomingMovies = () => {
       <View style={styles.col}>
         <View style={styles.box}>
           <View style={styles.content}>
-            {isLoading && !item ? (
+            {isLoading && !movie ? (
               <View>
                 <Shimmer style={styles.subTitleShimmer} />
               </View>
             ) : (
               <Text style={styles.subTitle}>
                 Coming to theaters on{' '}
-                {format(item?.release_date || new Date(), 'MMMM do')}
+                {format(movie?.release_date || new Date(), 'MMMM do')}
               </Text>
             )}
 
-            {isLoading && !item ? (
+            {isLoading && !movie ? (
               <View style={styles.title}>
                 <Shimmer style={styles.titleShimmer} />
               </View>
             ) : (
               <Text style={styles.title} numberOfLines={1}>
-                {item?.title}
+                {movie?.title}
               </Text>
             )}
 
-            {isLoading && !item ? (
+            {isLoading && !movie ? (
               <View>
                 <Shimmer style={styles.textShimmer} />
                 <Shimmer style={styles.textShimmer} />
@@ -119,7 +125,7 @@ const UpcomingMovies = () => {
               </View>
             ) : (
               <Text style={styles.text} numberOfLines={4}>
-                {item?.overview}
+                {movie?.overview}
               </Text>
             )}
             <View style={styles.more}>
