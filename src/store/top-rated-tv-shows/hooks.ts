@@ -33,11 +33,3 @@ export const useTopRatedTVShows = (options?: Options) => {
     [fetch, isLoading, isEmpty, hasError, data],
   );
 };
-
-export const useTopRatedTVShow = (id: number) => {
-  const { data } = useTopRatedTVShows();
-
-  const show = useMemo(() => data.find(entry => entry.id === id), [data, id]);
-
-  return useMemo(() => ({ show }), [show]);
-};

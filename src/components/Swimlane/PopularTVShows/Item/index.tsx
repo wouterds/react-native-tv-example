@@ -3,26 +3,28 @@ import Card from 'components/Card';
 import Touchable from 'components/Touchable';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
-import { Show } from 'store/types/show';
+import { useShow } from 'store/shows/hooks';
+import { ShowId } from 'store/types/show';
 
 import styles from './styles';
 
 interface Props {
-  item: Show | null;
+  id: ShowId | null;
 }
 
-const PopularTVShowsItem = ({ item }: Props) => {
+const PopularTVShowsItem = ({ id }: Props) => {
   const { navigate } = useNavigation<NavigationProp<RouteParams>>();
 
-  if (!item) {
+  const show = useShow(id);
+  if (!show) {
     return <Card.Portrait.Shimmer />;
   }
 
   return (
     <Touchable
       style={styles.container}
-      onPress={() => navigate(Route.Show, { id: item.id, title: item.name })}>
-      <Card.Portrait item={item} />
+      onPress={() => navigate(Route.Show, { id: show.id, title: show.name })}>
+      <Card.Portrait item={show} />
     </Touchable>
   );
 };

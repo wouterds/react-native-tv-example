@@ -4,13 +4,13 @@ import ScreenWrapper from 'components/ScreenWrapper';
 import Warning from 'components/Warning';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
-import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
+import { useShow } from 'store/shows/hooks';
 import { size } from 'styles';
 
 const ShowScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Show>>();
 
-  const { show } = usePopularTVShow(params.id);
+  const show = useShow(params.id);
   if (!show) {
     return (
       <ScreenWrapper style={{ padding: size(35) }}>
