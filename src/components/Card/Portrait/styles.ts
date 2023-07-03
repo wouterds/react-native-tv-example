@@ -1,7 +1,7 @@
 import { Platform, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { size } from 'utils/styles';
+import { size } from 'styles';
 
-const width = size(130);
+const width = size(Platform.isTV ? 132 : 140);
 
 interface Props {
   hasFocus?: boolean;

@@ -5,7 +5,7 @@ import Warning from 'components/Warning';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { usePopularTVShow } from 'store/popular-tv-shows/hooks';
-import { size } from 'utils/styles';
+import { size } from 'styles';
 
 const ShowScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Show>>();

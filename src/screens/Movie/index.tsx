@@ -5,7 +5,7 @@ import Warning from 'components/Warning';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { usePopularMovie } from 'store/popular-movies/hooks';
-import { size } from 'utils/styles';
+import { size } from 'styles';
 
 const MovieScreen = () => {
   const { params } = useRoute<RouteProp<RouteParams, Route.Movie>>();

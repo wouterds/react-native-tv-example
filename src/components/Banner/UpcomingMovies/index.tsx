@@ -8,7 +8,7 @@ import { Easing, Text, TVFocusGuideView, View } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import FastImage from 'react-native-fast-image';
 import { useUpcomingMovies } from 'store/upcoming-movies/hooks';
-import { size } from 'utils/styles';
+import { size } from 'styles';
 
 import MoreInfo from './MoreInfo';
 import styles from './styles';
@@ -118,7 +118,7 @@ const UpcomingMovies = () => {
                 <Shimmer style={styles.textShimmer} />
               </View>
             ) : (
-              <Text style={styles.text} numberOfLines={3}>
+              <Text style={styles.text} numberOfLines={4}>
                 {item?.overview}
               </Text>
             )}

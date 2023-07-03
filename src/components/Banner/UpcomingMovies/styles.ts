@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { size } from 'utils/styles';
+import { PADDING, size } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
     marginTop: size(18),
     marginHorizontal: -size(10),
     flexDirection: 'row',
-    paddingHorizontal: size(24),
+    paddingHorizontal: PADDING.HORIZONTAL,
   },
   col: {
     flex: 1,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   content: {
-    margin: size(32),
+    margin: size(24),
     flex: 1,
   },
   subTitle: {
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     fontSize: size(32),
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: size(8),
     height: size(43),
   },
   titleShimmer: {

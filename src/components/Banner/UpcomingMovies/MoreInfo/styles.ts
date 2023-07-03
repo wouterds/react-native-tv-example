@@ -1,5 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { size } from 'utils/styles';
+import { size } from 'styles';
 
 interface Props {
   hasFocus: boolean;
