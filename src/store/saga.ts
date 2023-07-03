@@ -1,6 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 
 import app from './app/saga';
+import movies from './movies/saga';
 import popularMovies from './popular-movies/saga';
 import popularTVShows from './popular-tv-shows/saga';
 import topRatedMovies from './top-rated-movies/saga';
@@ -18,6 +19,7 @@ const sagas = [
   popularMovies,
   upcomingMovies,
   videos,
+  movies,
 ];
 
 const saga = function* () {
