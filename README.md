@@ -10,13 +10,16 @@
 # switch node version
 nvm install
 
-# install dependencies
+# install node dependencies
 yarn
 
 # switch ruby version
 rbenv install --skip-existing
 
-# iOS dependencies
+# install ruby dependencies
+bundle install
+
+# install iOS dependencies
 yarn pods
 
 # .env
