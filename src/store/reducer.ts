@@ -1,6 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { reducer as app } from './app/slice';
+import { reducer as movies } from './movies/slice';
 import { reducer as popularMovies } from './popular-movies/slice';
 import { reducer as popularTVShows } from './popular-tv-shows/slice';
 import { reducer as topRatedMovies } from './top-rated-movies/slice';
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   trendingToday,
   topRatedTVShows,
   videos,
+  movies,
 });
 
 export default reducer;
