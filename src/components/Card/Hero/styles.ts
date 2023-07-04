@@ -38,11 +38,15 @@ const createStyles = ({ bottom }: Props) => {
     watchTrailer: {
       marginTop: size(20),
       ...Device.select({
+        android: {
+          marginBottom: size(12),
+        },
         tv: {
           alignItems: 'flex-end',
           justifyContent: 'center',
           marginTop: 0,
           flex: 1,
+          marginBottom: 0,
         },
       }),
     },

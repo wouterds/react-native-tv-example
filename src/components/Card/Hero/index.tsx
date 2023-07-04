@@ -97,7 +97,6 @@ const HeroCard = ({ item }: Props) => {
       <View style={styles.content}>
         {Platform.isTV && <BackButton onPress={goBack} />}
         <View style={styles.spacer} />
-
         <Text
           style={styles.title}
           adjustsFontSizeToFit
