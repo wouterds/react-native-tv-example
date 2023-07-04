@@ -31,20 +31,26 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <NavigationContainer
-        theme={{
-          ...DefaultTheme,
-          colors: {
-            ...DefaultTheme.colors,
-            background: styles.container.backgroundColor,
-          },
-        }}>
-        <StatusBar barStyle="light-content" />
-        <DebugInfo />
-        {!isReady ? <Screen.Splash /> : <Navigation />}
-      </NavigationContainer>
-    </View>
+    <>
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
+      <View style={styles.container}>
+        <NavigationContainer
+          theme={{
+            ...DefaultTheme,
+            colors: {
+              ...DefaultTheme.colors,
+              background: styles.container.backgroundColor,
+            },
+          }}>
+          <DebugInfo />
+          {!isReady ? <Screen.Splash /> : <Navigation />}
+        </NavigationContainer>
+      </View>
+    </>
   );
 };
 

@@ -7,7 +7,11 @@ import styles from './styles';
 
 const SplashScreen = () => (
   <>
-    <StatusBar barStyle="light-content" />
+    <StatusBar
+      barStyle="light-content"
+      translucent
+      backgroundColor="transparent"
+    />
     <View style={styles.container}>
       <SafeAreaView style={styles.content}>
         <FastImage
