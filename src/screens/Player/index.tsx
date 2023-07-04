@@ -55,7 +55,7 @@ const PlayerScreen = () => {
         <View style={styles.loader}>
           <ActivityIndicator
             style={styles.loaderIndicator}
-            color={styles.loaderText.color}
+            color={styles.loaderIndicator.color}
           />
           <Text style={styles.loaderText}>Loading...</Text>
         </View>

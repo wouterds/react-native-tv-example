@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 import { size } from 'styles';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: { flex: 1 },
   mask: { flex: 1 },
   image: { flex: 1, resizeMode: 'cover' },
   gradient: { flex: 1 },
@@ -14,6 +12,7 @@ const styles = StyleSheet.create({
   },
   loaderIndicator: {
     marginBottom: size(12),
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   loaderText: {
     color: '#fff',

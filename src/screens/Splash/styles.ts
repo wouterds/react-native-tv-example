@@ -23,5 +23,6 @@ export default StyleSheet.create({
   loader: {
     position: 'absolute',
     bottom: -150,
+    color: 'rgba(255, 255, 255, 0.7)',
   },
 });

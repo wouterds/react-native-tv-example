@@ -18,7 +18,11 @@ const SplashScreen = () => (
           source={require('resources/images/logo.png')}
           style={styles.logo}
         />
-        <ActivityIndicator style={styles.loader} size="large" />
+        <ActivityIndicator
+          style={styles.loader}
+          color={styles.loader.color}
+          size="large"
+        />
       </SafeAreaView>
     </View>
   </>
