@@ -31,8 +31,8 @@ function* fetchUpcomingMoviesFlow() {
 
   const data = response.data.results
     .map(Normalizer.movie)
-    .filter((item: Movie) => new Date(item.release_date) > new Date())
-    .filter(Boolean);
+    .filter(Boolean)
+    .filter((item: Movie) => new Date(item.release_date) > new Date());
 
   yield put(fetchUpcomingMoviesSuccess(data));
 
