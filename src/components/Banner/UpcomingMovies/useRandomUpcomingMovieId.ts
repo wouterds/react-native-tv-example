@@ -5,7 +5,7 @@ export const useRandomUpcomingMovieId = (refreshInterval: number) => {
   const { data } = useUpcomingMovies({ fetch: true });
   const [index, setIndex] = useState(-1);
   const [nextIndex, setNextIndex] = useState(index);
-  const nextMovieId = useMemo(() => data[index], [data, index]);
+  const nextMovieId = useMemo(() => data[nextIndex], [data, nextIndex]);
   const movieId = useMemo(() => data[index], [data, index]);
 
   useEffect(() => {
