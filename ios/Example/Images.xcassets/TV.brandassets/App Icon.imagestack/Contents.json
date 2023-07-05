@@ -5,10 +5,10 @@
   },
   "layers" : [
     {
-      "filename" : "AppleTV1.imagestacklayer"
+      "filename" : "Foreground.imagestacklayer"
     },
     {
-      "filename" : "AppleTV.imagestacklayer"
+      "filename" : "Background.imagestacklayer"
     }
   ],
   "properties" : {
