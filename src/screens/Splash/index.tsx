@@ -12,8 +12,8 @@ const SplashScreen = () => (
       translucent
       backgroundColor="transparent"
     />
-    <View style={styles.container}>
-      <SafeAreaView style={styles.content}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
         <FastImage
           source={require('resources/images/logo.png')}
           style={styles.logo}
@@ -23,8 +23,8 @@ const SplashScreen = () => (
           color={styles.loader.color}
           size="large"
         />
-      </SafeAreaView>
-    </View>
+      </View>
+    </SafeAreaView>
   </>
 );
 
