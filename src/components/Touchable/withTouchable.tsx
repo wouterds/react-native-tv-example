@@ -1,6 +1,7 @@
 import React, { ComponentType, forwardRef } from 'react';
 
-import Touchable, { TouchableProps } from './index';
+import { Touchable } from './component';
+import { TouchableProps } from './types';
 
 export const withTouchable = <Props extends Record<string, unknown>>(
   Component: ComponentType<Props>,

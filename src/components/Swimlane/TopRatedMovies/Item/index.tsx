@@ -1,6 +1,6 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import Card from 'components/Card';
-import Touchable from 'components/Touchable';
+import { Touchable } from 'components/Touchable';
 import { Route, RouteParams } from 'navigation';
 import React, { memo } from 'react';
 import { useMovie } from 'store/movies/hooks';
