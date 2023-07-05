@@ -3,12 +3,12 @@ import { PADDING, size } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: size(24),
+    marginTop: size(18),
   },
   flatList: {
     paddingHorizontal: PADDING.HORIZONTAL,
     marginHorizontal: -size(2),
-    marginVertical: size(6),
+    marginVertical: size(8),
   },
   title: {
     paddingHorizontal: PADDING.HORIZONTAL,
