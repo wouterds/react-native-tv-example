@@ -39,9 +39,7 @@ const TrendingTodaySwimlane = ({ hideTitle }: Props) => {
               item ? `${item?.type}:${item?.id}` : `index-${index}`
             }`
           }
-          renderItem={({ item }) => (
-            <Item id={item?.id || null} type={item?.type || null} />
-          )}
+          renderItem={({ item }) => <Item id={item?.id} type={item?.type} />}
         />
       </TVFocusGuideView>
     </View>

@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { useTopRatedMovies } from 'store/top-rated-movies/hooks';
-import { Movie } from 'store/types/movie';
 
 import Item from './Item';
 import styles from './styles';
@@ -38,9 +37,7 @@ const TopRatedMoviesSwimlane = ({ hideTitle }: Props) => {
           keyExtractor={(item, index) =>
             `swimlane.top-rated-movies.${item?.id || `index-${index}`}`
           }
-          renderItem={({ item }: { item: Movie }) => (
-            <Item id={item?.id || null} />
-          )}
+          renderItem={({ item }) => <Item id={item?.id} />}
         />
       </TVFocusGuideView>
     </View>
