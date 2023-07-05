@@ -20,31 +20,23 @@ export const Normalizer = {
   },
 
   movie: (item: any) => {
-    if (!item.release_date) {
-      return null;
-    }
-
     return {
       ...Normalizer.mediaAsset({ ...item, media_type: 'movie' }),
-      release_date: new Date(item.release_date),
+      release_date: new Date(`${item.release_date} 00:00:00`),
     } as Movie;
   },
 
   show: (item: any) => {
-    if (!item.first_air_date) {
-      return null;
-    }
-
     return {
       ...Normalizer.mediaAsset({ ...item, media_type: 'show' }),
-      first_air_date: new Date(item.first_air_date),
+      first_air_date: new Date(`${item.first_air_date} 00:00:00`),
     } as Show;
   },
 
   video: (item: any) => {
     return {
       ...item,
-      published_at: new Date(item.published_at),
+      published_at: new Date(`${item.published_at} 00:00:00`),
     } as Video;
   },
 };
