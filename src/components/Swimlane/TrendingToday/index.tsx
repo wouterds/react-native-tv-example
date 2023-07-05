@@ -1,18 +1,15 @@
 import React, { memo } from 'react';
 import { FlatList, Text, TVFocusGuideView, View } from 'react-native';
 import { useTrendingToday } from 'store/trending-today/hooks';
-import { Movie } from 'store/types/movie';
-import { Show } from 'store/types/show';
 
 import Item from './Item';
 import styles from './styles';
 
 interface Props {
   hideTitle?: boolean;
-  hasTVPreferredFocus?: boolean;
 }
 
-const TrendingTodaySwimlane = ({ hideTitle, hasTVPreferredFocus }: Props) => {
+const TrendingTodaySwimlane = ({ hideTitle }: Props) => {
   const { data, isLoading, isEmpty, hasError } = useTrendingToday({
     fetch: true,
   });
@@ -38,20 +35,12 @@ const TrendingTodaySwimlane = ({ hideTitle, hasTVPreferredFocus }: Props) => {
           showsVerticalScrollIndicator={false}
           data={isLoading && data.length === 0 ? new Array(6).fill(null) : data}
           keyExtractor={(item, index) =>
-            `swimlane.trending-today.${item?.id || index}`
+            `swimlane.trending-today.${
+              item ? `${item?.type}:${item?.id}` : `index-${index}`
+            }`
           }
-          renderItem={({
-            item,
-            index,
-          }: {
-            item: Movie | Show | null;
-            index: number;
-          }) => (
-            <Item
-              id={item?.id || null}
-              type={item?.type || null}
-              hasTVPreferredFocus={hasTVPreferredFocus && index === 0}
-            />
+          renderItem={({ item }) => (
+            <Item id={item?.id || null} type={item?.type || null} />
           )}
         />
       </TVFocusGuideView>
