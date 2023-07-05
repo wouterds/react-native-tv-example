@@ -1,0 +1,256 @@
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/animated/NativeAnimatedNodesManager.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/animated/NativeAnimatedNodesManager.java
+index 52a888c..2b8416a 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/animated/NativeAnimatedNodesManager.java
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/animated/NativeAnimatedNodesManager.java
+@@ -7,6 +7,7 @@
+ 
+ package com.facebook.react.animated;
+ 
++import android.util.Log;
+ import android.util.SparseArray;
+ import androidx.annotation.Nullable;
+ import androidx.annotation.UiThread;
+@@ -152,8 +153,11 @@ import java.util.Queue;
+   public void updateAnimatedNodeConfig(int tag, ReadableMap config) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null) {
+-      throw new JSApplicationIllegalArgumentException(
+-          "updateAnimatedNode: Animated node [" + tag + "] does not exist");
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
++          "updateAnimatedNode: Animated node [" + tag + "] does not exist"));
++        return;
+     }
+ 
+     if (node instanceof AnimatedNodeWithUpdateableConfig) {
+@@ -173,10 +177,13 @@ import java.util.Queue;
+   public void startListeningToAnimatedNodeValue(int tag, AnimatedNodeValueListener listener) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "startListeningToAnimatedNodeValue: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     ((ValueAnimatedNode) node).setValueListener(listener);
+   }
+@@ -185,10 +192,13 @@ import java.util.Queue;
+   public void stopListeningToAnimatedNodeValue(int tag) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "startListeningToAnimatedNodeValue: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     ((ValueAnimatedNode) node).setValueListener(null);
+   }
+@@ -197,10 +207,13 @@ import java.util.Queue;
+   public void setAnimatedNodeValue(int tag, double value) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "setAnimatedNodeValue: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     stopAnimationsForNode(node);
+     ((ValueAnimatedNode) node).mValue = value;
+@@ -211,10 +224,13 @@ import java.util.Queue;
+   public void setAnimatedNodeOffset(int tag, double offset) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "setAnimatedNodeOffset: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     ((ValueAnimatedNode) node).mOffset = offset;
+     mUpdatedNodes.put(tag, node);
+@@ -224,10 +240,13 @@ import java.util.Queue;
+   public void flattenAnimatedNodeOffset(int tag) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "flattenAnimatedNodeOffset: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     ((ValueAnimatedNode) node).flattenOffset();
+   }
+@@ -236,10 +255,13 @@ import java.util.Queue;
+   public void extractAnimatedNodeOffset(int tag) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "extractAnimatedNodeOffset: Animated node ["
+               + tag
+-              + "] does not exist, or is not a 'value' node");
++              + "] does not exist, or is not a 'value' node"));
++      return;
+     }
+     ((ValueAnimatedNode) node).extractOffset();
+   }
+@@ -249,8 +271,11 @@ import java.util.Queue;
+       int animationId, int animatedNodeTag, ReadableMap animationConfig, Callback endCallback) {
+     AnimatedNode node = mAnimatedNodes.get(animatedNodeTag);
+     if (node == null) {
+-      throw new JSApplicationIllegalArgumentException(
+-          "startAnimatingNode: Animated node [" + animatedNodeTag + "] does not exist");
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
++          "startAnimatingNode: Animated node [" + animatedNodeTag + "] does not exist"));
++      return;
+     }
+     if (!(node instanceof ValueAnimatedNode)) {
+       throw new JSApplicationIllegalArgumentException(
+@@ -336,17 +361,25 @@ import java.util.Queue;
+   public void connectAnimatedNodes(int parentNodeTag, int childNodeTag) {
+     AnimatedNode parentNode = mAnimatedNodes.get(parentNodeTag);
+     if (parentNode == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "connectAnimatedNodes: Animated node with tag (parent) ["
+               + parentNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++      dropAnimatedNode(childNodeTag);
++      return;
+     }
+     AnimatedNode childNode = mAnimatedNodes.get(childNodeTag);
+     if (childNode == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "connectAnimatedNodes: Animated node with tag (child) ["
+               + childNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++      dropAnimatedNode(childNodeTag);
++      return;
+     }
+     parentNode.addChild(childNode);
+     mUpdatedNodes.put(childNodeTag, childNode);
+@@ -355,17 +388,23 @@ import java.util.Queue;
+   public void disconnectAnimatedNodes(int parentNodeTag, int childNodeTag) {
+     AnimatedNode parentNode = mAnimatedNodes.get(parentNodeTag);
+     if (parentNode == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "disconnectAnimatedNodes: Animated node with tag (parent) ["
+               + parentNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++      return;
+     }
+     AnimatedNode childNode = mAnimatedNodes.get(childNodeTag);
+     if (childNode == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "disconnectAnimatedNodes: Animated node with tag (child) ["
+               + childNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++      return;
+     }
+     parentNode.removeChild(childNode);
+     mUpdatedNodes.put(childNodeTag, childNode);
+@@ -375,10 +414,14 @@ import java.util.Queue;
+   public void connectAnimatedNodeToView(int animatedNodeTag, int viewTag) {
+     AnimatedNode node = mAnimatedNodes.get(animatedNodeTag);
+     if (node == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "connectAnimatedNodeToView: Animated node with tag ["
+               + animatedNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++      dropAnimatedNode(animatedNodeTag);
++      return;
+     }
+     if (!(node instanceof PropsAnimatedNode)) {
+       throw new JSApplicationIllegalArgumentException(
+@@ -414,10 +457,13 @@ import java.util.Queue;
+   public void disconnectAnimatedNodeFromView(int animatedNodeTag, int viewTag) {
+     AnimatedNode node = mAnimatedNodes.get(animatedNodeTag);
+     if (node == null) {
+-      throw new JSApplicationIllegalArgumentException(
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
+           "disconnectAnimatedNodeFromView: Animated node with tag ["
+               + animatedNodeTag
+-              + "] does not exist");
++              + "] does not exist"));
++        return;
+     }
+     if (!(node instanceof PropsAnimatedNode)) {
+       throw new JSApplicationIllegalArgumentException(
+@@ -434,8 +480,11 @@ import java.util.Queue;
+   public void getValue(int tag, Callback callback) {
+     AnimatedNode node = mAnimatedNodes.get(tag);
+     if (node == null || !(node instanceof ValueAnimatedNode)) {
+-      throw new JSApplicationIllegalArgumentException(
+-          "getValue: Animated node with tag [" + tag + "] does not exist or is not a 'value' node");
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
++          "getValue: Animated node with tag [" + tag + "] does not exist or is not a 'value' node"));
++      return;
+     }
+     callback.invoke(((ValueAnimatedNode) node).getValue());
+   }
+@@ -465,8 +514,12 @@ import java.util.Queue;
+     int nodeTag = eventMapping.getInt("animatedValueTag");
+     AnimatedNode node = mAnimatedNodes.get(nodeTag);
+     if (node == null) {
+-      throw new JSApplicationIllegalArgumentException(
+-          "addAnimatedEventToView: Animated node with tag [" + nodeTag + "] does not exist");
++      ReactSoftExceptionLogger.logSoftException(
++        TAG,
++        new ReactNoCrashSoftException(
++          "addAnimatedEventToView: Animated node with tag [" + nodeTag + "] does not exist"));
++          dropAnimatedNode(nodeTag);
++      return;
+     }
+     if (!(node instanceof ValueAnimatedNode)) {
+       throw new JSApplicationIllegalArgumentException(
