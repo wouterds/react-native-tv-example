@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '100%',
-    backgroundColor: '#13151A',
+    backgroundColor: '#20232a',
     alignItems: 'center',
     justifyContent: 'center',
   },

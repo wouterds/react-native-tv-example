@@ -16,7 +16,7 @@ const Navigation = () => {
           color: '#FFF',
         },
         headerStyle: {
-          backgroundColor: '#1c2029',
+          backgroundColor: '#282c34',
         },
         headerShadowVisible: false,
       }}>

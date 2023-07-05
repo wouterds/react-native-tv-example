@@ -75,11 +75,11 @@ static void InitializeFlipper(UIApplication* application) {
 
 #if !TARGET_OS_TV
   if (@available(iOS 13.0, *)) {
-      rootView.backgroundColor = [UIColor colorWithRed: 0.08 green: 0.09 blue: 0.12 alpha: 1.00];
+      rootView.backgroundColor = [UIColor colorWithRed: 0.13 green: 0.14 blue: 0.16 alpha: 1.00];
   } else
 #endif
   {
-      rootView.backgroundColor = [UIColor colorWithRed: 0.08 green: 0.09 blue: 0.12 alpha: 1.00];
+      rootView.backgroundColor = [UIColor colorWithRed: 0.13 green: 0.14 blue: 0.16 alpha: 1.00];
   }
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
